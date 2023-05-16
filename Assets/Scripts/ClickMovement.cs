@@ -9,9 +9,23 @@ public class ClickMovement : MonoBehaviour
 
     private RaycastHit hit;
 
-    private NavMeshAgent agent;
+    private NavMeshAgent agent; //Navmesh of object
 
-    private string groundTag = "Ground";
+    private string groundTag = "Ground"; //Setting what object is labelled ground
+
+    public bool isHoldingDown; //If mousebutton is held down or pressed
+    public int tapTimes; //How many times mousebutton has been pressed
+    public float resetTimer;
+    
+
+
+    IEnumerator ResetTapTimes()
+    {
+        yield return new WaitForSeconds(resetTimer);
+        tapTimes = 0;
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +36,7 @@ public class ClickMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
@@ -34,5 +48,28 @@ public class ClickMovement : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine("ResetTapTimes");
+            tapTimes++;
+            agent.speed = 3;
+            //SingleClick
+        }
+
+        if (tapTimes >= 2)
+        {
+            tapTimes = 0;
+            agent.speed = 6;
+            //DoubleClick
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            isHoldingDown = true;   
+        }
+        else
+            isHoldingDown = false;
+        
     }
 }
