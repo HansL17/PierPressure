@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 14a74a46fbca01b428609f03b5fb0d93, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 99cf44efd0bc6774c87bf5664680a925, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514522226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.26, y: 0.66, z: -2.43}
+  m_LocalPosition: {x: 22.46, y: 2.38, z: -2.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table2
       objectReference: {fileID: 0}
+    - target: {fileID: 6384323342292404709, guid: ea0e825a80f82a244b6dadb7602e790e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0e825a80f82a244b6dadb7602e790e, type: 3}
@@ -713,6 +717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table3
       objectReference: {fileID: 0}
+    - target: {fileID: 7244659679859045261, guid: 2f6b09cf29d57344996f0955ca644c13, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6b09cf29d57344996f0955ca644c13, type: 3}
@@ -771,6 +779,10 @@ PrefabInstance:
     - target: {fileID: 6384323342292404709, guid: 4171fac26f3bdfe40ac422c8a2cf774a, type: 3}
       propertyPath: m_Name
       value: Table1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384323342292404709, guid: 4171fac26f3bdfe40ac422c8a2cf774a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
