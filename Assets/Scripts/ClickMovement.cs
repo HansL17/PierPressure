@@ -7,6 +7,7 @@ public class ClickMovement : MonoBehaviour
 {
 
     public Camera camera;
+    public CustomerMove custMove;
 
     private RaycastHit hit;
 
@@ -38,13 +39,13 @@ public class ClickMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && custMove.isHighlighted == false)
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                if (hit.collider.CompareTag(groundTag))
+                if (hit.collider.CompareTag(groundTag) && custMove.isHighlighted == false)
                 {
                     agent.SetDestination(hit.point);
                 }
