@@ -5,11 +5,13 @@ using UnityEngine.AI;
 
 public class ClickMovement : MonoBehaviour
 {
+
     public Camera camera;
 
     private RaycastHit hit;
 
     private NavMeshAgent agent; //Navmesh of object
+
 
     private string groundTag = "Ground"; //Setting what object is labelled ground
 

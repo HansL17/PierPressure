@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3872554907991311924}
   - component: {fileID: 13377134950264270}
   - component: {fileID: -2624742424211507744}
-  - component: {fileID: -6301353407823327785}
+  - component: {fileID: 3359272281749445902}
   m_Layer: 0
   m_Name: Customer
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,19 +115,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-6301353407823327785
-MonoBehaviour:
+--- !u!195 &3359272281749445902
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523598512801418242}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00650d60430f6f440a40dd7547467db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Table1: {fileID: 6384323342292404708, guid: 4171fac26f3bdfe40ac422c8a2cf774a, type: 3}
-  Table2: {fileID: 6384323342292404708, guid: ea0e825a80f82a244b6dadb7602e790e, type: 3}
-  Table3: {fileID: 5710378579377312219, guid: 2f6b09cf29d57344996f0955ca644c13, type: 3}
-  speed: 5
+  m_AgentTypeID: 0
+  m_Radius: 0.49999997
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.99999994
+  m_BaseOffset: 0.49999997
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -26,7 +26,6 @@ public class SpawnCust : MonoBehaviour
         {
             Spawn();
             time = 0f;
-            cusCount = 0;
         }
 
     }
