@@ -44,9 +44,10 @@ public class CustomerMove : MonoBehaviour
                             
                             MoveObject(clickedObject);
                         }
+                        DisableHighlight();
                     }
 
-                    DisableHighlight();
+                    
                 }
                 else
                 {

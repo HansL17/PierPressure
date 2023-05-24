@@ -5,10 +5,15 @@ using UnityEngine;
 public class SpawnCust : MonoBehaviour
 {
     //Variables
-    public Object ObjectToSpawn; //What will spawn
+    public GameObject ObjectToSpawn; //What will spawn
     float time;
     float timeDelay;
     float cusCount;
+    public Transform spawnPosition; // Position where the object should be spawned
+
+    //Script reference
+    public CustomerLine customerLine;
+
  
     // Start is called before the first frame update
     void Start()
@@ -22,7 +27,7 @@ public class SpawnCust : MonoBehaviour
     void Update()
     {
         time = time + 1f * Time.deltaTime;
-        if(time >= timeDelay && cusCount == 0) // If Time is equal to time delay
+        if(time >= timeDelay && cusCount < 5) // If Time is equal to time delay
         {
             Spawn();
             time = 0f;
@@ -32,8 +37,9 @@ public class SpawnCust : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(ObjectToSpawn, transform.position, transform.rotation);
+        GameObject spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, Quaternion.identity);
+        customerLine.AddToLineup(spawnedObject.transform);
         print("Customer spawned"); //Log
-        cusCount = 1;
+        cusCount++;
     }
 }
