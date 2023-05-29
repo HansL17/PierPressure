@@ -18,6 +18,8 @@ public class CustomerMove : MonoBehaviour
     private NavMeshAgent agent; //Navmesh of object
     private RaycastHit hit;
 
+    public SpawnCust spawnCus;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class CustomerMove : MonoBehaviour
                         {
                             
                             MoveObject(clickedObject);
+                            spawnCus.cusCount--;
                         }
                         DisableHighlight();
                     }
