@@ -14,7 +14,7 @@ public class ClickMovement : MonoBehaviour
     private NavMeshAgent agent; //Navmesh of object
 
 
-    private string groundTag = "Ground"; //Setting what object is labelled ground
+    private string tableTag = "Table"; //Setting what object is labelled ground
 
     public bool isHoldingDown; //If mousebutton is held down or pressed
     public int tapTimes; //How many times mousebutton has been pressed
@@ -45,7 +45,7 @@ public class ClickMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                if (hit.collider.CompareTag(groundTag) && custMove.isHighlighted == false)
+                if (hit.collider.CompareTag(tableTag) && custMove.isHighlighted == false)
                 {
                     agent.SetDestination(hit.point);
                 }

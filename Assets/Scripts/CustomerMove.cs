@@ -12,7 +12,7 @@ public class CustomerMove : MonoBehaviour
     public float speed = 5f; //Speed of the object
 
     private string cusTag = "Customer"; //Setting what object is labelled customer
-    private string groundTag = "Ground"; //Setting what object is labelled ground
+    private string tableTag = "Table"; //Setting what object is labelled table
 
 
     private NavMeshAgent agent; //Navmesh of object
@@ -39,7 +39,7 @@ public class CustomerMove : MonoBehaviour
                 {
                     if(clickedObject != selectedObject)
                     {
-                        if (hit.collider.CompareTag(groundTag))
+                        if (hit.collider.CompareTag(tableTag))
                         {
                             
                             MoveObject(clickedObject);
