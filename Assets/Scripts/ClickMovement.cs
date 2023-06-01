@@ -34,6 +34,7 @@ public class ClickMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.enabled = true;
     }
 
     // Update is called once per frame
@@ -48,6 +49,8 @@ public class ClickMovement : MonoBehaviour
                 if (hit.collider.CompareTag(tableTag)) // && custMove.isHighlighted == false
                 {
                     agent.SetDestination(hit.point);
+                    Debug.Log("Moving Player");
+                    Debug.Log("Ground Clicked");
                 }
             }
         }
