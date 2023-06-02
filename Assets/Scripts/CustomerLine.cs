@@ -33,7 +33,7 @@ public class CustomerLine : MonoBehaviour
 
         foreach (Transform obj in objectQueue)
         {
-            Vector3 targetPos = targetPosition.position + new Vector3(0f, 0f, index * spacing);
+            Vector3 targetPos = targetPosition.position + new Vector3(0f, 0.30f, index * spacing);
             StartCoroutine(MoveObject(obj, targetPos));
             index++;
             yield return new WaitForSeconds(1f);  // Delay between moving each object
