@@ -19,9 +19,10 @@ public class CustomerLine : MonoBehaviour
     {
         objectQueue.Dequeue();
         UpdateLineup();
+        Debug.Log("Removing Object from Lineup");
     }
 
-    private void UpdateLineup()
+    public void UpdateLineup()
     {
         StartCoroutine(MoveObjects());
     }
@@ -35,7 +36,7 @@ public class CustomerLine : MonoBehaviour
             Vector3 targetPos = targetPosition.position + new Vector3(0f, 0f, index * spacing);
             StartCoroutine(MoveObject(obj, targetPos));
             index++;
-            yield return new WaitForSeconds(0.1f);  // Delay between moving each object
+            yield return new WaitForSeconds(1f);  // Delay between moving each object
         }
     }
 

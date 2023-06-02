@@ -27,6 +27,16 @@ public class Scoring : MonoBehaviour
     public void UpdateScore() //Function for updating score
     {
         scoreText.text = "Score " + score;
+
+        if(score == normalScore)
+        {
+            Debug.Log("Normal Score Achieved!");
+        }
+
+        else if(score == expertScore)
+        {
+            Debug.Log("Normal Score Achieved!");
+        }
     }
 
     // Update is called once per frame

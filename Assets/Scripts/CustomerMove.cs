@@ -13,18 +13,26 @@ public class CustomerMove : MonoBehaviour
 
     private string cusTag = "Customer"; //Setting what object is labelled customer
     private string tableTag = "Table"; //Setting what object is labelled table
+    private string chairTag = "Chair"; //Setting what object is labelled chair
+
+    //Script references
+    public CustomerLine cusLine;
+    public Scoring scores;
 
 
     private NavMeshAgent agent; //Navmesh of object
     private RaycastHit hit;
 
-    public SpawnCust spawnCus;
-
-
-    // Start is called before the first frame update
+    void Awake()
+    {
+        cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
+        scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
+    }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+
     }
 
     // Update is called once per frame
@@ -37,15 +45,15 @@ public class CustomerMove : MonoBehaviour
             if(Physics.Raycast(ray,out hit, Mathf.Infinity))
             {
                 GameObject clickedObject = hit.collider.gameObject;
-                if (isHighlighted)
+                if (isHighlighted == true)
                 {
                     if(clickedObject != selectedObject)
                     {
-                        if (hit.collider.CompareTag(tableTag))
+                        if (hit.collider.CompareTag(tableTag) || hit.collider.CompareTag(chairTag))
                         {
-                            
+                            cusLine.RemoveFromLineup(selectedObject.transform);
                             MoveObject(clickedObject);
-                            spawnCus.cusCount--;
+                            scores.AddScore(10);
                         }
                         DisableHighlight();
                     }
@@ -104,5 +112,10 @@ public class CustomerMove : MonoBehaviour
 
         //Move selected object to destination
         agent.SetDestination(hit.point);
+    }
+
+    private void FindComponent()
+    {
+        
     }
 }
