@@ -45,11 +45,30 @@ public class SpawnCust : MonoBehaviour
         //Instantiate the object with the modified transform settings and NavMeshAgent
         GameObject spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
         spawnedObject.transform.localScale = newScale;
+        spawnedObject.tag = "Customer";
+        spawnedObject.layer = 8;
+
+        //Add a NavMeshAgent to the spawnwed customer
         NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
         customer.radius = 0.05f;
-        customer.height = 0.2f;
-        float baseOffset = 0.1f;
-        customer.baseOffset = baseOffset;
+        customer.height = 0.15f;
+        customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+        customer.baseOffset = 0.075f;
+
+        //Add a Box Collider to the spawned customer
+        BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
+        float width = 0.04034754f;
+        float height = 0.1559255f;
+        float depth = 0.0263764f;
+        boxCollider.size = new Vector3(width, height, depth); 
+
+        //Make customer blue
+        MeshRenderer[] meshRenderers = spawnedObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            Color blue = Color.blue;
+            meshRenderer.material.color = blue;
+        }
 
 
         //Add the object to the customer lineup

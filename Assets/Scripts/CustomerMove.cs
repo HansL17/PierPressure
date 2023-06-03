@@ -8,12 +8,13 @@ public class CustomerMove : MonoBehaviour
 
     private GameObject selectedObject; //Current selected object
     public bool isHighlighted = false; //Flag to detect highlighted object
+    
+    public GameObject[] waypoints; //Destination of the selected object
 
     public float speed = 5f; //Speed of the object
 
     private string cusTag = "Customer"; //Setting what object is labelled customer
     private string tableTag = "Table"; //Setting what object is labelled table
-    private string chairTag = "Chair"; //Setting what object is labelled chair
 
     //Script references
     public CustomerLine cusLine;
@@ -30,9 +31,6 @@ public class CustomerMove : MonoBehaviour
     }
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-
-
     }
 
     // Update is called once per frame
@@ -49,10 +47,17 @@ public class CustomerMove : MonoBehaviour
                 {
                     if(clickedObject != selectedObject)
                     {
-                        if (hit.collider.CompareTag(tableTag) || hit.collider.CompareTag(chairTag))
+                        if (hit.collider.CompareTag(tableTag))
                         {
+                            Transform wp1 = GameObject.Find("customerWP1").GetComponent<Transform>();
+
                             cusLine.RemoveFromLineup(selectedObject.transform);
-                            MoveObject(clickedObject);
+                            //Log the movement
+                            Debug.Log("Moving" + selectedObject.name);
+
+                            //Move selected object to destination
+                            agent = selectedObject.GetComponent<NavMeshAgent>();
+                            agent.SetDestination(new Vector3(wp1.transform.position.x, selectedObject.transform.position.y, wp1.transform.position.z));
                             scores.AddScore(10);
                         }
                         DisableHighlight();
@@ -77,10 +82,11 @@ public class CustomerMove : MonoBehaviour
             isHighlighted = true;
 
             //Highlight
-            Renderer renderer = selectedObject.GetComponent<Renderer>();
-            if (renderer != null)
+            MeshRenderer[] meshRenderers = selectedObject.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer meshRenderer in meshRenderers)
             {
-                renderer.material.color = Color.yellow;
+                Color yellow = Color.yellow;
+                meshRenderer.material.color = yellow;
             }
         }
     }
@@ -89,29 +95,19 @@ public class CustomerMove : MonoBehaviour
     {
         isHighlighted = false;
 
-        Renderer renderer = selectedObject.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material.color = Color.blue;
-        }
+        MeshRenderer[] meshRenderers = selectedObject.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer meshRenderer in meshRenderers)
+            {
+                Color blue = Color.blue;
+                meshRenderer.material.color = blue;
+            }
 
         selectedObject = null;
     }
 
     private void MoveObject(GameObject destination)
     {
-        //Log the movement
-        Debug.Log("Moving" + selectedObject.name + " to " + destination.name);
-
-        //Reset the color of the object
-        Renderer renderer = selectedObject.GetComponent<Renderer>();
-        if(renderer != null)
-        {
-            renderer.material.color = Color.blue;
-        }
-
-        //Move selected object to destination
-        agent.SetDestination(hit.point);
+        
     }
 
     private void FindComponent()
@@ -119,3 +115,4 @@ public class CustomerMove : MonoBehaviour
         
     }
 }
+
