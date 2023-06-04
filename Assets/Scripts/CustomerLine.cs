@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CustomerLine : MonoBehaviour
 {
@@ -33,8 +34,12 @@ public class CustomerLine : MonoBehaviour
 
         foreach (Transform obj in objectQueue)
         {
-            Vector3 targetPos = targetPosition.position + new Vector3(0f, 0.30f, index * spacing);
-            StartCoroutine(MoveObject(obj, targetPos));
+            NavMeshAgent agent = obj.GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.SetDestination(targetPosition.position + new Vector3(0f, 0.30f, index * spacing));
+            }
+
             index++;
             yield return new WaitForSeconds(1f);  // Delay between moving each object
         }

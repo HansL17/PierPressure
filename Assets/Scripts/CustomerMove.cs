@@ -8,6 +8,8 @@ public class CustomerMove : MonoBehaviour
 
     private GameObject selectedObject; //Current selected object
     public bool isHighlighted = false; //Flag to detect highlighted object
+    public bool t1_occupied = false;
+    public bool t2_occupied = false;
     
     public GameObject[] waypoints; //Destination of the selected object
 
@@ -47,7 +49,7 @@ public class CustomerMove : MonoBehaviour
                 {
                     if(clickedObject != selectedObject)
                     {
-                        if (hit.collider.CompareTag(tableTag))
+                        if (hit.collider.gameObject.name == "T1_chair" && t1_occupied == false)
                         {
                             Transform wp1 = GameObject.Find("customerWP1").GetComponent<Transform>();
 
@@ -59,7 +61,23 @@ public class CustomerMove : MonoBehaviour
                             agent = selectedObject.GetComponent<NavMeshAgent>();
                             agent.SetDestination(new Vector3(wp1.transform.position.x, selectedObject.transform.position.y, wp1.transform.position.z));
                             scores.AddScore(10);
+                            t1_occupied = true;
+                        } else if (hit.collider.gameObject.name == "T2_chair" && t2_occupied == false)
+
+                        {
+                            Transform wp2 = GameObject.Find("customerWP2").GetComponent<Transform>();
+
+                            cusLine.RemoveFromLineup(selectedObject.transform);
+                            //Log the movement
+                            Debug.Log("Moving" + selectedObject.name);
+
+                            //Move selected object to destination
+                            agent = selectedObject.GetComponent<NavMeshAgent>();
+                            agent.SetDestination(new Vector3(wp2.transform.position.x, selectedObject.transform.position.y, wp2.transform.position.z));
+                            scores.AddScore(10);
+                            t2_occupied = true;
                         }
+
                         DisableHighlight();
                     }
 

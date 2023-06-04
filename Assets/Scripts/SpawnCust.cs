@@ -14,6 +14,7 @@ public class SpawnCust : MonoBehaviour
 
     //Script reference
     public CustomerLine customerLine;
+    public AgentType agenttype;
 
  
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class SpawnCust : MonoBehaviour
         customer.radius = 0.05f;
         customer.height = 0.15f;
         customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+        customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
         customer.baseOffset = 0.075f;
 
         //Add a Box Collider to the spawned customer

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
+  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -322,7 +322,7 @@ Transform:
   - {fileID: 543450653151234005}
   - {fileID: 473544752}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &80584072
 MonoBehaviour:
@@ -1040,7 +1040,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &392717520
 PrefabInstance:
@@ -1602,7 +1602,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5bfbfdebccebf0c45832bef70d1337f7, type: 2}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Name
-      value: wooden_table1
+      value: T1_table
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Layer
@@ -2286,7 +2286,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair (1)
+      value: T2_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -2430,6 +2430,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c44786528dd3de842a6650493e7bf997, type: 3}
   m_PrefabInstance: {fileID: 495588524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &551207359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551207362}
+  - component: {fileID: 551207361}
+  - component: {fileID: 551207360}
+  m_Layer: 10
+  m_Name: customerWP2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &551207360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551207359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70524f811601c3f439e61ff4360a980f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chair: {fileID: 0}
+  isSitting: 0
+  cusMove: {fileID: 0}
+--- !u!65 &551207361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551207359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34974098, y: 0.55556357, z: 0.3664317}
+  m_Center: {x: -0.00043010712, y: 0.20708707, z: 0.045983076}
+--- !u!4 &551207362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551207359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.963, y: 0.16, z: 5.233}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &566787269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3029,7 +3090,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair
+      value: T3_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -3276,6 +3337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 627104802}
+  - component: {fileID: 627104803}
   m_Layer: 0
   m_Name: DishPosition2
   m_TagString: Untagged
@@ -3296,8 +3358,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627104803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627104801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6978ee30539837a498367739e4d614f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cusMove: {fileID: 0}
+  order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
 --- !u!1001 &630404203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3528,7 +3604,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair
+      value: T2_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -3845,7 +3921,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &735586558
 PrefabInstance:
@@ -4056,7 +4132,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &795521585
 PrefabInstance:
@@ -4244,7 +4320,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5bfbfdebccebf0c45832bef70d1337f7, type: 2}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Name
-      value: wooden_table2
+      value: T2_table
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Layer
@@ -4529,7 +4605,7 @@ Transform:
   - {fileID: 123547666}
   - {fileID: 740973683}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &833127148 stripped
 Transform:
@@ -4712,7 +4788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &907149362
 BoxCollider:
@@ -5030,7 +5106,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 42.81, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -5278,7 +5354,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair (1)
+      value: T3_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -5426,6 +5502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974912280}
+  - component: {fileID: 974912281}
   m_Layer: 0
   m_Name: DishPosition
   m_TagString: Untagged
@@ -5446,8 +5523,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &974912281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974912279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6978ee30539837a498367739e4d614f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cusMove: {fileID: 0}
+  order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
 --- !u!1001 &1001161256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6693,7 +6784,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair
+      value: T3_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -6866,7 +6957,7 @@ Transform:
   - {fileID: 795521586}
   - {fileID: 630404204}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1432666055
 MonoBehaviour:
@@ -7165,6 +7256,7 @@ MonoBehaviour:
   cusCount: 0
   spawnPosition: {fileID: 1514522228}
   customerLine: {fileID: 1514522229}
+  agenttype: {fileID: 0}
 --- !u!4 &1514522228
 Transform:
   m_ObjectHideFlags: 0
@@ -7178,7 +7270,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1514522229
 MonoBehaviour:
@@ -7230,7 +7322,7 @@ Transform:
   - {fileID: 972818909}
   - {fileID: 591775519}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1516179618
 MonoBehaviour:
@@ -7263,7 +7355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 338910190d6d6d8478cb6b18ed13edb4, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 338910190d6d6d8478cb6b18ed13edb4, type: 3}
       propertyPath: m_LocalScale.x
@@ -7605,7 +7697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698585127309191406, guid: 72a99b3d9852a1a4ba1038be2bd44534, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2698585127309191406, guid: 72a99b3d9852a1a4ba1038be2bd44534, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8296,7 +8388,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair (1)
+      value: T1_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -8468,7 +8560,7 @@ Transform:
   - {fileID: 222031284}
   - {fileID: 1245271323}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776167352
 GameObject:
@@ -8504,7 +8596,7 @@ RectTransform:
   - {fileID: 289716495}
   - {fileID: 1185956517}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8661,7 +8753,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806973148}
-  m_Layer: 0
+  - component: {fileID: 1806973150}
+  - component: {fileID: 1806973149}
+  m_Layer: 10
   m_Name: customerWP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8676,13 +8770,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806973147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.41, y: 0.143, z: 4.5}
+  m_LocalPosition: {x: 24.011, y: 0.16, z: 5.233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806973149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806973147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70524f811601c3f439e61ff4360a980f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chair: {fileID: 0}
+  isSitting: 0
+  cusMove: {fileID: 0}
+--- !u!65 &1806973150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806973147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34974098, y: 0.55556357, z: 0.3664317}
+  m_Center: {x: -0.00043010712, y: 0.20708707, z: 0.045983076}
 --- !u!1 &1810691728
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,7 +8851,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1810691732
 MonoBehaviour:
@@ -8780,7 +8902,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1871873317
 MonoBehaviour:
@@ -8795,10 +8917,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHighlighted: 0
+  t1_occupied: 0
+  t2_occupied: 0
   waypoints: []
   speed: 5
   cusLine: {fileID: 0}
   scores: {fileID: 0}
+--- !u!1 &1877141192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877141194}
+  - component: {fileID: 1877141193}
+  m_Layer: 0
+  m_Name: NavMesh_Customer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1877141193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877141192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -1372625422
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 119
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.17
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 4b17141ccc609964f980ddddbd79cad9, type: 2}
+--- !u!4 &1877141194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877141192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.535004, y: 0, z: 2.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1892322575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9064,7 +9249,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5bfbfdebccebf0c45832bef70d1337f7, type: 2}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Name
-      value: wooden_table3
+      value: T3_table
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: afa88ae75acba74419350d0479d2c4de, type: 3}
       propertyPath: m_Layer
@@ -9279,7 +9464,7 @@ Transform:
   - {fileID: 490327830}
   - {fileID: 645165911}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1988562367
 PrefabInstance:
@@ -9800,7 +9985,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2080960129
 PrefabInstance:
@@ -10111,7 +10296,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57f391477e46ecd44af6579114e37dfb, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Name
-      value: wooden_chair (1)
+      value: T3_chair
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a7d6ece1ebc4924cbbfea2c67872356, type: 3}
       propertyPath: m_Layer
@@ -10578,7 +10763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3084937571895530897, guid: 9cb2c4fd86bb98a41aaded72f6cba0e2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3084937571895530897, guid: 9cb2c4fd86bb98a41aaded72f6cba0e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10730,7 +10915,7 @@ Transform:
   - {fileID: 8355075833532231694}
   - {fileID: 6732972616253414216}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5754465514666676497
 MonoBehaviour:
@@ -10824,7 +11009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8144168506171265107, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8144168506171265107, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11079,7 +11264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8413672554109254539, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Name
-      value: wooden_chair
+      value: T1_chair
       objectReference: {fileID: 0}
     - target: {fileID: 8413672554109254539, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Layer
