@@ -26,7 +26,7 @@ public class Scoring : MonoBehaviour
 
     public void UpdateScore() //Function for updating score
     {
-        scoreText.text = "Score " + score;
+        scoreText.text = "Score: " + score;
 
         if(score == normalScore)
         {

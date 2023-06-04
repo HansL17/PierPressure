@@ -7,7 +7,10 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject heldItem; // Reference to the currently held item
     [SerializeField] Transform itemAttachPoint; // Reference to the point where the item should be attached
     [SerializeField] GameObject tablePosition; // Reference to the specific GameObject on the table where the item should be placed
+    [SerializeField] GameObject whichTable;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
+
+    public Scoring scores;
 
     private void Start()
     {
@@ -18,12 +21,9 @@ public class ItemPickup : MonoBehaviour
             Debug.LogError("DishPlace not found! Make sure to create an empty GameObject childed to the player and name it 'DishPlace'.");
         }
 
-        // Find the specific GameObject on the table where the item should be placed
-        tablePosition = GameObject.Find("DishPosition");
-        if (tablePosition == null)
-        {
-            Debug.LogError("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
-        }
+        
+
+        scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
     }
 
     private void Update()
@@ -41,6 +41,7 @@ public class ItemPickup : MonoBehaviour
                 if (heldItem == null)
                 {
                     Debug.Log("Picking up item...");
+
 
                     // Store the reference to the held item
                     heldItem = hit.collider.gameObject;
@@ -66,8 +67,18 @@ public class ItemPickup : MonoBehaviour
                 // Place down the held item on the table if there is one
                 if (heldItem != null)
                 {
+                    // Find the specific GameObject on the table where the item should be placed
+                    whichTable = hit.collider.gameObject;
+                    tablePosition = GameObject.Find("DishPosition");
+
+                    if (tablePosition == null)
+                    {
+                        Debug.LogError("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
+                    }
+
                     Debug.Log("Placing down item on table...");
                     isPlacingItem = true;
+                    scores.AddScore(10);
 
                     // Start the delay coroutine
                     StartCoroutine(PlaceItemWithDelay());
@@ -91,6 +102,7 @@ public class ItemPickup : MonoBehaviour
             Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
             if (itemRigidbody != null)
                 itemRigidbody.isKinematic = false;
+
 
             // Set the position of the held item to the table's position
             heldItem.transform.SetParent(null);
