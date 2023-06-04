@@ -7,13 +7,13 @@ public class PatienceBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
 
-    public float maxPatience = 180f; //max patience (in seconds)
+    public float maxPatience = 90f; //max patience (in seconds)
     public float currentPatience; //current patience (in seconds)
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = 180;
+        currentPatience = 90;
         slider.value = currentPatience;
         StartCoroutine(DepletePatienceBar());
         //Start the patience countdown
