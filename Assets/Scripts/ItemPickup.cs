@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] GameObject heldItem; // Reference to the currently held item
     [SerializeField] Transform itemAttachPoint; // Reference to the point where the item should be attached
+    [SerializeField] GameObject DishLoc; // Reference to the Dish Location on the counter
     [SerializeField] GameObject tablePosition; // Reference to the specific GameObject on the table where the item should be placed
     [SerializeField] GameObject whichTable;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
+    private bool isMovingToDestination = false;
+
+    private GameObject playerObject;
+    private NavMeshAgent player; // Reference to Player NavMeshAgent
 
     public Scoring scores;
 
@@ -21,15 +27,41 @@ public class ItemPickup : MonoBehaviour
             Debug.LogError("DishPlace not found! Make sure to create an empty GameObject childed to the player and name it 'DishPlace'.");
         }
 
-        
-
+        playerObject = GameObject.Find("Player");
+        player = playerObject.GetComponent<NavMeshAgent>(); //Get Player NavMeshAgent
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isMovingToDestination)
         {
+            if (player.pathStatus == NavMeshPathStatus.PathComplete && player.remainingDistance <= player.stoppingDistance)
+            {
+                Debug.Log("Picking up item...");
+                
+
+                // Disable the item's collider and rigidbody
+                Collider itemCollider = heldItem.GetComponent<Collider>();
+                if (itemCollider != null)
+                itemCollider.enabled = false;
+
+                Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
+                if (itemRigidbody != null)
+                itemRigidbody.isKinematic = true;
+
+                // Attach the item to the item attach point
+                heldItem.transform.SetParent(itemAttachPoint);
+                heldItem.transform.localPosition = Vector3.zero;
+                heldItem.transform.localRotation = Quaternion.identity;
+
+                isMovingToDestination = false;
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
             // Cast a ray from the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -40,25 +72,12 @@ public class ItemPickup : MonoBehaviour
                 // Pick up the item if it's not already held
                 if (heldItem == null)
                 {
-                    Debug.Log("Picking up item...");
-
-
                     // Store the reference to the held item
                     heldItem = hit.collider.gameObject;
-
-                    // Disable the item's collider and rigidbody
-                    Collider itemCollider = heldItem.GetComponent<Collider>();
-                    if (itemCollider != null)
-                        itemCollider.enabled = false;
-
-                    Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
-                    if (itemRigidbody != null)
-                        itemRigidbody.isKinematic = true;
-
-                    // Attach the item to the item attach point
-                    heldItem.transform.SetParent(itemAttachPoint);
-                    heldItem.transform.localPosition = Vector3.zero;
-                    heldItem.transform.localRotation = Quaternion.identity;
+                    
+                    DishLoc = GameObject.Find("DishSpawn");
+                    player.SetDestination(new Vector3(DishLoc.transform.position.x, player.transform.position.y, DishLoc.transform.position.z));
+                    isMovingToDestination = true;
                 }
             }
             // Check if the ray hits an object with the "Table" tag
@@ -69,7 +88,14 @@ public class ItemPickup : MonoBehaviour
                 {
                     // Find the specific GameObject on the table where the item should be placed
                     whichTable = hit.collider.gameObject;
-                    tablePosition = GameObject.Find("DishPosition");
+                    if (whichTable.name == "T1_table")
+                    {
+                        tablePosition = GameObject.Find("DishPosition");
+                    }
+                    else if (whichTable.name == "T2_table")
+                    {
+                        tablePosition = GameObject.Find("DishPosition2");
+                    }
 
                     if (tablePosition == null)
                     {
@@ -85,7 +111,7 @@ public class ItemPickup : MonoBehaviour
                 }
             }
         }
-    }
+    }}
 
     private System.Collections.IEnumerator PlaceItemWithDelay()
     {

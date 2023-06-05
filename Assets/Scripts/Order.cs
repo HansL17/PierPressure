@@ -6,11 +6,14 @@ public class Order : MonoBehaviour
 {
     public CustomerMove cusMove; //Reference to customer move script
     public Sprite order;
-    private bool isTimerActive = false;
+    private bool isTimer1Active = false;
+    private bool isTimer2Active = false;
     private bool order1Spawned = false;
     private bool order2Spawned = false;
-    private float timerDuration = 10f; // Duration in seconds
-    private float timer;
+    private float timer1Duration = 7f; // Duration in seconds
+    private float timer2Duration = 9f;
+    public float timer1;
+    public float timer2;
     // Update is called once per frame
 
     void Start()
@@ -20,63 +23,56 @@ public class Order : MonoBehaviour
 
     void Update()
     {
-        if (cusMove.t1_occupied)
+        if (cusMove.t1_occupied && order1Spawned == false)
         {
             // Start the timer
-            if (!isTimerActive)
+            if (!isTimer1Active)
             {
-                timer = timerDuration;
-                isTimerActive = true;
+                timer1 = timer1Duration;
+                isTimer1Active = true;
             }
 
             // Update the timer
-            timer -= Time.deltaTime;
+            timer1 -= Time.deltaTime;
 
             // Check if the timer has completed
-            if (timer <= 0f && order1Spawned == false)
+            if (timer1 <= 0f && order1Spawned == false)
             {
-                GameObject orderSprite = new GameObject("OrderSprite");
+                order1Spawned = true;
+                GameObject orderSprite = new GameObject("OrderSprite1");
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
-                orderSprite.transform.position = new Vector3 (24.98f, 1.316f, 5.23f);
+                orderSprite.transform.position = new Vector3 (25.137f, 1.316f, 2.831f);
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
-
-                timer = 0f;
-                isTimerActive = false;
-                order1Spawned = true;
+                timer1 = 0f;
+                isTimer1Active = false;
             }
         }
-        else if (cusMove.t2_occupied)
+        else if (cusMove.t2_occupied && order2Spawned == false)
         {
             // Start the timer
-            if (!isTimerActive)
+            if (!isTimer2Active)
             {
-                timer = timerDuration;
-                isTimerActive = true;
+                timer2 = timer2Duration;
+                isTimer2Active = true;
             }
 
             // Update the timer
-            timer -= Time.deltaTime;
+            timer2 -= Time.deltaTime;
 
             // Check if the timer has completed
-            if (timer <= 0f && order2Spawned == false)
+            if (timer2 <= 0f && order2Spawned == false)
             {
-                GameObject orderSprite = new GameObject("OrderSprite");
+                GameObject orderSprite = new GameObject("OrderSprite2");
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
-                orderSprite.transform.position = new Vector3 (29.892f, 1.316f, 5.23f);
+                orderSprite.transform.position = new Vector3 (29.295f, 1.316f, 2.831f);
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
 
-                timer = 0f;
-                isTimerActive = false;
+                timer2 = 0f;
+                isTimer2Active = false;
                 order2Spawned = true;
             }
-        }
-            else
-        {
-            // Reset the timer and boolean if the boolean variable is no longer active
-            timer = 0f;
-            isTimerActive = false;
         }
     }
 }
