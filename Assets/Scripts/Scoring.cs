@@ -24,6 +24,11 @@ public class Scoring : MonoBehaviour
         score += newScore;
     }
 
+    public void SubScore(int newScore) //Function for adding score
+    {
+        score -= newScore;
+    }
+
     public void UpdateScore() //Function for updating score
     {
         scoreText.text = "Score: " + score;
