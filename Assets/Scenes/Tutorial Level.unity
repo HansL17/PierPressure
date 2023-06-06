@@ -3738,9 +3738,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cusMove: {fileID: 0}
+  itemPick: {fileID: 0}
+  player: {fileID: 919132149012455824}
   order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
   timer1: 0
   timer2: 0
+  isTable1Placed: 0
+  isTable2Placed: 0
 --- !u!1001 &630404203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5905,9 +5909,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cusMove: {fileID: 0}
+  itemPick: {fileID: 0}
+  player: {fileID: 919132149012455824}
   order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
   timer1: 0
   timer2: 0
+  isTable1Placed: 0
+  isTable2Placed: 0
 --- !u!1 &988533301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12129,8 +12137,8 @@ MonoBehaviour:
   DishLoc: {fileID: 0}
   tablePosition: {fileID: 0}
   whichTable: {fileID: 0}
-  dish1placed: 0
-  dish2placed: 0
+  table1Placed: 0
+  table2Placed: 0
   scores: {fileID: 0}
 --- !u!4 &919132149012455827 stripped
 Transform:

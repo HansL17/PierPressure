@@ -12,8 +12,8 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject whichTable;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     private bool isMovingToDestination = false;
-    public bool dish1placed = false;
-    public bool dish2placed = false;
+    public bool table1Placed = false; // Flag to indicate if item is placed on Table 1
+    public bool table2Placed = false; // Flag to indicate if item is placed on Table 1
 
     private GameObject playerObject;
     private NavMeshAgent player; // Reference to Player NavMeshAgent
@@ -93,11 +93,12 @@ public class ItemPickup : MonoBehaviour
                     if (whichTable.name == "T1_table")
                     {
                         tablePosition = GameObject.Find("DishPosition");
-                        dish1placed = true;
+                        table1Placed = true;
                     }
                     else if (whichTable.name == "T2_table")
                     {
                         tablePosition = GameObject.Find("DishPosition2");
+                        table2Placed = true;
                     }
 
                     if (tablePosition == null)
@@ -136,7 +137,6 @@ public class ItemPickup : MonoBehaviour
             // Set the position of the held item to the table's position
             heldItem.transform.SetParent(null);
             heldItem.transform.position = tablePosition.transform.position;
-            dish1placed = true;
 
             // Clear the reference to the held item
             heldItem = null;
