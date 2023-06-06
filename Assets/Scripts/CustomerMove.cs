@@ -56,10 +56,7 @@ public class CustomerMove : MonoBehaviour
                             cusLine.RemoveFromLineup(selectedObject.transform);
                             //Log the movement
                             Debug.Log("Moving" + selectedObject.name);
-
-                            //Move selected object to destination
-                            agent = selectedObject.GetComponent<NavMeshAgent>();
-                            agent.SetDestination(new Vector3(wp1.transform.position.x, selectedObject.transform.position.y, wp1.transform.position.z));
+                            MoveObject(wp1.transform);
                             scores.AddScore(10);
                             t1_occupied = true;
                         } else if (hit.collider.gameObject.name == "T2_chair" && t2_occupied == false)
@@ -70,10 +67,8 @@ public class CustomerMove : MonoBehaviour
                             cusLine.RemoveFromLineup(selectedObject.transform);
                             //Log the movement
                             Debug.Log("Moving" + selectedObject.name);
-
-                            //Move selected object to destination
-                            agent = selectedObject.GetComponent<NavMeshAgent>();
-                            agent.SetDestination(new Vector3(wp2.transform.position.x, selectedObject.transform.position.y, wp2.transform.position.z));
+                            MoveObject(wp2.transform);
+                           
                             scores.AddScore(10);
                             t2_occupied = true;
                         }
@@ -123,14 +118,24 @@ public class CustomerMove : MonoBehaviour
         selectedObject = null;
     }
 
-    private void MoveObject(GameObject destination)
+    private void MoveObject(Transform destination)
     {
-        
+        Vector3 targetPosition = destination.transform.position;
+
+        agent = selectedObject.GetComponent<NavMeshAgent>();
+        agent.SetDestination(targetPosition);
+        StartCoroutine(RotateAgent(targetPosition));
     }
 
-    private void FindComponent()
+    private IEnumerator RotateAgent(Vector3 targetPosition)
     {
-        
-    }
+    // Wait until the object reaches its destination
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            {
+                yield return null;
+            }
+            // Rotate the agent towards the opposite direction
+            agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, Quaternion.Euler(0f, 90f, 0f), 90f);
+}
 }
 

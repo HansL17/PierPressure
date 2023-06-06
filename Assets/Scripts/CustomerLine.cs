@@ -37,7 +37,15 @@ public class CustomerLine : MonoBehaviour
             NavMeshAgent agent = obj.GetComponent<NavMeshAgent>();
             if (agent != null)
             {
-                agent.SetDestination(targetPosition.position + new Vector3(0f, 0.30f, index * spacing));
+                Vector3 destination = targetPosition.position + new Vector3(0f, 0.30f, index * spacing);
+                agent.SetDestination(destination);
+
+                while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+                {
+                    yield return null;
+                }
+                // Rotate the agent towards the opposite direction
+                obj.rotation = Quaternion.RotateTowards(obj.rotation, Quaternion.Euler(0f, 180f, 0f), 180f);
             }
 
             index++;
