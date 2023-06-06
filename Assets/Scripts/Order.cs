@@ -14,12 +14,18 @@ public class Order : MonoBehaviour
     private float timer2Duration = 9f;
     public float timer1;
     public float timer2;
-    // Update is called once per frame
+    GameObject orderSprite;
+    private bool dish1placed;
+    private bool dish2placed;
 
     void Start()
     {
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>(); //Get script
-    }
+
+        ItemPickup itemPick = new ItemPickup();
+        dish1placed = itemPick.dish1placed;
+        dish2placed = itemPick.dish2placed;
+    } 
 
     void Update()
     {
@@ -39,14 +45,14 @@ public class Order : MonoBehaviour
             if (timer1 <= 0f && order1Spawned == false)
             {
                 order1Spawned = true;
-                GameObject orderSprite = new GameObject("OrderSprite1");
+                orderSprite = new GameObject("OrderSprite1");
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
                 orderSprite.transform.position = new Vector3 (25.137f, 1.316f, 2.831f);
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
                 timer1 = 0f;
                 isTimer1Active = false;
-            }
+            } 
         }
         else if (cusMove.t2_occupied && order2Spawned == false)
         {
@@ -73,6 +79,11 @@ public class Order : MonoBehaviour
                 isTimer2Active = false;
                 order2Spawned = true;
             }
+        }
+        else if (dish1placed)
+        {
+            Debug.Log("Destroyed");
+            Destroy(orderSprite);
         }
     }
 }
