@@ -18,21 +18,25 @@ public class CustomerLine : MonoBehaviour
 
     public void RemoveFromLineup(Transform obj)
     {
-        objectQueue.Dequeue();
-        UpdateLineup();
-        Debug.Log("Removing Object from Lineup");
+        if (objectQueue.Count > 0)
+        {
+            objectQueue.Dequeue();
+            Debug.Log("Removing Object from Lineup");
+            UpdateLineup();
+        }
     }
 
     public void UpdateLineup()
     {
-        StartCoroutine(MoveObjects());
+        Queue<Transform> objectQueueCopy = new Queue<Transform>(objectQueue); // Create a copy of the queue
+        StartCoroutine(MoveObjects(objectQueueCopy));
     }
 
-    private IEnumerator MoveObjects()
+    private IEnumerator MoveObjects(Queue<Transform> queue)
     {
         int index = 0;
 
-        foreach (Transform obj in objectQueue)
+        foreach (Transform obj in queue) // Iterate over the copied queue
         {
             NavMeshAgent agent = obj.GetComponent<NavMeshAgent>();
             if (agent != null)
@@ -47,8 +51,8 @@ public class CustomerLine : MonoBehaviour
                 // Rotate the agent towards the opposite direction
                 obj.rotation = Quaternion.RotateTowards(obj.rotation, Quaternion.Euler(0f, 180f, 0f), 180f);
             }
-
             index++;
+
             yield return new WaitForSeconds(1f);  // Delay between moving each object
         }
     }
@@ -64,4 +68,3 @@ public class CustomerLine : MonoBehaviour
         }
     }
 }
-

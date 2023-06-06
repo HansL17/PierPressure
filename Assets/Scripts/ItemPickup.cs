@@ -108,7 +108,7 @@ public class ItemPickup : MonoBehaviour
 
                     Debug.Log("Placing down item on table...");
                     isPlacingItem = true;
-                    scores.AddScore(10);
+                    
 
                     // Start the delay coroutine
                     StartCoroutine(PlaceItemWithDelay());
@@ -124,6 +124,7 @@ public class ItemPickup : MonoBehaviour
         // Check if the player is still placing the item
         if (isPlacingItem)
         {
+            
             // Enable the item's collider and rigidbody
             Collider itemCollider = heldItem.GetComponent<Collider>();
             if (itemCollider != null)
@@ -142,6 +143,7 @@ public class ItemPickup : MonoBehaviour
             heldItem = null;
 
             Debug.Log("Item placed on table!");
+            scores.AddScore(10);
             isPlacingItem = false;
         }
     }

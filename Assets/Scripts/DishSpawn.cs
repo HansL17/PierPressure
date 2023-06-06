@@ -11,6 +11,12 @@ public class DishSpawn : MonoBehaviour
     private bool isWaitingForSpawn;         // Flag to track if waiting for dish spawn
     private float spawnTimer;               // Timer for tracking the spawn delay
     public Transform dishSpawn;
+    public DishBar dishBar;
+
+    private void Awake()
+    {
+        dishBar = GameObject.Find("DishBar").GetComponent<DishBar>(); //Get script
+    }
 
     private void Update()
     {
@@ -45,6 +51,7 @@ public class DishSpawn : MonoBehaviour
                     // Start the spawn delay timer
                     isWaitingForSpawn = true;
                     spawnTimer = spawnDelay;
+                    StartTimer();
 
                     // Log the timer start
                     Debug.Log("Spawn timer started!");
@@ -62,5 +69,10 @@ public class DishSpawn : MonoBehaviour
 
         // Log the dish spawn
         Debug.Log("Dish spawned!");
+    }
+
+    public void StartTimer()
+    {
+        StartCoroutine(dishBar.IncreaseDishBar());
     }
 }
