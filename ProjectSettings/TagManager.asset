@@ -12,6 +12,8 @@ TagManager:
   - Chair
   - Dish
   - Button
+  - OrderSprite1
+  - OrderSprite2
   layers:
   - Default
   - TransparentFX
