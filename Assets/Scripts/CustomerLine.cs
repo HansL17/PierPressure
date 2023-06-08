@@ -10,6 +10,13 @@ public class CustomerLine : MonoBehaviour
 
     private Queue<Transform> objectQueue = new Queue<Transform>();
 
+    [SerializeField] Scoring scores;
+
+    void Start()
+    {
+        scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>();
+    }
+
     public void AddToLineup(Transform obj)
     {
         objectQueue.Enqueue(obj);
@@ -42,7 +49,7 @@ public class CustomerLine : MonoBehaviour
             if (agent != null)
             {
                 Vector3 destination = targetPosition.position + new Vector3(0f, 0.30f, index * spacing);
-                agent.SetDestination(destination);
+                agent.SetDestination(destination); 
 
                 while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
                 {
@@ -52,7 +59,6 @@ public class CustomerLine : MonoBehaviour
                 obj.rotation = Quaternion.RotateTowards(obj.rotation, Quaternion.Euler(0f, 180f, 0f), 180f);
             }
             index++;
-
             yield return new WaitForSeconds(1f);  // Delay between moving each object
         }
     }

@@ -37,7 +37,6 @@ public class PatienceBar : MonoBehaviour
             yield return null;
         }
 
-       
         //When Patience bar is done, perform any necessary action with PatienceGone()
         PatienceGone();
     }
@@ -55,6 +54,18 @@ public class PatienceBar : MonoBehaviour
         _cus.SetActive(false);
         cusLine.UpdateLineup();
         
+    }
+
+    public void RotateBar()
+    {
+        // Get the current rotation of the Canvas
+        Quaternion currentRotation = slider.transform.rotation;
+
+        // Calculate the new rotation by adding 90 degrees in the Y axis
+        Quaternion newRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y - 90f, currentRotation.eulerAngles.z);
+
+        // Apply the new rotation to the Canvas
+        slider.transform.rotation = newRotation;
     }
 
 

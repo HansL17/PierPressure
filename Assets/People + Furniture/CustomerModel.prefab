@@ -574,8 +574,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6205904607935778130}
-  - component: {fileID: 6725033063610882026}
-  - component: {fileID: 5250394398278907735}
   m_Layer: 0
   m_Name: CustomerModel
   m_TagString: Untagged
@@ -599,41 +597,5 @@ Transform:
   - {fileID: 220356662556007444}
   - {fileID: 8778488564573768017}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6725033063610882026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6725033063610882024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f0031acb923ee42aa6b3245a9b4a58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHighlighted: 0
-  t1_occupied: 0
-  t2_occupied: 0
-  waypoints: []
-  speed: 5
-  cusLine: {fileID: 0}
-  scores: {fileID: 0}
-  BRotate: {fileID: 5250394398278907735}
---- !u!114 &5250394398278907735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6725033063610882024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fe66b3c342748d4f8ea500be21fd644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pBar: {fileID: 0}
-  cusMove: {fileID: 6725033063610882026}
-  Moving: 0
-  Sittingdown: 0

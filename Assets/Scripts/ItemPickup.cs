@@ -19,6 +19,7 @@ public class ItemPickup : MonoBehaviour
     private NavMeshAgent player; // Reference to Player NavMeshAgent
 
     public Scoring scores;
+    public TableBar tBar;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class ItemPickup : MonoBehaviour
         playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<NavMeshAgent>(); //Get Player NavMeshAgent
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
+        tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
     }
 
     private void Update()
@@ -41,7 +43,6 @@ public class ItemPickup : MonoBehaviour
             if (player.pathStatus == NavMeshPathStatus.PathComplete && player.remainingDistance <= player.stoppingDistance)
             {
                 Debug.Log("Picking up item...");
-                
 
                 // Disable the item's collider and rigidbody
                 Collider itemCollider = heldItem.GetComponent<Collider>();
@@ -94,11 +95,13 @@ public class ItemPickup : MonoBehaviour
                     {
                         tablePosition = GameObject.Find("DishPosition");
                         table1Placed = true;
+                        Action2Done();
                     }
                     else if (whichTable.name == "T2_table")
                     {
                         tablePosition = GameObject.Find("DishPosition2");
                         table2Placed = true;
+                        Action2Done();
                     }
 
                     if (tablePosition == null)
@@ -143,9 +146,19 @@ public class ItemPickup : MonoBehaviour
             heldItem = null;
 
             Debug.Log("Item placed on table!");
-            scores.AddScore(10);
             isPlacingItem = false;
         }
     }
+
+    private void Action2Done()
+    {
+        scores.isAction1Done = false;
+        scores.isAction2Done = true;
+        scores.consecutiveActions1 = 0;
+        scores.consecutiveActions2++;
+        Debug.Log("Action 2 Done");
+        scores.AddScore(10);
+    }
+
 }
 
