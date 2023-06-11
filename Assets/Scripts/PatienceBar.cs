@@ -2,20 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class PatienceBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject _cus;
 
-    public float maxPatience = 90f; //max patience (in seconds)
+    public float maxPatience = 30f; //max patience (in seconds)
     public float currentPatience; //current patience (in seconds)
+    public NavMeshAgent agent;
 
+    private ItemPickup itPick;
     public CustomerLine cusLine;
+    public SpawnCust spawnCus;
+
 
     private void Awake()
     {
+        itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
+        spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
     }
 
     // Start is called before the first frame update
@@ -25,7 +32,16 @@ public class PatienceBar : MonoBehaviour
         slider.value = currentPatience;
         StartCoroutine(DepletePatienceBar());
         //Start the patience countdown
+        agent = _cus.GetComponent<NavMeshAgent>();
+    }
 
+    void Update()
+    {
+        if(itPick.table1Placed || itPick.table2Placed)
+        {
+            GameObject toDelete = slider.gameObject;
+            Destroy(toDelete);
+        }
     }
 
     private IEnumerator DepletePatienceBar()
@@ -38,35 +54,19 @@ public class PatienceBar : MonoBehaviour
         }
 
         //When Patience bar is done, perform any necessary action with PatienceGone()
-        PatienceGone();
+        StartCoroutine(PatienceGone());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    private void PatienceGone()
+    private IEnumerator PatienceGone()
     {
         Debug.Log("Patience Depleted");
-        _cus.SetActive(false);
-        cusLine.UpdateLineup();
-        
+        Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
+        agent.SetDestination(exit.transform.position);
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+        {
+            yield return null;
+        }
+        Destroy(_cus);
+        spawnCus.cusCount--;
     }
-
-    public void RotateBar()
-    {
-        // Get the current rotation of the Canvas
-        Quaternion currentRotation = slider.transform.rotation;
-
-        // Calculate the new rotation by adding 90 degrees in the Y axis
-        Quaternion newRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y - 90f, currentRotation.eulerAngles.z);
-
-        // Apply the new rotation to the Canvas
-        slider.transform.rotation = newRotation;
-    }
-
-
 }

@@ -8,18 +8,16 @@ public class CustomerMove : MonoBehaviour
 
     private GameObject selectedObject; //Current selected object
     
-    public GameObject customerTable1;
-    public Transform cusBar1;
-
-    public GameObject customerTable2;
-    public Transform cusBar2;
+    public GameObject customerInT1;
+    public GameObject customerInT2;
+    public GameObject customerTable;
+    public Canvas cusBar;
+    public RectTransform cusBarRect;
 
     public bool isHighlighted = false; //Flag to detect highlighted object
 
     public bool t1_occupied = false;
     public bool t2_occupied = false;
-
-    public GameObject[] waypoints; //Destination of the selected object
 
     public float speed = 5f; //Speed of the object
 
@@ -43,10 +41,6 @@ public class CustomerMove : MonoBehaviour
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
         
 
-    }
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -74,8 +68,8 @@ public class CustomerMove : MonoBehaviour
                             MoveObject(wp1.transform);
                             Action1Done(); //Action 1 is done
 
-                            //Redefining customer and selecting its patience bar
-                            GetCustomerFromTable1();
+                            //Redefining customer
+                            customerInT1 = selectedObject;
 
                             //table 1 is occupied
                             t1_occupied = true;
@@ -92,8 +86,8 @@ public class CustomerMove : MonoBehaviour
                             MoveObject(wp2.transform);
                             Action1Done(); //Action 1 is done
 
-                            //Redefining customer and selecting its patience bar
-                            GetCustomerFromTable2();
+                            //Redefining customer
+                            customerInT2 = selectedObject;
 
                             //table 2 is occupied
                             t2_occupied = true;
@@ -151,7 +145,6 @@ public class CustomerMove : MonoBehaviour
             agent = selectedObject.GetComponent<NavMeshAgent>();
             agent.SetDestination(targetPosition);
             StartCoroutine(RotateAgent(targetPosition));
-        
     }
 
     private IEnumerator RotateAgent(Vector3 targetPosition)
@@ -163,18 +156,11 @@ public class CustomerMove : MonoBehaviour
         }
         // Rotate the agent towards the opposite direction
         agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, Quaternion.Euler(0f, 90f, 0f), 90f);
-    }
-
-    private void GetCustomerFromTable1()
-    {
-        customerTable1 = selectedObject;
-        cusBar1 = customerTable1.transform.Find("Canvas/PatienceBar");
-    }
-
-    private void GetCustomerFromTable2()
-    {
-        customerTable2 = selectedObject;
-        cusBar2 = customerTable2.transform.Find("Canvas/PatienceBar");
+        // Rotate the bar to face the camera
+        cusBar = agent.GetComponentInChildren<Canvas>();
+        cusBarRect = cusBar.GetComponent<RectTransform>();
+        cusBarRect.rotation = Quaternion.Euler(0f, 0f, -180f);
+        cusBarRect.pivot = new Vector2(0.3f, 0.5f);
     }
 
     private void Action1Done()

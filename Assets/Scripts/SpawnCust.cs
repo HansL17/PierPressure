@@ -10,6 +10,7 @@ public class SpawnCust : MonoBehaviour
     float time;
     float timeDelay;
     public float cusCount;
+    public float totalCus;
     public Transform spawnPosition; // Position where the object should be spawned
 
     //Script reference
@@ -23,15 +24,17 @@ public class SpawnCust : MonoBehaviour
         time = 0f; //Starting time
         timeDelay = 5f; //Delay in seconds
         cusCount = 0;
+        totalCus = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         time = time + 1f * Time.deltaTime;
-        if(time >= timeDelay && cusCount < 3) // If Time is equal to time delay
+        if(time >= timeDelay && cusCount < 3 && totalCus != 6) // If Time is equal to time delay
         {
             Spawn();
+            totalCus++;
             time = 0f;
         }
 

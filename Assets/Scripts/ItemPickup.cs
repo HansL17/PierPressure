@@ -10,16 +10,19 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject DishLoc; // Reference to the Dish Location on the counter
     [SerializeField] GameObject tablePosition; // Reference to the specific GameObject on the table where the item should be placed
     [SerializeField] GameObject whichTable;
+    public GameObject dishInT1;
+    public GameObject dishInT2;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     private bool isMovingToDestination = false;
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 1
-    public bool table2Placed = false; // Flag to indicate if item is placed on Table 1
+    public bool table2Placed = false; // Flag to indicate if item is placed on Table 2
 
     private GameObject playerObject;
     private NavMeshAgent player; // Reference to Player NavMeshAgent
 
     public Scoring scores;
     public TableBar tBar;
+    public Order order;
 
     private void Start()
     {
@@ -34,6 +37,7 @@ public class ItemPickup : MonoBehaviour
         player = playerObject.GetComponent<NavMeshAgent>(); //Get Player NavMeshAgent
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
+        order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
     }
 
     private void Update()
@@ -94,25 +98,33 @@ public class ItemPickup : MonoBehaviour
                     if (whichTable.name == "T1_table")
                     {
                         tablePosition = GameObject.Find("DishPosition");
-                        table1Placed = true;
-                        Action2Done();
+                        if (order.order1Spawned)
+                        {
+                            isPlacingItem = true;
+                            Action2Done();
+                            Debug.Log("Placing down item on table...");
+                            table1Placed = true;
+                            dishInT1 = heldItem;
+                        }
                     }
                     else if (whichTable.name == "T2_table")
                     {
                         tablePosition = GameObject.Find("DishPosition2");
-                        table2Placed = true;
-                        Action2Done();
-                    }
+                        if (order.order2Spawned)
+                        {
+                            isPlacingItem = true;
+                            Action2Done();
+                            Debug.Log("Placing down item on table...");
+                            table2Placed = true;
+                            dishInT2 = heldItem;
+                        }
+                    } else isPlacingItem = false;
 
                     if (tablePosition == null)
                     {
                         Debug.LogError("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
-                    }
-
-                    Debug.Log("Placing down item on table...");
-                    isPlacingItem = true;
+                    }                 
                     
-
                     // Start the delay coroutine
                     StartCoroutine(PlaceItemWithDelay());
                 }

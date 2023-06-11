@@ -13,10 +13,10 @@ public class Order : MonoBehaviour
 
     private bool isTimer1Active = false;
     private bool isTimer2Active = false;
-    private bool order1Spawned = false;
-    private bool order2Spawned = false;
-    private float timer1Duration = 7f;
-    private float timer2Duration = 9f;
+    public bool order1Spawned = false;
+    public bool order2Spawned = false;
+    private float timer1Duration = 5f;
+    private float timer2Duration = 7f;
     public float timer1;
     public float timer2;
 
