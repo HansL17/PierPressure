@@ -9,7 +9,7 @@ public class PatienceBar : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject _cus;
 
-    public float maxPatience = 30f; //max patience (in seconds)
+    public float maxPatience = 40f; //max patience (in seconds)
     public float currentPatience; //current patience (in seconds)
     public NavMeshAgent agent;
 
@@ -28,7 +28,7 @@ public class PatienceBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = 90;
+        currentPatience = 40;
         slider.value = currentPatience;
         StartCoroutine(DepletePatienceBar());
         //Start the patience countdown

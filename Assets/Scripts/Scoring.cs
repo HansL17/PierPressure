@@ -31,7 +31,7 @@ public class Scoring : MonoBehaviour
             consecutiveActions1 = 0; // Reset the consecutive actions count
             Debug.Log("Combo x2");
         }
-        else if (consecutiveActions2 >= 1)
+        else if (consecutiveActions2 >= 2)
         {
             newScore *= 2; // Increase the score by 20 if one action is done twice in a row
             score += newScore;
