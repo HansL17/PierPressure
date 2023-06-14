@@ -11,23 +11,25 @@ public class TableBar : MonoBehaviour
     public Canvas t2Bar;
     public Slider tab1Slider;
     public Slider tab2Slider;
-    public float maxEat = 10f; //max patience (in seconds)
+    public float maxEat = 20f; //max patience (in seconds)
     public float currentTab; //current patience (in seconds)
     private NavMeshAgent agent;
 
     private ItemPickup itPick;
     public CustomerMove cusMove;
     public SpawnCust spawnCus;
+    public Order order;
 
     void Awake()
     {
+        order = GameObject.Find("DishPosition").GetComponent<Order>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
     }
     void Start()
     {
-        currentTab = 10f;
+        currentTab = 20f;
         tab1Slider.value = currentTab;
         tab2Slider.value = currentTab;
     }
@@ -50,6 +52,7 @@ public class TableBar : MonoBehaviour
 
     public IEnumerator DepleteTableBar(Canvas bar)
     {
+        yield return new WaitForSeconds(1.5f);
         while (currentTab > 0f)
         {
             Slider slider = bar.GetComponentInChildren<Slider>();
@@ -72,6 +75,7 @@ public class TableBar : MonoBehaviour
 
         if(bar.gameObject.name == "Table1Bar")
         {
+            Destroy(itPick.dishInT1);
             agent = cusMove.customerInT1.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
@@ -79,14 +83,14 @@ public class TableBar : MonoBehaviour
             {
                 yield return null;
             }
-            Destroy(cusMove.customerInT1);
+            Destroy(agent.gameObject);
             spawnCus.cusCount--;
-            cusMove.t1_occupied = false;
-            Destroy(itPick.dishInT1);
             itPick.table1Placed = false;
+            Start();
         }
         if(bar.gameObject.name == "Table2Bar")
         {
+            Destroy(itPick.dishInT2);
             agent = cusMove.customerInT2.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
@@ -94,11 +98,10 @@ public class TableBar : MonoBehaviour
             {
                 yield return null;
             }
-            Destroy(cusMove.customerInT2);
+            Destroy(agent.gameObject);
             spawnCus.cusCount--;
-            cusMove.t2_occupied = false;
-            Destroy(itPick.dishInT2);
             itPick.table2Placed = false;
+            Start();
         }
     }
 

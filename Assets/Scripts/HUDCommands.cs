@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class HUDCommands : MonoBehaviour
 {
 
+    void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void ResetScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -22,8 +27,9 @@ public class HUDCommands : MonoBehaviour
         Debug.Log("Scene resumed");
     }
 
-    public void BackToMain() {
-    Time.timeScale = 1f;
-    SceneManager.LoadScene("mainMenu");
+    public void BackToMain() 
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("mainMenu");
    }
 }

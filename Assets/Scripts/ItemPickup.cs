@@ -23,6 +23,7 @@ public class ItemPickup : MonoBehaviour
     public Scoring scores;
     public TableBar tBar;
     public Order order;
+    public CustomerMove cusMove;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class ItemPickup : MonoBehaviour
 
         playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<NavMeshAgent>(); //Get Player NavMeshAgent
+        cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
         order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
@@ -105,6 +107,8 @@ public class ItemPickup : MonoBehaviour
                             Debug.Log("Placing down item on table...");
                             table1Placed = true;
                             dishInT1 = heldItem;
+                            order.order1Spawned = false;
+                            cusMove.t1_occupied = false;
                         }
                     }
                     else if (whichTable.name == "T2_table")
@@ -117,6 +121,8 @@ public class ItemPickup : MonoBehaviour
                             Debug.Log("Placing down item on table...");
                             table2Placed = true;
                             dishInT2 = heldItem;
+                            order.order2Spawned = false;
+                            cusMove.t2_occupied = false;
                         }
                     } else isPlacingItem = false;
 

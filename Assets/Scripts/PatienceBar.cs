@@ -9,26 +9,30 @@ public class PatienceBar : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject _cus;
 
-    public float maxPatience = 30f; //max patience (in seconds)
+    public float maxPatience = 40f; //max patience (in seconds)
     public float currentPatience; //current patience (in seconds)
     public NavMeshAgent agent;
 
     private ItemPickup itPick;
     public CustomerLine cusLine;
     public SpawnCust spawnCus;
+    public CustomerMove cusMove;
+    public Order order;
 
 
     private void Awake()
     {
+        cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
+        order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = 90;
+        currentPatience = 40;
         slider.value = currentPatience;
         StartCoroutine(DepletePatienceBar());
         //Start the patience countdown
@@ -37,9 +41,14 @@ public class PatienceBar : MonoBehaviour
 
     void Update()
     {
-        if(itPick.table1Placed || itPick.table2Placed)
+        if(itPick.table1Placed)
         {
-            GameObject toDelete = slider.gameObject;
+            Canvas toDelete = cusMove.customerInT1.GetComponentInChildren<Canvas>();
+            Destroy(toDelete);
+        }
+        if(itPick.table2Placed)
+        {
+            Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
         }
     }
@@ -61,6 +70,20 @@ public class PatienceBar : MonoBehaviour
     {
         Debug.Log("Patience Depleted");
         Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
+        if (agent.gameObject == cusMove.customerInT1)
+        {
+            Canvas toDelete = cusMove.customerInT1.GetComponentInChildren<Canvas>();
+            Destroy(toDelete);
+            order.ResetTable("1");
+        }
+        if (agent.gameObject == cusMove.customerInT2)
+        {
+            Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
+            Destroy(toDelete);
+            order.ResetTable("2");
+        }
+
+        
         agent.SetDestination(exit.transform.position);
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
