@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class HUDCommands : MonoBehaviour
 {
+    public float globalTime = 9000;
 
     void Awake()
     {
