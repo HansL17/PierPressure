@@ -7,6 +7,13 @@ using TMPro;
 public class Scoring : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextLVLdoneCOMP;
+    public TextMeshProUGUI scoreTextLVLdoneFAIL;
+    public TextMeshProUGUI scoreType;
+    public GameObject lvlComp;
+    public GameObject lvlFail;
+    public GameObject HUD;
+
     public int score = 0;
     public int normalScore;
     public int expertScore;
@@ -15,6 +22,15 @@ public class Scoring : MonoBehaviour
     public bool isAction2Done = false;
     public int consecutiveActions1 = 0;
     public int consecutiveActions2 = 0;
+
+    public SpawnCust spawnCus;
+    public HUDCommands hud;
+
+    void Awake()
+    {
+        hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
+        spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,5 +83,28 @@ public class Scoring : MonoBehaviour
     void Update()
     {
         UpdateScore();
+
+        if(spawnCus.totalCus == 6 && spawnCus.cusCount == 0)
+        {
+            hud.PauseScene();
+            if(expertScore > score && score >= normalScore)
+            {
+                HUD.gameObject.SetActive(false);
+                lvlComp.gameObject.SetActive(true);
+                scoreTextLVLdoneCOMP.text = "Score: " + score;
+                scoreType.text = "Normal Score Achieved!";
+            } else if (score >= expertScore)
+            {
+                HUD.gameObject.SetActive(false);
+                lvlComp.gameObject.SetActive(true);
+                scoreTextLVLdoneCOMP.text = "Score: " + score;
+                scoreType.text = "Expert Score Achieved!";
+            } else if (score < normalScore)
+            {
+                HUD.gameObject.SetActive(false);
+                lvlFail.gameObject.SetActive(true);
+                scoreTextLVLdoneFAIL.text = "Score: " + score;
+            }
+        }
     }
 }

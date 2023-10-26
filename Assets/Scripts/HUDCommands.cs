@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class HUDCommands : MonoBehaviour
 {
+    public float globalTime = 9000;
+
+    void Awake()
+    {
+        Time.timeScale = 1f;
+    }
 
     public void ResetScene()
     {
@@ -22,8 +28,9 @@ public class HUDCommands : MonoBehaviour
         Debug.Log("Scene resumed");
     }
 
-    public void BackToMain() {
-    Time.timeScale = 1f;
-    SceneManager.LoadScene("mainMenu");
+    public void BackToMain() 
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("mainMenu");
    }
 }

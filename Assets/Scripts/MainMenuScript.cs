@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+     void Awake()
+     {
+          Time.timeScale = 1f;
+     }
+
    public void ExitButton() {
         Application.Quit();
         Debug.Log("Game Closed");

@@ -383,9 +383,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 90
+  m_MaxValue: 40
   m_WholeNumbers: 0
-  m_Value: 90
+  m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -405,7 +405,9 @@ MonoBehaviour:
   _cus: {fileID: 6725033063610882024}
   maxPatience: 90
   currentPatience: 0
+  agent: {fileID: 0}
   cusLine: {fileID: 0}
+  spawnCus: {fileID: 0}
 --- !u!1 &6153681267379114516
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,5 +599,5 @@ Transform:
   - {fileID: 220356662556007444}
   - {fileID: 8778488564573768017}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

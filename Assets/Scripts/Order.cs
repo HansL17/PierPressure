@@ -15,8 +15,8 @@ public class Order : MonoBehaviour
     private bool isTimer2Active = false;
     public bool order1Spawned = false;
     public bool order2Spawned = false;
-    private float timer1Duration = 5f;
-    private float timer2Duration = 7f;
+    public float timer1Duration = 5f;
+    public float timer2Duration = 7f;
     public float timer1;
     public float timer2;
 
@@ -113,5 +113,34 @@ public class Order : MonoBehaviour
             }
             itemPick.table2Placed = false;
         }
+    }
+
+    public void ResetTable(string table)
+    {
+        if (table == "1"){
+            orderSprites = GameObject.FindGameObjectsWithTag("OrderSprite1");
+            Debug.Log("Destroyed");
+            foreach (GameObject obj in orderSprites)
+            {
+            Destroy(obj);
+            } 
+            order1Spawned = false;
+            cusMove.t1_occupied = false;
+            timer1 = 0f;
+            isTimer1Active = false;
+        } else if (table == "2")
+        {
+            orderSprites = GameObject.FindGameObjectsWithTag("OrderSprite2");
+            Debug.Log("Destroyed");
+            foreach (GameObject obj in orderSprites)
+            {
+                Destroy(obj);
+            }
+            order2Spawned = false;
+            cusMove.t2_occupied = false;
+            timer2 = 0f;
+            isTimer2Active = false;
+        }
+
     }
 }
