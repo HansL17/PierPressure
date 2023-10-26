@@ -12,6 +12,7 @@ public class TableBar : MonoBehaviour
     public Slider tab1Slider;
     public Slider tab2Slider;
     public float maxEat = 20f; //max patience (in seconds)
+    public float maxEat = 5f; //max patience (in seconds)
     public float currentTab; //current patience (in seconds)
     private NavMeshAgent agent;
 
@@ -30,6 +31,7 @@ public class TableBar : MonoBehaviour
     void Start()
     {
         currentTab = 20f;
+        currentTab = 5f;
         tab1Slider.value = currentTab;
         tab2Slider.value = currentTab;
     }
