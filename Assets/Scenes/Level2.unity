@@ -10133,7 +10133,7 @@ GameObject:
   - component: {fileID: 1508289922}
   - component: {fileID: 1508289921}
   m_Layer: 5
-  m_Name: Score
+  m_Name: UpgradesChoose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
