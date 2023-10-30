@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ItemPickup : MonoBehaviour
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 1
     public bool table2Placed = false; // Flag to indicate if item is placed on Table 2
 
+
     private GameObject playerObject;
     private NavMeshAgent player; // Reference to Player NavMeshAgent
 
@@ -24,9 +26,13 @@ public class ItemPickup : MonoBehaviour
     public TableBar tBar;
     public Order order;
     public CustomerMove cusMove;
+    public Lvl2Upgrade lvl2UG = null;
 
     private void Start()
     {
+        //Get the name of the scene
+        Scene currentScene = SceneManager.GetActiveScene();
+
         // Find the item attach point as a child of the player
         itemAttachPoint = transform.Find("DishPlace");
         if (itemAttachPoint == null)
@@ -40,6 +46,7 @@ public class ItemPickup : MonoBehaviour
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
         order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
+        
     }
 
     private void Update()
@@ -176,7 +183,10 @@ public class ItemPickup : MonoBehaviour
         scores.consecutiveActions2++;
         Debug.Log("Action 2 Done");
         scores.AddScore(10);
+        
+        
     }
 
+ 
 }
 

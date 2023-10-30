@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class CustomerMove : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CustomerMove : MonoBehaviour
     public GameObject customerTable;
     public Canvas cusBar;
     public RectTransform cusBarRect;
+
 
     public bool isHighlighted = false; //Flag to detect highlighted object
 
@@ -28,9 +30,9 @@ public class CustomerMove : MonoBehaviour
     public CustomerLine cusLine;
     public Scoring scores;
     public PatienceBar pBar;
+    public Lvl2Upgrade lvl2UG = null;
 
-    
- 
+
     private NavMeshAgent agent; //Navmesh of object
     private RaycastHit hit;
 
@@ -39,7 +41,9 @@ public class CustomerMove : MonoBehaviour
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
+
         
+
 
     }
 
@@ -171,4 +175,5 @@ public class CustomerMove : MonoBehaviour
         scores.consecutiveActions2 = 0;
         Debug.Log("Action 1 Done");
     }
+
 }
