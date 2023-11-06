@@ -25,12 +25,15 @@ public class Lvl2Upgrade : MonoBehaviour
     public GameObject CarpetBtn;
 
     //Int Values
-    public int ExpertScore;
-    public int UGCount;
+    public int UGCount = 0;
 
     //Scripts
     public HUDCommands HudComm;
     public ItemPickup Serve;
+    public ScoreTally Tally2;
+    public Scoring Score;
+    public CustomerMove cusMove;
+    public SpawnCust cusSpawn;
 
     //Bools
     public bool PlantUG = false;
@@ -43,12 +46,16 @@ public class Lvl2Upgrade : MonoBehaviour
     {
         HudComm = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();//Get HUDCommands Script
         Serve = GameObject.Find("Player").GetComponent<ItemPickup>(); //Get ItemPickup Script
+        Score = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
+        cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>(); // Get CustomerMove Script
+        cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); // Get CustomerMove Script
 
-        UGRemain.text = UGCount + " Remaining";
-
+        ExScoreCheck();
         DisableHUD();
         DisableUGObjects();
         GetUGButtons();
+
+        UGRemain.text = UGCount + " Remaining";
     }
 
     // Update is called once per frame
@@ -79,6 +86,12 @@ public class Lvl2Upgrade : MonoBehaviour
         TabMat.SetActive(false);
         TabMat2.SetActive(false);
         Carpet.SetActive(false);
+        PlantUG = false;
+        Tally2.PlantUPG = false;
+        TableUG = false;
+        Tally2.TableUPG = false;
+        CarpetUG = false;
+        Tally2.CarpetUPG = false;
     }
 
     public void GetUGButtons()
@@ -93,9 +106,12 @@ public class Lvl2Upgrade : MonoBehaviour
         if(UGCount > 0)
         {
             PlantUG = true;
+            Tally2.PlantUPG = true;
             PlantBtn.GetComponent<Image>().color = Color.green;
             UGCount--;
             PotPlant.SetActive(true);
+            cusMove.speed = 6f;
+
         }
         UpdateUpgrade();
     }
@@ -105,10 +121,12 @@ public class Lvl2Upgrade : MonoBehaviour
         if (UGCount > 0)
         {
             TableUG = true;
+            Tally2.TableUPG = true;
             TabMatBtn.GetComponent<Image>().color = Color.green;
             UGCount--;
             TabMat.SetActive(true);
             TabMat2.SetActive(true);
+            Score.ScoreInc = 15;
         }
         UpdateUpgrade();
     }
@@ -118,9 +136,11 @@ public class Lvl2Upgrade : MonoBehaviour
         if (UGCount > 0)
         {
             CarpetUG = true;
+            Tally2.CarpetUPG = true;
             CarpetBtn.GetComponent<Image>().color = Color.green;
             UGCount--;
             Carpet.SetActive(true);
+            cusSpawn.timeDelay = 4.5f;
         }
         UpdateUpgrade();
     }
@@ -128,7 +148,7 @@ public class Lvl2Upgrade : MonoBehaviour
     public void ResetUG()
     {
         DisableUGObjects();
-        UGCount = 1;
+        ExScoreCheck();
         UpdateUpgrade();
         PlantBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         TabMatBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
@@ -136,10 +156,25 @@ public class Lvl2Upgrade : MonoBehaviour
         PlantUG = false;
         TableUG = false;
         CarpetUG = false;
+        cusMove.speed = 5f;
+        Score.ScoreInc = 10;
+        cusSpawn.timeDelay = 5f;
     }
 
     public void UpdateUpgrade()
     {
         UGRemain.text = UGCount + " Remaining";
+    }
+
+    public void ExScoreCheck()
+    {
+        if (Tally2.ExScoreCount >= 1)
+        {
+            UGCount = 2;
+        }
+        else
+        {
+            UGCount = 1;
+        }
     }
 }

@@ -6,6 +6,7 @@ using TMPro;
 
 public class Scoring : MonoBehaviour
 {
+    //GameObjects
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTextLVLdoneCOMP;
     public TextMeshProUGUI scoreTextLVLdoneFAIL;
@@ -14,17 +15,23 @@ public class Scoring : MonoBehaviour
     public GameObject lvlFail;
     public GameObject HUD;
 
+    //Integers
     public int score = 0;
     public int normalScore;
     public int expertScore;
+    public int ScoreInc = 10;
 
+
+    //Bool and ConsecutiveActions
     public bool isAction1Done = false;
     public bool isAction2Done = false;
     public int consecutiveActions1 = 0;
     public int consecutiveActions2 = 0;
 
+    //Script
     public SpawnCust spawnCus;
     public HUDCommands hud;
+    public ScoreTally Tally1;
 
     void Awake()
     {
@@ -38,25 +45,25 @@ public class Scoring : MonoBehaviour
         score = 0;
     }
 
-    public void AddScore(int newScore) // Function for adding score
+    public void AddScore() // Function for adding score
     {
         if (consecutiveActions1 >= 1)
         {
-            newScore *= 2; // Increase the score by 20 if one action is done twice in a row
-            score += newScore;
+            ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
+            score += ScoreInc;
             consecutiveActions1 = 0; // Reset the consecutive actions count
             Debug.Log("Combo x2");
         }
         else if (consecutiveActions2 >= 2)
         {
-            newScore *= 2; // Increase the score by 20 if one action is done twice in a row
-            score += newScore;
+            ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
+            score += ScoreInc;
             consecutiveActions2 = 0; // Reset the consecutive actions count
             Debug.Log("Combo x2");
         }
         else
         {
-            score += newScore;
+            score += ScoreInc;
         }
     }
 
@@ -99,6 +106,7 @@ public class Scoring : MonoBehaviour
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Expert Score Achieved!";
+                Tally1.ExScoreCount++;
             } else if (score < normalScore)
             {
                 HUD.gameObject.SetActive(false);

@@ -145,7 +145,7 @@ public class CustomerMove : MonoBehaviour
     public void MoveObject(Transform destination)
     { 
             Vector3 targetPosition = destination.transform.position;
-            scores.AddScore(10);
+            scores.AddScore();
             agent = selectedObject.GetComponent<NavMeshAgent>();
             agent.SetDestination(targetPosition);
             StartCoroutine(RotateAgent(targetPosition));

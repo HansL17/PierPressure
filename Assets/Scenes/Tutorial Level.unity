@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
+  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5120,6 +5120,7 @@ MonoBehaviour:
   consecutiveActions2: 0
   spawnCus: {fileID: 0}
   hud: {fileID: 0}
+  Tally1: {fileID: 1019226564}
 --- !u!4 &765587232
 Transform:
   m_ObjectHideFlags: 0
@@ -7164,6 +7165,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c44786528dd3de842a6650493e7bf997, type: 3}
   m_PrefabInstance: {fileID: 1013375781}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1019226563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019226565}
+  - component: {fileID: 1019226564}
+  m_Layer: 0
+  m_Name: ScoreUpgradeTally
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1019226564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019226563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa207d75170f6874ea46381fc2b42559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExScoreCount: 0
+  TableUPG: 0
+  PlantUPG: 0
+  CarpetUPG: 0
+--- !u!4 &1019226565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019226563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.307287, y: 0.40725628, z: 2.8580847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1034421569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12589,6 +12638,7 @@ MonoBehaviour:
   cusLine: {fileID: 0}
   scores: {fileID: 0}
   pBar: {fileID: 0}
+  lvl2UG: {fileID: 0}
 --- !u!114 &1871873318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14630,6 +14680,7 @@ MonoBehaviour:
   tBar: {fileID: 0}
   order: {fileID: 0}
   cusMove: {fileID: 0}
+  lvl2UG: {fileID: 0}
 --- !u!4 &919132149012455827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3084937571895530897, guid: 9cb2c4fd86bb98a41aaded72f6cba0e2, type: 3}

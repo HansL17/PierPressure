@@ -8,7 +8,7 @@ public class SpawnCust : MonoBehaviour
     //Variables
     public GameObject ObjectToSpawn; //What will spawn
     float time;
-    float timeDelay;
+    public float timeDelay;
     public float cusCount;
     public float totalCus;
     public Transform spawnPosition; // Position where the object should be spawned

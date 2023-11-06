@@ -182,7 +182,7 @@ public class ItemPickup : MonoBehaviour
         scores.consecutiveActions1 = 0;
         scores.consecutiveActions2++;
         Debug.Log("Action 2 Done");
-        scores.AddScore(10);
+        scores.AddScore();
         
         
     }

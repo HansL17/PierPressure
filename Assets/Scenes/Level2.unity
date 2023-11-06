@@ -1111,6 +1111,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 116dcdac0421b4a4f8441b5231d45c58, type: 3}
   m_PrefabInstance: {fileID: 57459506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &173865030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173865032}
+  - component: {fileID: 173865031}
+  m_Layer: 0
+  m_Name: ScoreUpgradeTally
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &173865031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173865030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa207d75170f6874ea46381fc2b42559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExScoreCount: 0
+  TableUPG: 0
+  PlantUPG: 0
+  CarpetUPG: 0
+--- !u!4 &173865032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173865030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.307287, y: 0.40725628, z: 2.8580847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179923484
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,9 +5364,13 @@ MonoBehaviour:
   PlantBtn: {fileID: 0}
   TabMatBtn: {fileID: 0}
   CarpetBtn: {fileID: 0}
-  ExpertScore: 0
-  UGCount: 1
+  UGCount: 0
   HudComm: {fileID: 0}
+  Serve: {fileID: 0}
+  Tally2: {fileID: 173865031}
+  Score: {fileID: 0}
+  cusMove: {fileID: 0}
+  cusSpawn: {fileID: 0}
   PlantUG: 0
   TableUG: 0
   CarpetUG: 0
@@ -5633,12 +5685,14 @@ MonoBehaviour:
   score: 0
   normalScore: 120
   expertScore: 160
+  ScoreInc: 10
   isAction1Done: 0
   isAction2Done: 0
   consecutiveActions1: 0
   consecutiveActions2: 0
   spawnCus: {fileID: 0}
   hud: {fileID: 0}
+  Tally1: {fileID: 173865031}
 --- !u!4 &765587232
 Transform:
   m_ObjectHideFlags: 0
@@ -11665,6 +11719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToSpawn: {fileID: 6725033063610882024, guid: 217255cfc44353a43bee34d72d32bfbf, type: 3}
+  timeDelay: 0
   cusCount: 0
   totalCus: 0
   spawnPosition: {fileID: 1514522228}
