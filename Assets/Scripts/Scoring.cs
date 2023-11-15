@@ -100,12 +100,14 @@ public class Scoring : MonoBehaviour
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Normal Score Achieved!";
+                Tally1.LvlCompCount++;
             } else if (score >= expertScore)
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Expert Score Achieved!";
+                Tally1.LvlCompCount++;
                 Tally1.ExScoreCount++;
             } else if (score < normalScore)
             {

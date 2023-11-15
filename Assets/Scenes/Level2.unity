@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
+  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1472,7 +1472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa207d75170f6874ea46381fc2b42559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExScoreCount: 0
+  ExScoreCount: 1
+  LvlCompCount: 0
   TableUPG: 0
   PlantUPG: 0
   CarpetUPG: 0
@@ -5403,7 +5404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cusMove: {fileID: 0}
   itemPick: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1556246297}
   order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
   order1Spawned: 0
   order2Spawned: 0
@@ -9109,7 +9110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cusMove: {fileID: 0}
   itemPick: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1556246297}
   order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
   order1Spawned: 0
   order2Spawned: 0
