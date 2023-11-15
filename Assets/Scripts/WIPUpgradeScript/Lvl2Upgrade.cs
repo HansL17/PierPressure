@@ -9,6 +9,7 @@ public class Lvl2Upgrade : MonoBehaviour
     //Canvases
     public Canvas lvl2Upgrade;
     public Canvas lvl2HUD;
+    public Image lvl2Desc;
 
     //Texts
     public TextMeshProUGUI UGRemain;
@@ -23,6 +24,11 @@ public class Lvl2Upgrade : MonoBehaviour
     public GameObject PlantBtn;
     public GameObject TabMatBtn;
     public GameObject CarpetBtn;
+
+    //Descriptions
+    public GameObject plantDesc;
+    public GameObject TabMatDesc;
+    public GameObject CarpetDesc;
 
     //Int Values
     public int UGCount = 0;
@@ -39,6 +45,10 @@ public class Lvl2Upgrade : MonoBehaviour
     public bool PlantUG = false;
     public bool TableUG = false;
     public bool CarpetUG = false;
+
+    //Button Highlight color
+    private Color highlight;
+    private string hexColor = "#C4DEA4";
 
 
     // Start is called before the first frame update
@@ -67,7 +77,11 @@ public class Lvl2Upgrade : MonoBehaviour
     private void DisableHUD() //Disable HUD method
     {
         HudComm.PauseScene();
-        lvl2HUD.enabled = false; 
+        lvl2HUD.enabled = false;
+        lvl2Desc.enabled = false;
+        plantDesc.SetActive(false);
+        TabMatDesc.SetActive(false);
+        CarpetDesc.SetActive(false);
     }
 
     public void EnableHUD() //Enable HUD method
@@ -92,6 +106,9 @@ public class Lvl2Upgrade : MonoBehaviour
         Tally2.TableUPG = false;
         CarpetUG = false;
         Tally2.CarpetUPG = false;
+        plantDesc.SetActive(false);
+        TabMatDesc.SetActive(false);
+        CarpetDesc.SetActive(false);
     }
 
     public void GetUGButtons()
@@ -107,7 +124,10 @@ public class Lvl2Upgrade : MonoBehaviour
         {
             PlantUG = true;
             Tally2.PlantUPG = true;
-            PlantBtn.GetComponent<Image>().color = Color.green;
+            lvl2Desc.enabled = true;
+            plantDesc.SetActive(true);
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            PlantBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             PotPlant.SetActive(true);
             cusMove.speed = 6f;
@@ -122,7 +142,10 @@ public class Lvl2Upgrade : MonoBehaviour
         {
             TableUG = true;
             Tally2.TableUPG = true;
-            TabMatBtn.GetComponent<Image>().color = Color.green;
+            lvl2Desc.enabled = true;
+            TabMatDesc.SetActive(true);
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            TabMatBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             TabMat.SetActive(true);
             TabMat2.SetActive(true);
@@ -137,7 +160,10 @@ public class Lvl2Upgrade : MonoBehaviour
         {
             CarpetUG = true;
             Tally2.CarpetUPG = true;
-            CarpetBtn.GetComponent<Image>().color = Color.green;
+            lvl2Desc.enabled = true;
+            CarpetDesc.SetActive(true);
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            CarpetBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             Carpet.SetActive(true);
             cusSpawn.timeDelay = 4.5f;
@@ -153,6 +179,7 @@ public class Lvl2Upgrade : MonoBehaviour
         PlantBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         TabMatBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         CarpetBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        lvl2Desc.enabled = false;
         PlantUG = false;
         TableUG = false;
         CarpetUG = false;
