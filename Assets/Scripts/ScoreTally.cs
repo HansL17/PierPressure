@@ -6,6 +6,7 @@ public class ScoreTally : MonoBehaviour
 {
     //Integers
     public int ExScoreCount;
+    public int LvlCompCount;
 
     //Upgrades
     public bool TableUPG;

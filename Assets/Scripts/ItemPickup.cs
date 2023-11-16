@@ -20,7 +20,7 @@ public class ItemPickup : MonoBehaviour
 
 
     private GameObject playerObject;
-    private NavMeshAgent player; // Reference to Player NavMeshAgent
+    private NavMeshAgent player; // Reference to Player NavMeshAgent (Wendy)
 
     public Scoring scores;
     public TableBar tBar;

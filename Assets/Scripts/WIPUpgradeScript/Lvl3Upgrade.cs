@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 using TMPro;
 
 public class Lvl3Upgrade : MonoBehaviour
@@ -12,10 +14,13 @@ public class Lvl3Upgrade : MonoBehaviour
     //Texts
     public TextMeshProUGUI UGRemain;
 
-    //Upgrade Assets
-    public GameObject Upgrade1;
-    public GameObject Upgrade2;
-    public GameObject Upgrade3;
+    //Wendy
+    [SerializeField] NavMeshAgent player;
+
+    //Upgrade Assets Lvl3
+    public GameObject WShoes;
+    public GameObject WApron;
+    public GameObject MJars;
 
     //Lvl2 Upgrades
     public GameObject PotPlant;
@@ -24,9 +29,12 @@ public class Lvl3Upgrade : MonoBehaviour
     public GameObject Carpet;
 
     //Upgrade buttons
-    public GameObject UP1Btn;
-    public GameObject UP2Btn;
-    public GameObject UP3Btn;
+    public GameObject ShoesBtn;
+    public GameObject ApronBtn;
+    public GameObject JarsBtn;
+
+    //Dish Spawn Bar
+    [SerializeField] Slider Dishbar1;
 
     //Int Values
     public int UGCount = 0;
@@ -34,22 +42,34 @@ public class Lvl3Upgrade : MonoBehaviour
     //Scripts
     public ScoreTally Tally3;
     public HUDCommands HCom;
+    public DishSpawn DSpawn;
+    public Scoring Score2;
 
     //Bools
-    public bool UPG1;
-    public bool UPG2;
-    public bool UPG3;
+    public bool WenShoes;
+    public bool WenApron;
+    public bool MasJars;
 
     void Start()
     {
         UGCheck();
         DisableUGObjects2();
+        GetScripts();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void GetScripts()
+    {
+        HCom = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();//Get HUDCommands Script
+        Tally3 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();//Get ScoreTally Script
+        DSpawn = GameObject.Find("DishButton").GetComponent<DishSpawn>(); //Get DishSpawn script
+        Score2 = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
     }
 
     public void UGCheck()
@@ -88,13 +108,13 @@ public class Lvl3Upgrade : MonoBehaviour
 
     public void DisableUGObjects2()
     {
-        UPG1 = false;
-        UPG2 = false;
-        UPG3 = false;
+        WenShoes = false;
+        WenApron = false;
+        MasJars = false;
 
-        UP1Btn.SetActive(false);
-        UP2Btn.SetActive(false);
-        UP3Btn.SetActive(false);
+        ShoesBtn.SetActive(false);
+        ApronBtn.SetActive(false);
+        JarsBtn.SetActive(false);
     }
 
     public void DisableHUD2()
@@ -112,41 +132,56 @@ public class Lvl3Upgrade : MonoBehaviour
 
     public void GetUGButtons2()
     {
-        
+        //Reference buttons for upgrades
     }
 
-    public void EnableUP1()
+    public void EnableShoes()
     {
         if(UGCount > 0)
         {
-            Upgrade1.SetActive(true);
-            UPG1 = true;
+            WShoes.SetActive(true);
+            WenShoes = true;
             UGCount--;
+            //Speed upgrade code
+            player.speed = 7.0f;
         }
         
 
         UpdateUpgrade2();
     }
 
-    public void EnableUP2()
+    public void EnableApron()
     {
         if (UGCount > 0)
         {
-            Upgrade2.SetActive(true);
-            UPG2 = true;
+            WApron.SetActive(true);
+            WenApron = true;
             UGCount--;
+            //30% chance for Scoring to add +5 pts
+            if (Random.value < 0.3f)
+            {
+                Score2.ScoreInc += 5; // If true, add 5 to the points
+                Debug.Log("Bonus Points Success! +5");
+            }
+            else
+            {
+                Debug.Log("Bonus Points Failed! Better Luck Next Time!");
+            }
         }
 
         UpdateUpgrade2();
     }
 
-    public void EnableUP3()
+    public void EnableJars()
     {
         if (UGCount > 0)
         {
-            Upgrade3.SetActive(true);
-            UPG3 = true;
+            MJars.SetActive(true);
+            MasJars = true;
             UGCount--;
+            //faster dish spawning
+            Dishbar1.maxValue = 4;
+            DSpawn.spawnDelay = 4;
         }
 
         UpdateUpgrade2();

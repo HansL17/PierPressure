@@ -58,7 +58,7 @@ public class Lvl2Upgrade : MonoBehaviour
         Serve = GameObject.Find("Player").GetComponent<ItemPickup>(); //Get ItemPickup Script
         Score = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>(); // Get CustomerMove Script
-        cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); // Get CustomerMove Script
+        cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); // Get SpawnCust Script
 
         ExScoreCheck();
         DisableHUD();
@@ -125,9 +125,14 @@ public class Lvl2Upgrade : MonoBehaviour
             PlantUG = true;
             Tally2.PlantUPG = true;
             lvl2Desc.enabled = true;
+            //Descriptions
             plantDesc.SetActive(true);
+            TabMatDesc.SetActive(false);
+            CarpetDesc.SetActive(false);
+            //Button Color
             ColorUtility.TryParseHtmlString(hexColor, out highlight);
             PlantBtn.GetComponent<Image>().color = highlight;
+            //UG Count Decrement
             UGCount--;
             PotPlant.SetActive(true);
             cusMove.speed = 6f;
@@ -143,7 +148,11 @@ public class Lvl2Upgrade : MonoBehaviour
             TableUG = true;
             Tally2.TableUPG = true;
             lvl2Desc.enabled = true;
+            //Descriptions
+            plantDesc.SetActive(false);
             TabMatDesc.SetActive(true);
+            CarpetDesc.SetActive(false);
+            //Button Color
             ColorUtility.TryParseHtmlString(hexColor, out highlight);
             TabMatBtn.GetComponent<Image>().color = highlight;
             UGCount--;
@@ -161,7 +170,11 @@ public class Lvl2Upgrade : MonoBehaviour
             CarpetUG = true;
             Tally2.CarpetUPG = true;
             lvl2Desc.enabled = true;
+            //Descriptions
+            plantDesc.SetActive(false);
+            TabMatDesc.SetActive(false);
             CarpetDesc.SetActive(true);
+            //Button Color
             ColorUtility.TryParseHtmlString(hexColor, out highlight);
             CarpetBtn.GetComponent<Image>().color = highlight;
             UGCount--;
