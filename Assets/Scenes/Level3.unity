@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
+  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1462,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExScoreCount: 0
+  LvlCompCount: 0
   TableUPG: 0
   PlantUPG: 0
   CarpetUPG: 0
@@ -5362,7 +5363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carpet
+  m_text: Mason Jars
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -5536,7 +5537,7 @@ GameObject:
   - component: {fileID: 649669572}
   - component: {fileID: 649669571}
   m_Layer: 5
-  m_Name: PotPlantBtn
+  m_Name: ShoeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5560,7 +5561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 215, y: 255}
+  m_AnchoredPosition: {x: -491, y: 120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649669571
@@ -5607,7 +5608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700858687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Lvl2Upgrade, Assembly-CSharp
         m_MethodName: EnablePlant
         m_Mode: 1
@@ -5783,7 +5784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700858688}
-  - component: {fileID: 700858687}
+  - component: {fileID: 700858689}
   m_Layer: 0
   m_Name: UpgradeScript
   m_TagString: Untagged
@@ -5791,42 +5792,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &700858687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700858686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6886c53f53ea7604a8e3ce8d7eea6077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lvl2Upgrade: {fileID: 138240365}
-  lvl2HUD: {fileID: 1776167356}
-  lvl2Desc: {fileID: 532384586}
-  UGRemain: {fileID: 1257158264}
-  PotPlant: {fileID: 1510390041}
-  TabMat: {fileID: 3761587948300546349}
-  TabMat2: {fileID: 1345513507}
-  Carpet: {fileID: 766616365}
-  PlantBtn: {fileID: 0}
-  TabMatBtn: {fileID: 0}
-  CarpetBtn: {fileID: 0}
-  plantDesc: {fileID: 808623226}
-  TabMatDesc: {fileID: 316046250}
-  CarpetDesc: {fileID: 2685466}
-  UGCount: 0
-  HudComm: {fileID: 0}
-  Serve: {fileID: 0}
-  Tally2: {fileID: 173865031}
-  Score: {fileID: 0}
-  cusMove: {fileID: 0}
-  cusSpawn: {fileID: 0}
-  PlantUG: 0
-  TableUG: 0
-  CarpetUG: 0
 --- !u!4 &700858688
 Transform:
   m_ObjectHideFlags: 0
@@ -5842,6 +5807,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700858689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700858686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5c47d379b2d8244aad3b91bb65480c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl3Upgrade: {fileID: 138240365}
+  lvl3HUD: {fileID: 1776167356}
+  UGRemain: {fileID: 1257158264}
+  player: {fileID: 1556246297}
+  WShoes: {fileID: 0}
+  WApron: {fileID: 0}
+  MJars: {fileID: 0}
+  PotPlant: {fileID: 1510390041}
+  TabMat: {fileID: 3761587948300546349}
+  TabMat2: {fileID: 1345513507}
+  TabMat3: {fileID: 1505059612}
+  Carpet: {fileID: 766616365}
+  ShoesBtn: {fileID: 649669569}
+  ApronBtn: {fileID: 1133684690}
+  JarsBtn: {fileID: 965605307}
+  shoesDesc: {fileID: 0}
+  apronDesc: {fileID: 0}
+  jarsDesc: {fileID: 0}
+  Dishbar1: {fileID: 2580802}
+  UGCount: 0
+  Tally3: {fileID: 0}
+  HCom: {fileID: 0}
+  DSpawn: {fileID: 0}
+  Score2: {fileID: 0}
+  WenShoes: 0
+  WenApron: 0
+  MasJars: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,7 +7406,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700858687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Lvl2Upgrade, Assembly-CSharp
         m_MethodName: ResetUG
         m_Mode: 1
@@ -8770,7 +8774,7 @@ GameObject:
   - component: {fileID: 965605310}
   - component: {fileID: 965605309}
   m_Layer: 5
-  m_Name: CarpetBtn
+  m_Name: MJarsBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8794,7 +8798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -525.1, y: 84}
+  m_AnchoredPosition: {x: -619, y: -92}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965605309
@@ -8841,7 +8845,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700858687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Lvl2Upgrade, Assembly-CSharp
         m_MethodName: EnableCarpet
         m_Mode: 1
@@ -9513,7 +9517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Table Mats
+  m_text: Wendy Apron
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -10357,7 +10361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700858687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Lvl2Upgrade, Assembly-CSharp
         m_MethodName: EnableHUD
         m_Mode: 1
@@ -10617,7 +10621,7 @@ GameObject:
   - component: {fileID: 1133684693}
   - component: {fileID: 1133684692}
   m_Layer: 5
-  m_Name: TabMatBtn
+  m_Name: ApronBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10641,7 +10645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: 86}
+  m_AnchoredPosition: {x: -560, y: 9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1133684692
@@ -10688,7 +10692,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700858687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Lvl2Upgrade, Assembly-CSharp
         m_MethodName: EnableTabMat
         m_Mode: 1
@@ -16371,7 +16375,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Potted Plant
+  m_text: 'Wendy Shoes
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa207d75170f6874ea46381fc2b42559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExScoreCount: 1
+  ExScoreCount: 0
   LvlCompCount: 0
   TableUPG: 0
   PlantUPG: 0
