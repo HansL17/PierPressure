@@ -2,38 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DishSpawn : MonoBehaviour
+public class DishSpawn2 : MonoBehaviour
 {
     public GameObject dishPrefab;           // Reference to the dish prefab
     public float spawnDelay = 5f;           // Delay in seconds before spawning the dish
-    private string buttonTag = "Button";    // Tag for button
+    private string buttonTag = "Button2";    // Tag for button
 
-    private bool isWaitingForSpawn;         // Flag to track if waiting for dish spawn
-    private float spawnTimer;               // Timer for tracking the spawn delay
-    public Transform dishSpawn;
-    public DishBar dishBar;
+    private bool isWaitingForSpawn2;         // Flag to track if waiting for dish spawn
+    private float spawnTimer2;               // Timer for tracking the spawn delay
+    public Transform dishSpawn2;             //Waypoint for dishspawn
+    public DishBar2 dishBar2;                 //DishBar2
 
     private void Awake()
     {
-        dishBar = GameObject.Find("DishBar").GetComponent<DishBar>(); //Get script
+        dishBar2 = GameObject.Find("DishBar2").GetComponent<DishBar2>(); //Get script
     }
 
     private void Update()
     {
-        if (isWaitingForSpawn)
+        if (isWaitingForSpawn2)
         {
             // Update the spawn timer
-            spawnTimer -= Time.deltaTime;
+            spawnTimer2 -= Time.deltaTime;
 
             // Check if the spawn delay has elapsed
-            if (spawnTimer <= 0f)
+            if (spawnTimer2 <= 0f)
             {
                 // Spawn the dish next to the clicked button
                 SpawnDish();
 
                 // Reset the spawn delay variables
-                isWaitingForSpawn = false;
-                spawnTimer = 0f;
+                isWaitingForSpawn2 = false;
+                spawnTimer2 = 0f;
             }
         }
         else
@@ -49,8 +49,8 @@ public class DishSpawn : MonoBehaviour
                 if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag(buttonTag))
                 {
                     // Start the spawn delay timer
-                    isWaitingForSpawn = true;
-                    spawnTimer = spawnDelay;
+                    isWaitingForSpawn2 = true;
+                    spawnTimer2 = spawnDelay;
                     StartTimer();
 
                     // Log the timer start
@@ -65,14 +65,14 @@ public class DishSpawn : MonoBehaviour
         // Instantiate the dish prefab next to the clicked button
         Vector3 spawnPosition = transform.position + transform.right;
         Quaternion spawnRotation = transform.rotation;
-        Instantiate(dishPrefab, dishSpawn.position, spawnRotation);
+        Instantiate(dishPrefab, dishSpawn2.position, spawnRotation);
 
         // Log the dish spawn
-        Debug.Log("Dish spawned!");
+        Debug.Log("Dish2 spawned!");
     }
 
     public void StartTimer()
     {
-        StartCoroutine(dishBar.IncreaseDishBar());
+        StartCoroutine(dishBar2.IncreaseDishBar2());
     }
 }

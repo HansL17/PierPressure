@@ -10,6 +10,7 @@ public class Lvl3Upgrade : MonoBehaviour
     //Canvases
     public Canvas lvl3Upgrade;
     public Canvas lvl3HUD;
+    public Image lvl3Desc;
 
     //Texts
     public TextMeshProUGUI UGRemain;
@@ -58,10 +59,13 @@ public class Lvl3Upgrade : MonoBehaviour
 
     void Start()
     {
-        UGCheck();
-        DisableUGObjects2();
         GetScripts();
-
+        ExScoreCheck2();
+        UpdateUpgrade2();
+        DisableHUD2();
+        DisableUGObjects2();
+        GetUGButtons2();
+        UGCheck();
     }
 
     // Update is called once per frame
@@ -73,8 +77,13 @@ public class Lvl3Upgrade : MonoBehaviour
     public void DisableHUD2()
     {
         HCom.PauseScene();
-        lvl3Upgrade.enabled = true;
         lvl3HUD.enabled = false;
+        lvl3Desc.enabled = false;
+
+        shoesDesc.SetActive(false);
+        apronDesc.SetActive(false);
+        jarsDesc.SetActive(false);
+
     }
 
     public void GetScripts()
@@ -87,7 +96,7 @@ public class Lvl3Upgrade : MonoBehaviour
 
     public void UGCheck()
     {
-        if (Tally3.TableUPG == true)
+        if (Tally3.PlantUPG == true)
         {
             PotPlant.SetActive(true);
         }
@@ -101,6 +110,7 @@ public class Lvl3Upgrade : MonoBehaviour
         {
             Carpet.SetActive(true);
         }
+
     }
 
     public void ExScoreCheck2()
@@ -109,7 +119,7 @@ public class Lvl3Upgrade : MonoBehaviour
         {
             UGCount = 2;
         }
-        else if(Tally3.ExScoreCount >= 1)
+        else
         {
             UGCount = 1;
         }
@@ -125,40 +135,51 @@ public class Lvl3Upgrade : MonoBehaviour
         WenShoes = false;
         WenApron = false;
         MasJars = false;
-
-        ShoesBtn.SetActive(false);
-        ApronBtn.SetActive(false);
-        JarsBtn.SetActive(false);
-
-        //Table mat 3
         TabMat3.SetActive(false);
+
+        Tally3.ShoesUPG = false;
+        Tally3.ApronUPG = false;
+        Tally3.JarsUPG = false;
+
+        //Lvl2 upgrades
+        PotPlant.SetActive(false);
+        TabMat.SetActive(false);
+        TabMat2.SetActive(false);
+        Carpet.SetActive(false);
+
+
     }
 
-    public void DisableHUD3()
-    {
-        HCom.PauseScene();
-        lvl3HUD.enabled = false;
-
-    }
 
     public void EnableHUD2()
     {
-        HCom.ResumeScene();
-        lvl3Upgrade.enabled = false;
-        lvl3HUD.enabled = true;
+        if (UGCount == 0)
+        {
+            HCom.ResumeScene();
+            lvl3Upgrade.enabled = false;
+            lvl3HUD.enabled = true;
+        }
+        
     }
 
     public void GetUGButtons2()
     {
         //Reference buttons for upgrades
+        ShoesBtn = GameObject.Find("ShoeBtn");
+        ApronBtn = GameObject.Find("ApronBtn");
+        JarsBtn = GameObject.Find("MJarsBtn");
+
     }
 
     public void EnableShoes()
     {
         if(UGCount > 0)
         {
-            WShoes.SetActive(true);
+            //WShoes.SetActive(true);
             WenShoes = true;
+            Tally3.ShoesUPG = true;
+            lvl3Desc.enabled = true;
+            shoesDesc.SetActive(true);
             UGCount--;
             //Speed upgrade code
             player.speed = 7.0f;
@@ -172,19 +193,14 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if (UGCount > 0)
         {
-            WApron.SetActive(true);
+            //WApron.SetActive(true);
             WenApron = true;
+            Tally3.ApronUPG = true;
+            lvl3Desc.enabled = true;
+            apronDesc.SetActive(true);
             UGCount--;
             //30% chance for Scoring to add +5 pts
-            if (Random.value < 0.3f)
-            {
-                Score2.ScoreInc += 5; // If true, add 5 to the points
-                Debug.Log("Bonus Points Success! +5");
-            }
-            else
-            {
-                Debug.Log("Bonus Points Failed! Better Luck Next Time!");
-            }
+            
         }
 
         UpdateUpgrade2();
@@ -194,8 +210,11 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if (UGCount > 0)
         {
-            MJars.SetActive(true);
+            //MJars.SetActive(true);
             MasJars = true;
+            Tally3.JarsUPG = true;
+            lvl3Desc.enabled = true;
+            jarsDesc.SetActive(true);
             UGCount--;
             //faster dish spawning
             Dishbar1.maxValue = 4;
@@ -210,5 +229,8 @@ public class Lvl3Upgrade : MonoBehaviour
         DisableUGObjects2();
         ExScoreCheck2();
         UpdateUpgrade2();
+        ShoesBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        ApronBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        JarsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
     }
 }

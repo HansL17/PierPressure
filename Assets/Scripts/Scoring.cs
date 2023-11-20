@@ -61,6 +61,11 @@ public class Scoring : MonoBehaviour
             consecutiveActions2 = 0; // Reset the consecutive actions count
             Debug.Log("Combo x2");
         }
+        else if (Tally1.ApronUPG == true)
+        {
+            ApronBonus();
+        }
+
         else
         {
             score += ScoreInc;
@@ -83,6 +88,21 @@ public class Scoring : MonoBehaviour
         else if (score == expertScore)
         {
             Debug.Log("Expert Score Achieved!");
+        }
+    }
+
+    public void ApronBonus()
+    {
+        if (Random.value < 0.3f)
+        {
+            ScoreInc += 5; // If true, add 5 to the points
+            Debug.Log("Bonus Points Success! +5");
+            AddScore();
+            ScoreInc -= 5;
+        }
+        else
+        {
+            Debug.Log("Bonus Points Failed! Better Luck Next Time!");
         }
     }
 
