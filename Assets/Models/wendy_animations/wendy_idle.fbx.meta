@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 048a97ce8c613af4d86238da3f531e41
+guid: 6132306a4f298444d9257e8d6343ed77
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: normalWalk
+    second: idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -20,14 +20,21 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 5.858257 mm\n\t'mixamorig:LeftLeg' : position error = 1.976825
+      mm\n\t'mixamorig:LeftFoot' : position error = 18.317099 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 2.782129 mm\n\t'mixamorig:RightUpLeg' : position error =
+      5.839747 mm\n\t'mixamorig:RightLeg' : position error = 2.032747 mm\n\t'mixamorig:RightFoot'
+      : position error = 18.233772 mm\n\t'mixamorig:RightToeBase' : position error
+      = 2.678959 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -36,11 +43,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: normalWalk
+      name: idle
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 34
+      lastFrame: 499
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -49,11 +56,11 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
