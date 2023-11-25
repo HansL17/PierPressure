@@ -179,7 +179,7 @@ public class Lvl2Upgrade : MonoBehaviour
             CarpetBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             Carpet.SetActive(true);
-            cusSpawn.timeDelay = 4.5f;
+            cusSpawn.timeDelay = 4f;
         }
         UpdateUpgrade();
     }

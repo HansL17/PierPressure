@@ -42,6 +42,7 @@ public class Lvl3Upgrade : MonoBehaviour
 
     //Dish Spawn Bar
     [SerializeField] Slider Dishbar1;
+    [SerializeField] Slider Dishbar2;
 
     //Int Values
     public int UGCount = 0;
@@ -50,6 +51,7 @@ public class Lvl3Upgrade : MonoBehaviour
     public ScoreTally Tally3;
     public HUDCommands HCom;
     public DishSpawn DSpawn;
+    public DishSpawn2 DSpawn2;
     public Scoring Score2;
 
     //Bools
@@ -91,6 +93,7 @@ public class Lvl3Upgrade : MonoBehaviour
         HCom = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();//Get HUDCommands Script
         Tally3 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();//Get ScoreTally Script
         DSpawn = GameObject.Find("DishButton").GetComponent<DishSpawn>(); //Get DishSpawn script
+        DSpawn2 = GameObject.Find("DishButton2").GetComponent<DishSpawn2>(); //Get DishSpawn2 script
         Score2 = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
     }
 
@@ -100,13 +103,13 @@ public class Lvl3Upgrade : MonoBehaviour
         {
             PotPlant.SetActive(true);
         }
-        else if (Tally3.TableUPG == true)
+        if (Tally3.TableUPG == true)
         {
             TabMat.SetActive(true);
             TabMat2.SetActive(true);
             TabMat3.SetActive(true);
         }
-        else if (Tally3.CarpetUPG == true)
+        if (Tally3.CarpetUPG == true)
         {
             Carpet.SetActive(true);
         }
@@ -219,6 +222,8 @@ public class Lvl3Upgrade : MonoBehaviour
             //faster dish spawning
             Dishbar1.maxValue = 4;
             DSpawn.spawnDelay = 4;
+            Dishbar2.maxValue = 4;
+            DSpawn2.spawnDelay = 4;
         }
 
         UpdateUpgrade2();

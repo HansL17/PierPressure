@@ -18,6 +18,11 @@ public class ScoreTally : MonoBehaviour
     public bool ApronUPG;
     public bool JarsUPG;
 
+    //Upgrades Level 4
+    public bool FLightsUPG;
+    public bool LanternsUPG;
+    public bool FlrLightsUPG;
+
     // Start is called before the first frame update
     void Start()
     {

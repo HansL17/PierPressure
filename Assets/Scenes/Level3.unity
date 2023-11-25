@@ -1539,12 +1539,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExScoreCount: 0
   LvlCompCount: 0
-  TableUPG: 0
-  PlantUPG: 0
+  TableUPG: 1
+  PlantUPG: 1
   CarpetUPG: 0
   ShoesUPG: 0
   ApronUPG: 0
   JarsUPG: 0
+  FLightsUPG: 0
+  LanternsUPG: 0
+  FlrLightsUPG: 0
 --- !u!4 &173865032
 Transform:
   m_ObjectHideFlags: 0
@@ -5983,10 +5986,12 @@ MonoBehaviour:
   apronDesc: {fileID: 316046250}
   jarsDesc: {fileID: 2685466}
   Dishbar1: {fileID: 2580802}
+  Dishbar2: {fileID: 1141068008}
   UGCount: 0
   Tally3: {fileID: 0}
   HCom: {fileID: 0}
   DSpawn: {fileID: 0}
+  DSpawn2: {fileID: 0}
   Score2: {fileID: 0}
   WenShoes: 0
   WenApron: 0
