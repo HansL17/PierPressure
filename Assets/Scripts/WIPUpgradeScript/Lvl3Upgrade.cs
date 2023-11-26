@@ -22,6 +22,7 @@ public class Lvl3Upgrade : MonoBehaviour
     public GameObject WShoes = null;
     public GameObject WApron = null;
     public GameObject MJars = null;
+    public GameObject wendy;
 
     //Lvl2 Upgrades
     public GameObject PotPlant;
@@ -178,7 +179,8 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if(UGCount > 0)
         {
-            //WShoes.SetActive(true);
+            wendy.SetActive(false);
+            WShoes.SetActive(true);
             WenShoes = true;
             Tally3.ShoesUPG = true;
             lvl3Desc.enabled = true;
@@ -196,7 +198,8 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if (UGCount > 0)
         {
-            //WApron.SetActive(true);
+            wendy.SetActive(false);
+            WApron.SetActive(true);
             WenApron = true;
             Tally3.ApronUPG = true;
             lvl3Desc.enabled = true;
