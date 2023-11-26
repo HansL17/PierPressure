@@ -13,10 +13,12 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject whichTable;
     public GameObject dishInT1;
     public GameObject dishInT2;
+    public GameObject dishInT3;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     private bool isMovingToDestination = false;
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 1
-    public bool table2Placed = false; // Flag to indicate if item is placed on Table 2
+    public bool table2Placed = false;
+    public bool table3Placed = false; // Flag to indicate if item is placed on Table 2
 
 
     private GameObject playerObject;
@@ -131,7 +133,20 @@ public class ItemPickup : MonoBehaviour
                             order.order2Spawned = false;
                             cusMove.t2_occupied = false;
                         }
-                    } else isPlacingItem = false;
+                    } else if (whichTable.name == "T3_table")
+                    {
+                        tablePosition = GameObject.Find("DishPosition3");
+                        if (order.order3Spawned)
+                        {
+                            isPlacingItem = true;
+                            Action2Done();
+                            Debug.Log("Placing down item on table...");
+                            table3Placed = true;
+                            dishInT2 = heldItem;
+                            order.order3Spawned = false;
+                            cusMove.t3_occupied = false;
+                        }
+                    }else isPlacingItem = false;
 
                     if (tablePosition == null)
                     {

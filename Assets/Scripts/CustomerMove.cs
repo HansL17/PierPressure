@@ -11,6 +11,7 @@ public class CustomerMove : MonoBehaviour
     
     public GameObject customerInT1;
     public GameObject customerInT2;
+    public GameObject customerInT3;
     public GameObject customerTable;
     public Canvas cusBar;
     public RectTransform cusBarRect;
@@ -20,6 +21,7 @@ public class CustomerMove : MonoBehaviour
 
     public bool t1_occupied = false;
     public bool t2_occupied = false;
+    public bool t3_occupied = false;
 
     public float speed = 5f; //Speed of the object
 
@@ -95,6 +97,25 @@ public class CustomerMove : MonoBehaviour
 
                             //table 2 is occupied
                             t2_occupied = true;
+                        } 
+
+                        else if (hit.collider.gameObject.name == "T3_chair" && t3_occupied == false)
+
+                        {
+                            Transform wp3 = GameObject.Find("customerWP3").GetComponent<Transform>();
+
+                            cusLine.RemoveFromLineup(selectedObject.transform);
+                            //Log the movement
+                            Debug.Log("Moving" + selectedObject.name);
+
+                            MoveObject(wp3.transform);
+                            Action1Done(); //Action 1 is done
+
+                            //Redefining customer
+                            customerInT3 = selectedObject;
+
+                            //table 2 is occupied
+                            t3_occupied = true;
                         }  
 
                         DisableHighlight();

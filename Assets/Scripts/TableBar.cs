@@ -9,8 +9,10 @@ public class TableBar : MonoBehaviour
     [SerializeField] private Slider currentSlider;
     public Canvas t1Bar;
     public Canvas t2Bar;
+    public Canvas t3Bar;
     public Slider tab1Slider;
     public Slider tab2Slider;
+    public Slider tab3Slider;
     public float maxEat = 5f; //max patience (in seconds)
     public float currentTab; //current patience (in seconds)
     private NavMeshAgent agent;
@@ -32,6 +34,7 @@ public class TableBar : MonoBehaviour
         currentTab = 5f;
         tab1Slider.value = currentTab;
         tab2Slider.value = currentTab;
+        tab3Slider.value = currentTab;
     }
 
 
@@ -46,6 +49,12 @@ public class TableBar : MonoBehaviour
         if (itPick.table2Placed)
         {
             t2Bar.gameObject.SetActive(true);
+            StartCoroutine(DepleteTableBar(t2Bar));
+        } 
+
+        if (itPick.table3Placed)
+        {
+            t3Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t2Bar));
         } 
     }
@@ -101,6 +110,21 @@ public class TableBar : MonoBehaviour
             Destroy(agent.gameObject);
             spawnCus.cusCount--;
             itPick.table2Placed = false;
+            Start();
+        }
+        if(bar.gameObject.name == "Table3Bar")
+        {
+            Destroy(itPick.dishInT3);
+            agent = cusMove.customerInT3.GetComponent<NavMeshAgent>();
+            Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
+            agent.SetDestination(exit.transform.position);
+            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            {
+                yield return null;
+            }
+            Destroy(agent.gameObject);
+            spawnCus.cusCount--;
+            itPick.table3Placed = false;
             Start();
         }
     }

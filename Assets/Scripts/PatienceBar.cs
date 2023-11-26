@@ -51,6 +51,11 @@ public class PatienceBar : MonoBehaviour
             Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
         }
+        if(itPick.table3Placed)
+        {
+            Canvas toDelete = cusMove.customerInT3.GetComponentInChildren<Canvas>();
+            Destroy(toDelete);
+        }
     }
 
     private IEnumerator DepletePatienceBar()
@@ -81,6 +86,12 @@ public class PatienceBar : MonoBehaviour
             Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
             order.ResetTable("2");
+        }
+        if (agent.gameObject == cusMove.customerInT3)
+        {
+            Canvas toDelete = cusMove.customerInT3.GetComponentInChildren<Canvas>();
+            Destroy(toDelete);
+            order.ResetTable("3");
         }
 
         

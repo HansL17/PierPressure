@@ -117,12 +117,12 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a5e17789911140f4ca231133ca00425d, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &2580799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.17
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 5a139ea3ae552b24cb9ed1b6078d3479, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 31a05bffa4182004a86b4e1afadc66ac, type: 2}
 --- !u!4 &501420737
 Transform:
   m_ObjectHideFlags: 0
@@ -7203,6 +7203,9 @@ MonoBehaviour:
   ShoesUPG: 0
   ApronUPG: 0
   JarsUPG: 0
+  FLightsUPG: 0
+  LanternsUPG: 0
+  FlrLightsUPG: 0
 --- !u!4 &1019226565
 Transform:
   m_ObjectHideFlags: 0
@@ -13375,6 +13378,27 @@ MonoBehaviour:
   Player: {fileID: 919132149012455824}
   waypoint: {fileID: 1677310226}
   movementSpeed: 7
+--- !u!1 &1901379026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8813041683839273705, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+  m_PrefabInstance: {fileID: 8543151910961407929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1901379028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901379026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!4 &1903204208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1d231579ca26fd49afadec2b93f1e38, type: 3}
@@ -15130,14 +15154,14 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.05
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0.3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.2
   m_BaseOffset: 0.06
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
@@ -18327,6 +18351,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 552354866719288247, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 875249603651372364, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3065208851795520583, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720009132513087723, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623263262358453658, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8144168506171265107, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -18374,6 +18418,18 @@ PrefabInstance:
     - target: {fileID: 8813041683839273705, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
       propertyPath: m_Name
       value: counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813041683839273705, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813041683839273705, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_TagString
+      value: UnWalkable
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192664937839825432, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -8,25 +8,42 @@ public class wendyAnimations : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
 
+    private Transform wendyAnimator;
+    private Transform wendyShoesAnimator;
+    private Transform wendyApronAnimator;
+    private Transform wendyBothAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
-        Transform childAnimator = transform.Find("wendy");
-        if (childAnimator != null)
-        {
-            animator = childAnimator.GetComponent<Animator>();
-        }
-        else
-        {
-            Debug.LogError("Child GameObject with Animator not found!");
-        }
+        wendyAnimator = transform.Find("wendy");
+        wendyShoesAnimator = transform.Find("wendyNike");
+        wendyApronAnimator = transform.Find("wendyapron");
+        wendyBothAnimator = transform.Find("wendyapronandshoes"); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (wendyAnimator.gameObject.activeSelf)
+        {
+            animator = wendyAnimator.GetComponent<Animator>();
+        }
+        else if (wendyShoesAnimator.gameObject.activeSelf)
+        {
+            animator = wendyShoesAnimator.GetComponent<Animator>();
+        }
+        else if (wendyApronAnimator.gameObject.activeSelf)
+        {
+            animator = wendyApronAnimator.GetComponent<Animator>();
+        }
+        else if (wendyBothAnimator.gameObject.activeSelf)
+        {
+            animator = wendyBothAnimator.GetComponent<Animator>();
+        }
+
         if (agent.velocity.magnitude > 0.1f)
         {
             animator.SetBool("IsWalking", true);
