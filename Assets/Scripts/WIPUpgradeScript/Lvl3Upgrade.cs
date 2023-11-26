@@ -23,6 +23,7 @@ public class Lvl3Upgrade : MonoBehaviour
     public GameObject WApron = null;
     public GameObject MJars = null;
     public GameObject wendy;
+    public GameObject WShoesApron;
 
     //Lvl2 Upgrades
     public GameObject PotPlant;
@@ -59,6 +60,10 @@ public class Lvl3Upgrade : MonoBehaviour
     public bool WenShoes;
     public bool WenApron;
     public bool MasJars;
+
+    //Button Highlight color
+    private Color highlight;
+    private string hexColor = "#C4DEA4";
 
     void Start()
     {
@@ -136,22 +141,23 @@ public class Lvl3Upgrade : MonoBehaviour
 
     public void DisableUGObjects2()
     {
+        wendy.SetActive(true);
+        WShoesApron.SetActive(false);
+        WApron.SetActive(false);
+        WShoes.SetActive(false);
+        MJars.SetActive(false);
+
         WenShoes = false;
         WenApron = false;
         MasJars = false;
-        TabMat3.SetActive(false);
 
         Tally3.ShoesUPG = false;
         Tally3.ApronUPG = false;
         Tally3.JarsUPG = false;
 
-        //Lvl2 upgrades
-        PotPlant.SetActive(false);
-        TabMat.SetActive(false);
-        TabMat2.SetActive(false);
-        Carpet.SetActive(false);
-
-
+        apronDesc.SetActive(false);
+        jarsDesc.SetActive(false);
+        shoesDesc.SetActive(false);
     }
 
 
@@ -180,17 +186,28 @@ public class Lvl3Upgrade : MonoBehaviour
         if(UGCount > 0)
         {
             wendy.SetActive(false);
-            WShoes.SetActive(true);
+            if(WenApron == true){
+                WApron.SetActive(false);
+                WShoesApron.SetActive(true);
+            } else {
+                WShoes.SetActive(true);
+            }
             WenShoes = true;
             Tally3.ShoesUPG = true;
             lvl3Desc.enabled = true;
+            //Descriptions
             shoesDesc.SetActive(true);
+            apronDesc.SetActive(false);
+            jarsDesc.SetActive(false);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            ShoesBtn.GetComponent<Image>().color = highlight;
+            //UG Count Decrement
             UGCount--;
+            shoesDesc.SetActive(true);
             //Speed upgrade code
             player.speed = 7.0f;
         }
-        
-
         UpdateUpgrade2();
     }
 
@@ -199,16 +216,27 @@ public class Lvl3Upgrade : MonoBehaviour
         if (UGCount > 0)
         {
             wendy.SetActive(false);
-            WApron.SetActive(true);
+            if(WenShoes == true){
+                WShoes.SetActive(false);
+                WShoesApron.SetActive(true);
+            } else {
+                WApron.SetActive(true);
+            }
             WenApron = true;
             Tally3.ApronUPG = true;
             lvl3Desc.enabled = true;
+            //Descriptions
+            shoesDesc.SetActive(false);
             apronDesc.SetActive(true);
+            jarsDesc.SetActive(false);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            ApronBtn.GetComponent<Image>().color = highlight;
+            //UG Count Decrement
             UGCount--;
+            apronDesc.SetActive(true);
             //30% chance for Scoring to add +5 pts
-            
         }
-
         UpdateUpgrade2();
     }
 
@@ -216,12 +244,20 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if (UGCount > 0)
         {
-            //MJars.SetActive(true);
+            MJars.SetActive(true);
             MasJars = true;
             Tally3.JarsUPG = true;
             lvl3Desc.enabled = true;
+            //Descriptions
+            shoesDesc.SetActive(false);
+            apronDesc.SetActive(false);
             jarsDesc.SetActive(true);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            JarsBtn.GetComponent<Image>().color = highlight;
+            //UG Count Decrement
             UGCount--;
+            jarsDesc.SetActive(true);
             //faster dish spawning
             Dishbar1.maxValue = 4;
             DSpawn.spawnDelay = 4;
@@ -237,6 +273,7 @@ public class Lvl3Upgrade : MonoBehaviour
         DisableUGObjects2();
         ExScoreCheck2();
         UpdateUpgrade2();
+        lvl3Desc.enabled = false;
         ShoesBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         ApronBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         JarsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
