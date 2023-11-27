@@ -10,23 +10,30 @@ public class T1Pathfind : MonoBehaviour
     private int currentWaypointIndex = 0;
     public T3Pathfind t3pf;
     public bool go = false;
+    public ScoreTally tally;
 
     private void Start()
     {
-        t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();
+        tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
+        if (tally.LvlCompCount == 3){
+            t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();
+        }
     }
 
     private void OnMouseDown()
     {
-        if (t3pf.fromA == true)
-        {
-            MoveToNextWaypoint();
-            go = true;
-            t3pf.fromA = false;
-        }
-        else{
+        if (tally.LvlCompCount == 3){
+            if (t3pf.fromA == true)
+            {
+                MoveToNextWaypoint();
+                go = true;
+                t3pf.fromA = false;
+            }
+            else{
             Player.SetDestination(waypoints[1].transform.position);
-        }
+            }
+        } else {Player.SetDestination(waypoints[0].transform.position);}
+        
     }
 
     private void MoveToNextWaypoint()

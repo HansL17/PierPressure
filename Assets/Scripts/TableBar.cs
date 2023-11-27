@@ -21,9 +21,11 @@ public class TableBar : MonoBehaviour
     public CustomerMove cusMove;
     public SpawnCust spawnCus;
     public Order order;
+    public ScoreTally tally;
 
     void Awake()
     {
+        tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
         order = GameObject.Find("DishPosition").GetComponent<Order>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
@@ -34,7 +36,9 @@ public class TableBar : MonoBehaviour
         currentTab = 5f;
         tab1Slider.value = currentTab;
         tab2Slider.value = currentTab;
+        if (tally.LvlCompCount == 3){
         tab3Slider.value = currentTab;
+        }
     }
 
 
@@ -51,12 +55,14 @@ public class TableBar : MonoBehaviour
             t2Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t2Bar));
         } 
-
+        
+        if (tally.LvlCompCount == 3){
         if (itPick.table3Placed)
         {
             t3Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t2Bar));
-        } 
+        }
+        }
     }
 
     public IEnumerator DepleteTableBar(Canvas bar)
