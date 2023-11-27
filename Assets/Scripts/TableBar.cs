@@ -94,14 +94,23 @@ public class TableBar : MonoBehaviour
             agent = cusMove.customerInT1.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
-            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            bool hasReachedDest = false;
+
+            if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
             {
-                yield return null;
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    if (!hasReachedDest)
+                    {
+                        hasReachedDest = true;
+                        Destroy(agent.gameObject);
+                        spawnCus.cusCount--;
+                        itPick.table1Placed = false;
+                        Start();
+                    }
+                }
             }
-            Destroy(agent.gameObject);
-            spawnCus.cusCount--;
-            itPick.table1Placed = false;
-            Start();
+            
         }
         if(bar.gameObject.name == "Table2Bar")
         {
@@ -109,14 +118,22 @@ public class TableBar : MonoBehaviour
             agent = cusMove.customerInT2.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
-            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            bool hasReachedDest = false;
+            
+             if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
             {
-                yield return null;
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    if (!hasReachedDest)
+                    {
+                        hasReachedDest = true;
+                        Destroy(agent.gameObject);
+                        spawnCus.cusCount--;
+                        itPick.table2Placed = false;
+                        Start();
+                    }
+                }
             }
-            Destroy(agent.gameObject);
-            spawnCus.cusCount--;
-            itPick.table2Placed = false;
-            Start();
         }
         if(bar.gameObject.name == "Table3Bar")
         {
