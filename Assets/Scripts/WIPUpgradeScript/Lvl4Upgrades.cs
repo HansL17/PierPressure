@@ -64,6 +64,10 @@ public class Lvl4Upgrades : MonoBehaviour
     public bool LanternUP;
     public bool FloorLights;
 
+    //Button Highlight color
+    private Color highlight;
+    private string hexColor = "#C4DEA4";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -199,7 +203,12 @@ public class Lvl4Upgrades : MonoBehaviour
             FairyLights = true;
             Tally4.FLightsUPG = true;
             lvl4Desc.enabled = true;
+            FlrLightsDesc.SetActive(false);
+            LanternDesc.SetActive(false);
             FLightsDesc.SetActive(true);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            FLightsBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             //Speed revert code
             if (Tally4.ShoesUPG == true)
@@ -224,7 +233,12 @@ public class Lvl4Upgrades : MonoBehaviour
             LanternUP = true;
             Tally4.LanternsUPG = true;
             lvl4Desc.enabled = true;
+            FlrLightsDesc.SetActive(false);
             LanternDesc.SetActive(true);
+            FLightsDesc.SetActive(false);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            LanternBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             //Revert dish spawning
             if(Tally4.JarsUPG == true)
@@ -255,6 +269,11 @@ public class Lvl4Upgrades : MonoBehaviour
             Tally4.FlrLightsUPG = true;
             lvl4Desc.enabled = true;
             FlrLightsDesc.SetActive(true);
+            LanternDesc.SetActive(false);
+            FLightsDesc.SetActive(false);
+            //Button Color
+            ColorUtility.TryParseHtmlString(hexColor, out highlight);
+            FlrLightsBtn.GetComponent<Image>().color = highlight;
             UGCount--;
             //Revert Customer Speed
             if(Tally4.CarpetUPG == true)
