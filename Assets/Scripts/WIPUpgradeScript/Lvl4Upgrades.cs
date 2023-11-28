@@ -11,6 +11,7 @@ public class Lvl4Upgrades : MonoBehaviour
     public Canvas lvl4Upgrade;
     public Canvas lvl4HUD;
     public Image lvl4Desc;
+    public GameObject lvl4Popups;
 
     //Texts
     public TextMeshProUGUI UGRemain;
@@ -19,9 +20,9 @@ public class Lvl4Upgrades : MonoBehaviour
     [SerializeField] NavMeshAgent player;
 
     //Upgrade Assets Lvl3
-    public GameObject FLights = null;
-    public GameObject Lanterns = null;
-    public GameObject FlrLights = null;
+    public GameObject FLights;
+    public GameObject Lanterns;
+    public GameObject FlrLights;
 
     //Lvl2 Upgrades
     public GameObject PotPlant;
@@ -71,20 +72,36 @@ public class Lvl4Upgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Downgrades();
+
         GetScripts();
-        ExScoreCheck3();
-        UpdateUpgrade3();
-        DisableHUD2();
-        DisableUGObjects3();
-        GetUGButtons3();
-        UGCheck();
+        lvl4Upgrade.enabled = false;
+        lvl4HUD.enabled = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void EnableUpgrade()
+    {
+        lvl4Popups.SetActive(false);
+        lvl4Upgrade.enabled = true;
+        Functions();
+    }
+
+    public void Functions()
+    {
+
+        Downgrades();
+        ExScoreCheck3();
+        UpdateUpgrade3();
+        DisableHUD2();
+        DisableUGObjects3();
+        GetUGButtons3();
+        UGCheck();
     }
 
     public void DisableHUD2()
@@ -158,8 +175,14 @@ public class Lvl4Upgrades : MonoBehaviour
     public void DisableUGObjects3()
     {
         //Bools for Lvl4 Upgrades
+        FairyLights = false;
+        LanternUP = false;
+        FloorLights = false;
 
         //GameObjects for Lvl4 Upgrades
+        FLights.SetActive(false);
+        Lanterns.SetActive(false);
+        FlrLights.SetActive(false);
         
 
         //Lvl2 upgrades
@@ -301,5 +324,13 @@ public class Lvl4Upgrades : MonoBehaviour
         DSpawn2.spawnDelay = 6;
         //Customer Spawn regress
         cusSpawn.timeDelay = 6f;
+    }
+
+    public void ResetUG3()
+    {
+        FLightsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        LanternBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        FlrLightsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
+        EnableUpgrade();
     }
 }

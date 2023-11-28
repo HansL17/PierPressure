@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExScoreCount: 0
-  LvlCompCount: 0
+  LvlCompCount: 2
   TableUPG: 1
   PlantUPG: 1
   CarpetUPG: 0
@@ -3794,6 +3794,7 @@ MonoBehaviour:
   - {fileID: 938400797}
   t3pf: {fileID: 1281388066}
   go: 0
+  tally: {fileID: 0}
 --- !u!1001 &486798700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13754,6 +13755,7 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
+  tally: {fileID: 0}
 --- !u!1 &1133684690
 GameObject:
   m_ObjectHideFlags: 0
@@ -19852,6 +19854,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalTime: 9000
+  tally: {fileID: 0}
+  popup: {fileID: 0}
 --- !u!1 &1776365041
 GameObject:
   m_ObjectHideFlags: 0
@@ -21218,6 +21222,7 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
+  tally: {fileID: 0}
 --- !u!1 &1877939549
 GameObject:
   m_ObjectHideFlags: 0
@@ -21626,6 +21631,7 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
+  tally: {fileID: 0}
 --- !u!114 &1912603610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23471,6 +23477,7 @@ MonoBehaviour:
   - {fileID: 952322528}
   t3pf: {fileID: 0}
   go: 0
+  tally: {fileID: 0}
 --- !u!1 &119420651975312062
 GameObject:
   m_ObjectHideFlags: 0
@@ -24242,6 +24249,7 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
+  tally: {fileID: 0}
 --- !u!4 &8355075833532231694
 Transform:
   m_ObjectHideFlags: 0
