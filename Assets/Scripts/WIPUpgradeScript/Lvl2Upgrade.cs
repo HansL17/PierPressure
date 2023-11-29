@@ -40,6 +40,7 @@ public class Lvl2Upgrade : MonoBehaviour
     public Scoring Score;
     public CustomerMove cusMove;
     public SpawnCust cusSpawn;
+    public SoundScript upBGM;
 
     //Bools
     public bool PlantUG = false;
@@ -54,11 +55,14 @@ public class Lvl2Upgrade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Tally2 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
+        Tally2.LvlCompCount++;
         HudComm = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();//Get HUDCommands Script
         Serve = GameObject.Find("Player").GetComponent<ItemPickup>(); //Get ItemPickup Script
         Score = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>(); // Get CustomerMove Script
         cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); // Get SpawnCust Script
+        upBGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
 
         ExScoreCheck();
         DisableHUD();
@@ -77,6 +81,7 @@ public class Lvl2Upgrade : MonoBehaviour
     private void DisableHUD() //Disable HUD method
     {
         HudComm.PauseScene();
+        upBGM.UpgBGM.Play();
         lvl2HUD.enabled = false;
         lvl2Desc.enabled = false;
         plantDesc.SetActive(false);
@@ -88,6 +93,8 @@ public class Lvl2Upgrade : MonoBehaviour
     {
         if(UGCount == 0)
         {
+            upBGM.UpgBGM.Stop();
+            upBGM.PlayBGM();
             lvl2HUD.enabled = true;
             lvl2Upgrade.enabled = false;
             HudComm.ResumeScene();

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ScoreTally : MonoBehaviour
 {
+    //GameObject To Store
+    public GameObject TallyOBJ;
+
+    //Bool for EXScore
+    public bool ExpertScore = false;
+
     //Integers
     public int ExScoreCount;
     public int LvlCompCount;
@@ -26,7 +32,7 @@ public class ScoreTally : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(TallyOBJ);
     }
 
 }

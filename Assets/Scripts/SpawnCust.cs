@@ -16,6 +16,7 @@ public class SpawnCust : MonoBehaviour
     //Script reference
     public CustomerLine customerLine;
     public AgentType agenttype;
+    public SoundScript SFX;
 
  
     // Start is called before the first frame update
@@ -25,6 +26,8 @@ public class SpawnCust : MonoBehaviour
         timeDelay = 5f; //Delay in seconds
         cusCount = 0;
         totalCus = 0;
+
+        SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
     }
 
     // Update is called once per frame
@@ -77,6 +80,7 @@ public class SpawnCust : MonoBehaviour
 
 
         //Add the object to the customer lineup
+        SFX.CustomerSound();
         customerLine.AddToLineup(spawnedObject.transform);
         print("Customer spawned"); //Log
         cusCount++;

@@ -28,7 +28,8 @@ public class ItemPickup : MonoBehaviour
     public TableBar tBar;
     public Order order;
     public CustomerMove cusMove;
-    public Lvl2Upgrade lvl2UG = null;
+    public SoundScript SFX;
+
 
     private void Start()
     {
@@ -48,7 +49,8 @@ public class ItemPickup : MonoBehaviour
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
         order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
-        
+        SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
+
     }
 
     private void Update()
@@ -57,6 +59,7 @@ public class ItemPickup : MonoBehaviour
         {
             if (player.pathStatus == NavMeshPathStatus.PathComplete && player.remainingDistance <= player.stoppingDistance)
             {
+                SFX.DishSound();
                 Debug.Log("Picking up item...");
 
                 // Disable the item's collider and rigidbody

@@ -32,11 +32,13 @@ public class Scoring : MonoBehaviour
     public SpawnCust spawnCus;
     public HUDCommands hud;
     public ScoreTally Tally1;
+    public SoundScript BGM;
 
     void Awake()
     {
         hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
+        BGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
     }
 
     // Start is called before the first frame update
@@ -51,15 +53,33 @@ public class Scoring : MonoBehaviour
         {
             ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
             score += ScoreInc;
-            consecutiveActions1 = 0; // Reset the consecutive actions count
+            consecutiveActions1 --; // Reset the consecutive actions count
             Debug.Log("Combo x2");
+            if(Tally1.TableUPG == true)
+            {
+                ScoreInc = 15;
+            }
+            else
+            {
+                ScoreInc = 10;
+            }
+
         }
         else if (consecutiveActions2 >= 2)
         {
             ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
             score += ScoreInc;
-            consecutiveActions2 = 0; // Reset the consecutive actions count
+            consecutiveActions2 --; // Reset the consecutive actions count
             Debug.Log("Combo x2");
+            if (Tally1.TableUPG == true)
+            {
+                ScoreInc = 15;
+            }
+            else
+            {
+                ScoreInc = 10;
+            }
+
         }
         else if (Tally1.ApronUPG == true)
         {
@@ -70,6 +90,7 @@ public class Scoring : MonoBehaviour
         {
             score += ScoreInc;
         }
+        UpdateScore();
     }
 
     public void SubScore(int newScore) // Function for subtracting score
@@ -88,7 +109,13 @@ public class Scoring : MonoBehaviour
         else if (score == expertScore)
         {
             Debug.Log("Expert Score Achieved!");
+            UpdateEXScore();
         }
+    }
+
+    public void UpdateEXScore()
+    {
+        Tally1.ExpertScore = true;
     }
 
     public void ApronBonus()
@@ -109,9 +136,7 @@ public class Scoring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateScore();
-
-        if(spawnCus.totalCus == 6 && spawnCus.cusCount == 0)
+        if (spawnCus.totalCus == 6 && spawnCus.cusCount == 0)
         {
             hud.PauseScene();
             if(expertScore > score && score >= normalScore)
@@ -120,15 +145,12 @@ public class Scoring : MonoBehaviour
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Normal Score Achieved!";
-                Tally1.LvlCompCount++;
             } else if (score >= expertScore)
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Expert Score Achieved!";
-                Tally1.LvlCompCount++;
-                Tally1.ExScoreCount++;
             } else if (score < normalScore)
             {
                 HUD.gameObject.SetActive(false);

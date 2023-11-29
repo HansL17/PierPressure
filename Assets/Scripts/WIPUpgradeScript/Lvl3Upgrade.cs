@@ -55,6 +55,7 @@ public class Lvl3Upgrade : MonoBehaviour
     public DishSpawn DSpawn;
     public DishSpawn2 DSpawn2;
     public Scoring Score2;
+    public SoundScript upBGM;
 
     //Bools
     public bool WenShoes;
@@ -65,9 +66,14 @@ public class Lvl3Upgrade : MonoBehaviour
     private Color highlight;
     private string hexColor = "#C4DEA4";
 
-    void Start()
+    void Awake()
     {
         GetScripts();
+        Tally3.LvlCompCount++;
+    }
+
+    void Start()
+    {
         ExScoreCheck2();
         UpdateUpgrade2();
         DisableHUD2();
@@ -85,6 +91,7 @@ public class Lvl3Upgrade : MonoBehaviour
     public void DisableHUD2()
     {
         HCom.PauseScene();
+        upBGM.UpgBGM.Play();
         lvl3HUD.enabled = false;
         lvl3Desc.enabled = false;
 
@@ -101,6 +108,7 @@ public class Lvl3Upgrade : MonoBehaviour
         DSpawn = GameObject.Find("DishButton").GetComponent<DishSpawn>(); //Get DishSpawn script
         DSpawn2 = GameObject.Find("DishButton2").GetComponent<DishSpawn2>(); //Get DishSpawn2 script
         Score2 = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script
+        upBGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
     }
 
     public void UGCheck()
@@ -147,6 +155,12 @@ public class Lvl3Upgrade : MonoBehaviour
         WShoes.SetActive(false);
         MJars.SetActive(false);
 
+        PotPlant.SetActive(false);
+        TabMat.SetActive(false);
+        TabMat2.SetActive(false);
+        TabMat3.SetActive(false);
+        Carpet.SetActive(false);
+
         WenShoes = false;
         WenApron = false;
         MasJars = false;
@@ -165,6 +179,8 @@ public class Lvl3Upgrade : MonoBehaviour
     {
         if (UGCount == 0)
         {
+            upBGM.UpgBGM.Stop();
+            upBGM.PlayBGM();
             HCom.ResumeScene();
             lvl3Upgrade.enabled = false;
             lvl3HUD.enabled = true;

@@ -105,6 +105,8 @@ public class TableBar : MonoBehaviour
                         hasReachedDest = true;
                         Destroy(agent.gameObject);
                         spawnCus.cusCount--;
+                        cusMove.customerInT1 = null;
+                        itPick.dishInT1 = null;
                         itPick.table1Placed = false;
                         Start();
                     }
@@ -129,6 +131,8 @@ public class TableBar : MonoBehaviour
                         hasReachedDest = true;
                         Destroy(agent.gameObject);
                         spawnCus.cusCount--;
+                        cusMove.customerInT2 = null;
+                        itPick.dishInT2 = null;
                         itPick.table2Placed = false;
                         Start();
                     }
@@ -147,6 +151,8 @@ public class TableBar : MonoBehaviour
             }
             Destroy(agent.gameObject);
             spawnCus.cusCount--;
+            cusMove.customerInT3 = null;
+            itPick.dishInT3 = null;
             itPick.table3Placed = false;
             Start();
         }

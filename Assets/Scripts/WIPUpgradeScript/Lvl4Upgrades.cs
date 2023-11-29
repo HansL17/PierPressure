@@ -59,6 +59,7 @@ public class Lvl4Upgrades : MonoBehaviour
     public DishSpawn2 DSpawn2;
     public HUDCommands HCom;
     public ScoreTally Tally4;
+    public SoundScript upBGM;
 
     //Bools
     public bool FairyLights;
@@ -69,11 +70,19 @@ public class Lvl4Upgrades : MonoBehaviour
     private Color highlight;
     private string hexColor = "#C4DEA4";
 
+    void Awake()
+    {
+        GetScripts();
+        upBGM.UpgBGM.Play();
+        Tally4.LvlCompCount++;
+        DisableUGObjects3();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
 
-        GetScripts();
+        
         lvl4Upgrade.enabled = false;
         lvl4HUD.enabled = false;
         
@@ -99,7 +108,6 @@ public class Lvl4Upgrades : MonoBehaviour
         ExScoreCheck3();
         UpdateUpgrade3();
         DisableHUD2();
-        DisableUGObjects3();
         GetUGButtons3();
         UGCheck();
     }
@@ -123,6 +131,7 @@ public class Lvl4Upgrades : MonoBehaviour
         DSpawn = GameObject.Find("DishButton").GetComponent<DishSpawn>(); //Get DishSpawn script
         DSpawn2 = GameObject.Find("DishButton2").GetComponent<DishSpawn2>(); //Get DishSpawn2 script
         Tally4 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();//Get ScoreTally Script
+        upBGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
     }
 
     public void UGCheck()
@@ -202,6 +211,8 @@ public class Lvl4Upgrades : MonoBehaviour
     {
         if (UGCount == 0)
         {
+            upBGM.UpgBGM.Stop();
+            upBGM.PlayBGM();
             HCom.ResumeScene();
             lvl4Upgrade.enabled = false;
             lvl4HUD.enabled = true;

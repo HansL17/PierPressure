@@ -16,6 +16,11 @@ public class CustomerMove : MonoBehaviour
     public Canvas cusBar;
     public RectTransform cusBarRect;
 
+    //Table Bar GameObjects
+    public GameObject tBar1;
+    public GameObject tBar2;
+    public GameObject tBar3;
+
 
     public bool isHighlighted = false; //Flag to detect highlighted object
 
@@ -32,7 +37,7 @@ public class CustomerMove : MonoBehaviour
     public CustomerLine cusLine;
     public Scoring scores;
     public PatienceBar pBar;
-    public Lvl2Upgrade lvl2UG = null;
+    public ScoreTally tally;
 
 
     private NavMeshAgent agent; //Navmesh of object
@@ -43,8 +48,12 @@ public class CustomerMove : MonoBehaviour
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
+        tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
 
-        
+        if(tally.LvlCompCount < 2)
+        {
+            tBar3 = null;
+        }
 
 
     }
@@ -73,6 +82,7 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp1.transform);
                             Action1Done(); //Action 1 is done
+                            tBar1.SetActive(true);
 
                             //Redefining customer
                             customerInT1 = selectedObject;
@@ -91,6 +101,7 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp2.transform);
                             Action1Done(); //Action 1 is done
+                            tBar2.SetActive(true);
 
                             //Redefining customer
                             customerInT2 = selectedObject;
@@ -110,6 +121,7 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp3.transform);
                             Action1Done(); //Action 1 is done
+                            tBar3.SetActive(true);
 
                             //Redefining customer
                             customerInT3 = selectedObject;
