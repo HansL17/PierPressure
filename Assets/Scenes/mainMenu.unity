@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20927028, g: 0.39197883, b: 0.39441758, a: 1}
+  m_IndirectSpecularColor: {r: 0.20936133, g: 0.39212054, b: 0.39538908, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5278,7 +5278,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -7121,9 +7121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM: {fileID: 918566875}
-  Victory: {fileID: 1057523704}
   Customer: {fileID: 755749873}
   Clink: {fileID: 34562426}
+  UpgBGM: {fileID: 0}
 --- !u!4 &940195055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 116dcdac0421b4a4f8441b5231d45c58, type: 3}

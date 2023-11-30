@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
+  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10945,7 +10945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3460c51a00dbb4ca518fe99c95871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 6725033063610882024, guid: 217255cfc44353a43bee34d72d32bfbf, type: 3}
+  ObjectToSpawn: {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
   timeDelay: 0
   cusCount: 0
   totalCus: 0
@@ -11019,7 +11019,7 @@ Transform:
   - {fileID: 972818909}
   - {fileID: 591775519}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1516179618
 MonoBehaviour:
@@ -11674,7 +11674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698585127309191406, guid: 72a99b3d9852a1a4ba1038be2bd44534, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2698585127309191406, guid: 72a99b3d9852a1a4ba1038be2bd44534, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13424,6 +13424,7 @@ MonoBehaviour:
   globalTime: 9000
   tally: {fileID: 0}
   popup: {fileID: 0}
+  newSkyboxMaterial: {fileID: 0}
 --- !u!1 &1780345755
 GameObject:
   m_ObjectHideFlags: 0
@@ -15031,7 +15032,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924304137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70524f811601c3f439e61ff4360a980f, type: 3}
+  m_Script: {fileID: 11500000, guid: 213330bf9b764b34a854257bb55a96dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1924304139

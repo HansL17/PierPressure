@@ -6,9 +6,12 @@ public class HUDCommands : MonoBehaviour
     public float globalTime = 9000;
     public ScoreTally tally;
     public Animator popup = null;
+    public Material newSkyboxMaterial;
 
     void Awake()
     {
+        RenderSettings.skybox = newSkyboxMaterial;
+        
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
         if (tally.LvlCompCount != 2)
         {

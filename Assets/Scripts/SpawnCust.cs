@@ -47,7 +47,7 @@ public class SpawnCust : MonoBehaviour
     {
         //Modify the transform settings of the model
         Quaternion newRotation = Quaternion.Euler(0f, 180f, 0f);
-        Vector3 newScale = new Vector3(7.270209f, 7.192486f, 7.270209f);
+        Vector3 newScale = new Vector3(0.8f, 0.8f, 0.8f);
 
         //Instantiate the object with the modified transform settings and NavMeshAgent
         GameObject spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
@@ -61,7 +61,7 @@ public class SpawnCust : MonoBehaviour
         customer.height = 0.15f;
         customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
         customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
-        customer.baseOffset = 0.075f;
+        customer.baseOffset = 0f;
 
         //Add a Box Collider to the spawned customer
         BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
@@ -70,13 +70,13 @@ public class SpawnCust : MonoBehaviour
         float depth = 0.0263764f;
         boxCollider.size = new Vector3(width, height, depth); 
 
-        //Make customer blue
-        MeshRenderer[] meshRenderers = spawnedObject.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer meshRenderer in meshRenderers)
-        {
-            Color blue = Color.blue;
-            meshRenderer.material.color = blue;
-        }
+        // //Make customer blue
+        // MeshRenderer[] meshRenderers = spawnedObject.GetComponentsInChildren<MeshRenderer>();
+        // foreach (MeshRenderer meshRenderer in meshRenderers)
+        // {
+        //     Color blue = Color.blue;
+        //     meshRenderer.material.color = blue;
+        // }
 
 
         //Add the object to the customer lineup
