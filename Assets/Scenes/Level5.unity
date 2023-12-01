@@ -1571,7 +1571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &138240365
 Canvas:
   m_ObjectHideFlags: 0
@@ -7966,7 +7966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &700858688
 Transform:
   m_ObjectHideFlags: 0
@@ -8766,7 +8766,7 @@ MonoBehaviour:
   lvlFail: {fileID: 179923484}
   HUD: {fileID: 1108125468}
   score: 0
-  normalScore: 120
+  normalScore: 160
   expertScore: 160
   ScoreInc: 10
   isAction1Done: 0
@@ -24456,7 +24456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2045085237
 MonoBehaviour:
   m_ObjectHideFlags: 0

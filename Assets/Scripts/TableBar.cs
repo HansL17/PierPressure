@@ -56,12 +56,12 @@ public class TableBar : MonoBehaviour
             StartCoroutine(DepleteTableBar(t2Bar));
         } 
         
-        if (tally.LvlCompCount == 3){
+        if (tally.LvlCompCount >= 3){
         if (itPick.table3Placed)
         {
             t3Bar.gameObject.SetActive(true);
-            StartCoroutine(DepleteTableBar(t2Bar));
-        }
+            StartCoroutine(DepleteTableBar(t3Bar));
+            }
         }
     }
 
@@ -98,7 +98,7 @@ public class TableBar : MonoBehaviour
 
             if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f || agent.transform == exit)
                 {
                     if (!hasReachedDest)
                     {

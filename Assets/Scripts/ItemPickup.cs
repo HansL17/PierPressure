@@ -16,9 +16,9 @@ public class ItemPickup : MonoBehaviour
     public GameObject dishInT3;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     private bool isMovingToDestination = false;
-    public bool table1Placed = false; // Flag to indicate if item is placed on Table 1
+    public bool table1Placed = false; // Flag to indicate if item is placed on Table 
     public bool table2Placed = false;
-    public bool table3Placed = false; // Flag to indicate if item is placed on Table 2
+    public bool table3Placed = false; 
 
 
     private GameObject playerObject;
@@ -29,6 +29,7 @@ public class ItemPickup : MonoBehaviour
     public Order order;
     public CustomerMove cusMove;
     public SoundScript SFX;
+    public SpawnCust cusSpawn;
 
 
     private void Start()
@@ -49,6 +50,7 @@ public class ItemPickup : MonoBehaviour
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
         order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
+        cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
 
     }
@@ -201,8 +203,6 @@ public class ItemPickup : MonoBehaviour
         scores.consecutiveActions2++;
         Debug.Log("Action 2 Done");
         scores.AddScore();
-        
-        
     }
 
  

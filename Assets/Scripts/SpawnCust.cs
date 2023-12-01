@@ -47,7 +47,7 @@ public class SpawnCust : MonoBehaviour
     {
         //Modify the transform settings of the model
         Quaternion newRotation = Quaternion.Euler(0f, 180f, 0f);
-        Vector3 newScale = new Vector3(0.8f, 0.8f, 0.8f);
+        Vector3 newScale = new Vector3(0.7f, 0.7f, 0.7f);
 
         //Instantiate the object with the modified transform settings and NavMeshAgent
         GameObject spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
@@ -65,10 +65,11 @@ public class SpawnCust : MonoBehaviour
 
         //Add a Box Collider to the spawned customer
         BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
-        float width = 0.04034754f;
-        float height = 0.1559255f;
-        float depth = 0.0263764f;
-        boxCollider.size = new Vector3(width, height, depth); 
+        float width = 0.7416129f;
+        float height = 1.930175f;
+        float depth = 0.5f;
+        boxCollider.center = new Vector3(0, 1, 0);
+        boxCollider.size = new Vector3(width, height, depth);
 
         // //Make customer blue
         // MeshRenderer[] meshRenderers = spawnedObject.GetComponentsInChildren<MeshRenderer>();
@@ -77,7 +78,6 @@ public class SpawnCust : MonoBehaviour
         //     Color blue = Color.blue;
         //     meshRenderer.material.color = blue;
         // }
-
 
         //Add the object to the customer lineup
         SFX.CustomerSound();

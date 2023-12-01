@@ -136,10 +136,10 @@ public class Scoring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnCus.totalCus == 6 && spawnCus.cusCount == 0)
+        if (spawnCus.totalCus == 6 && spawnCus.cusCount <= 0)
         {
             hud.PauseScene();
-            if(expertScore > score && score >= normalScore)
+            if(expertScore > score && score >= normalScore && Tally1.LvlCompCount < 4)
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
@@ -151,7 +151,7 @@ public class Scoring : MonoBehaviour
                 lvlComp.gameObject.SetActive(true);
                 scoreTextLVLdoneCOMP.text = "Score: " + score;
                 scoreType.text = "Expert Score Achieved!";
-            } else if (score < normalScore)
+            } else if (score < normalScore || Tally1.LvlCompCount == 4 && score < expertScore)
             {
                 HUD.gameObject.SetActive(false);
                 lvlFail.gameObject.SetActive(true);
