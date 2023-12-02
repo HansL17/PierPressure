@@ -51,7 +51,7 @@ public class CustomerMove : MonoBehaviour
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
 
-        if(tally.LvlCompCount < 2)
+        if(tally.LvlCompCount <= 2)
         {
             tBar3 = null;
         }

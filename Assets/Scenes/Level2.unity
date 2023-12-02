@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
+  m_IndirectSpecularColor: {r: 0.44989765, g: 0.66960996, b: 0.656212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1802,7 +1802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,6 +1817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TallyOBJ: {fileID: 173865030}
   ExpertScore: 0
+  NoPatience: 0
   ExScoreCount: 1
   LvlCompCount: 0
   TableUPG: 0
@@ -18421,7 +18422,7 @@ MonoBehaviour:
   globalTime: 9000
   tally: {fileID: 0}
   popup: {fileID: 0}
-  newSkyboxMaterial: {fileID: 0}
+  newSkyboxMaterial: {fileID: 2100000, guid: b2f1a98efccfb644f8e084200a249527, type: 2}
 --- !u!1 &1780345755
 GameObject:
   m_ObjectHideFlags: 0
@@ -22479,7 +22480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1087a1443371cb2468b7280785fbf3ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df4529fdb513eb4282d3ece4d04a63c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
