@@ -48,17 +48,17 @@ public class PatienceBar : MonoBehaviour
 
     void Update()
     {
-        if(itPick.table1Placed)
+        if(itPick.dishInT1 != null)
         {
             Canvas toDelete = cusMove.customerInT1.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
         }
-        if(itPick.table2Placed)
+        if(itPick.dishInT2 != null)
         {
             Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
         }
-        if(itPick.table3Placed)
+        if(itPick.dishInT3 != null)
         {
             Canvas toDelete = cusMove.customerInT3.GetComponentInChildren<Canvas>();
             Destroy(toDelete);

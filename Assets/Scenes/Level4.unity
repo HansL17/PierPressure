@@ -1994,8 +1994,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TallyOBJ: {fileID: 173865030}
   ExpertScore: 0
+  NoPatience: 0
   ExScoreCount: 0
-  LvlCompCount: 0
+  LvlCompCount: 3
   TableUPG: 0
   PlantUPG: 0
   CarpetUPG: 0
@@ -7591,7 +7592,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660605956}
   m_LocalRotation: {x: 0.36552376, y: -0, z: -0, w: 0.9308021}
-  m_LocalPosition: {x: 0, y: 0, z: 1.918}
+  m_LocalPosition: {x: 0, y: 0, z: 2.69}
   m_LocalScale: {x: 0.16853665, y: 0.122824974, z: 0.12282496}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7601,7 +7602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 42.88, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 29.122, y: 0.607}
+  m_AnchoredPosition: {x: 28.85, y: 0.89}
   m_SizeDelta: {x: 7.623, y: 3.122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &670542552
@@ -14375,6 +14376,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -15701,6 +15703,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1250180087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250180088}
+  - component: {fileID: 1250180089}
+  m_Layer: 0
+  m_Name: NextLevelScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1250180088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250180087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.070599, y: 0.3931475, z: 2.0954208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 46
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1250180089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250180087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5092d2eb6cc83442b15fe63834e3fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LvlTally: {fileID: 0}
 --- !u!4 &1254025804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1649414014555591318, guid: 1b01ec087414cf046926d21f8c0c7f6f, type: 3}
@@ -18570,7 +18617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3460c51a00dbb4ca518fe99c95871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 6725033063610882024, guid: 217255cfc44353a43bee34d72d32bfbf, type: 3}
+  ObjectToSpawn: {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
   timeDelay: 0
   cusCount: 0
   totalCus: 0
@@ -21909,8 +21956,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01755777, y: 0.024885131, z: 0.016674161}
-  m_Center: {x: 0.002841112, y: 0.012138559, z: 0.023834327}
+  m_Size: {x: 0.022045715, y: 0.024885131, z: 0.027156122}
+  m_Center: {x: 0.0050850864, y: 0.012138559, z: 0.024526685}
 --- !u!1 &1806973147
 GameObject:
   m_ObjectHideFlags: 0
@@ -22929,12 +22976,13 @@ MonoBehaviour:
   currentSlider: {fileID: 0}
   t1Bar: {fileID: 2990964581102351736}
   t2Bar: {fileID: 660605959}
-  t3Bar: {fileID: 0}
+  t3Bar: {fileID: 330681715}
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -23342,6 +23390,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -23531,9 +23580,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924304137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70524f811601c3f439e61ff4360a980f, type: 3}
+  m_Script: {fileID: 11500000, guid: 213330bf9b764b34a854257bb55a96dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cusSpawn: {fileID: 0}
 --- !u!65 &1924304139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26031,7 +26081,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119420651975312062}
   m_LocalRotation: {x: 0.36552376, y: -0, z: -0, w: 0.9308021}
-  m_LocalPosition: {x: 0, y: 0, z: 1.918}
+  m_LocalPosition: {x: 0, y: 0, z: 2.99}
   m_LocalScale: {x: 0.16853665, y: 0.122824974, z: 0.12282496}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26041,7 +26091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 42.88, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25.187, y: 0.607}
+  m_AnchoredPosition: {x: 25.18, y: 0.64}
   m_SizeDelta: {x: 7.623, y: 3.122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &5449799903682437798
@@ -26321,6 +26371,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}

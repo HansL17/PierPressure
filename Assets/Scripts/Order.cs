@@ -64,7 +64,7 @@ public class Order : MonoBehaviour
                 orderSprite.tag = "OrderSprite1";
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
-                orderSprite.transform.position = new Vector3(25.1922302f, 0.8f, 4.51000023f); 
+                orderSprite.transform.position = new Vector3(25.1922302f, 1.7f, 4.51000023f); 
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
                 timer1 = 0f;
                 isTimer1Active = false;
@@ -91,7 +91,7 @@ public class Order : MonoBehaviour
                 orderSprite.tag = "OrderSprite2";
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
-                orderSprite.transform.position = new Vector3(29.3195457f, 0.8f, 4.59800053f);
+                orderSprite.transform.position = new Vector3(29.3195457f, 1.7f, 4.59800053f);
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
                 timer2 = 0f;
                 isTimer2Active = false;
@@ -118,7 +118,7 @@ public class Order : MonoBehaviour
                 orderSprite.tag = "OrderSprite3";
                 SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = order;
-                orderSprite.transform.position = new Vector3 (29.295f, 1.316f, 2.831f);
+                orderSprite.transform.position = new Vector3 (27.0580006f, 1.7f, 2.08400011f);
                 orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
                 timer3 = 0f;
                 isTimer3Active = false;
@@ -147,7 +147,7 @@ public class Order : MonoBehaviour
             itemPick.table2Placed = false;
         }
 
-        if (isTable3Placed && player.velocity.magnitude < 0.1f)
+        if (isTable3Placed && player.velocity.magnitude < 0.1f || itemPick.dishInT3 != null)
         {
             orderSprites = GameObject.FindGameObjectsWithTag("OrderSprite3");
             Debug.Log("Destroyed");

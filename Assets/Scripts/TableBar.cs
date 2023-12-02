@@ -15,7 +15,7 @@ public class TableBar : MonoBehaviour
     public Slider tab3Slider;
     public float maxEat = 5f; //max patience (in seconds)
     public float currentTab; //current patience (in seconds)
-    private NavMeshAgent agent;
+    [SerializeField] NavMeshAgent agent;
 
     private ItemPickup itPick;
     public CustomerMove cusMove;
@@ -44,23 +44,23 @@ public class TableBar : MonoBehaviour
 
     void Update()
     {
-        if (itPick.table1Placed)
+        if (itPick.dishInT1 != null)
         {
-            t1Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t1Bar));
+            Debug.Log("Table 1 is Eating");
         }
 
-        if (itPick.table2Placed)
+        if (itPick.dishInT2 != null)
         {
-            t2Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t2Bar));
+            Debug.Log("Table 2 is Eating");
         } 
         
         if (tally.LvlCompCount >= 2){
-        if (itPick.table3Placed)
+        if (itPick.dishInT3 != null)
         {
-            t3Bar.gameObject.SetActive(true);
             StartCoroutine(DepleteTableBar(t3Bar));
+                Debug.Log("Table 3 is Eating");
             }
         }
     }
@@ -77,7 +77,7 @@ public class TableBar : MonoBehaviour
         }
         
 
-        // //When Patience bar is done, perform any necessary action with TabGone()
+        // //When Table bar is done, perform any necessary action with TabGone()
         StartCoroutine(TabGone(bar));
     }
 
@@ -145,16 +145,33 @@ public class TableBar : MonoBehaviour
             agent = cusMove.customerInT3.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
-            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            bool hasReachedDest = false;
+            if (agent != null)
             {
-                yield return null;
+                while (agent != null && (agent.pathPending || agent.remainingDistance > agent.stoppingDistance))
+                {
+                    yield return null;
+                }
+
+                if (agent != null && agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+                {
+                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    {
+                        if (!hasReachedDest)
+                        {
+                            hasReachedDest = true;
+                            spawnCus.cusCount--;
+                            cusMove.customerInT3 = null;
+                            itPick.dishInT3 = null;
+                            itPick.table3Placed = false;
+                            Start();
+                        }
+                    }
+                }
             }
-            Destroy(agent.gameObject);
-            spawnCus.cusCount--;
-            cusMove.customerInT3 = null;
-            itPick.dishInT3 = null;
-            itPick.table3Placed = false;
-            Start();
+
+
+
         }
     }
 

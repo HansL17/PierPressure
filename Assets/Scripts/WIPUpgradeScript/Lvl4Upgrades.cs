@@ -339,9 +339,11 @@ public class Lvl4Upgrades : MonoBehaviour
 
     public void ResetUG3()
     {
+        DisableUGObjects3();
         FLightsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         LanternBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         FlrLightsBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         EnableUpgrade();
+        UGCheck();
     }
 }

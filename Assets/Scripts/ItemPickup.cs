@@ -117,9 +117,10 @@ public class ItemPickup : MonoBehaviour
                         if (order.order1Spawned)
                         {
                             isPlacingItem = true;
+                            table1Placed = true;
                             Action2Done();
                             Debug.Log("Placing down item on table...");
-                            table1Placed = true;
+                            
                             dishInT1 = heldItem;
                             order.order1Spawned = false;
                             cusMove.t1_occupied = false;
@@ -131,9 +132,9 @@ public class ItemPickup : MonoBehaviour
                         if (order.order2Spawned)
                         {
                             isPlacingItem = true;
+                            table2Placed = true;
                             Action2Done();
                             Debug.Log("Placing down item on table...");
-                            table2Placed = true;
                             dishInT2 = heldItem;
                             order.order2Spawned = false;
                             cusMove.t2_occupied = false;
@@ -144,9 +145,9 @@ public class ItemPickup : MonoBehaviour
                         if (order.order3Spawned)
                         {
                             isPlacingItem = true;
+                            table3Placed = true;
                             Action2Done();
                             Debug.Log("Placing down item on table...");
-                            table3Placed = true;
                             dishInT3 = heldItem;
                             order.order3Spawned = false;
                             cusMove.t3_occupied = false;
@@ -155,7 +156,7 @@ public class ItemPickup : MonoBehaviour
 
                     if (tablePosition == null)
                     {
-                        Debug.LogError("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
+                        Debug.Log("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
                     }                 
                     
                     // Start the delay coroutine

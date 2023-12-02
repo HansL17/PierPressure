@@ -84,7 +84,7 @@ public class Scoring : MonoBehaviour
         }
         else if (Tally1.ApronUPG == true)
         {
-            ApronBonus();
+            
         }
 
         else
@@ -94,10 +94,6 @@ public class Scoring : MonoBehaviour
         UpdateScore();
     }
 
-    public void SubScore(int newScore) // Function for subtracting score
-    {
-        score -= newScore;
-    }
 
     public void UpdateScore() // Function for updating score
     {

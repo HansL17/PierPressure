@@ -7,13 +7,16 @@ public class HUDCommands : MonoBehaviour
     public ScoreTally tally;
     public Animator popup;
     public Material newSkyboxMaterial;
+    public string activeSceneName;
+
 
     void Awake()
     {
+        activeSceneName = Application.loadedLevelName;
         RenderSettings.skybox = newSkyboxMaterial;
         
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        if (popup != null)
+        if (activeSceneName != "Level3" || activeSceneName != "Level5" || activeSceneName != "Prologue" || activeSceneName != "Ending1" || activeSceneName != "Ending2")
         {
         popup = GameObject.Find("Popups").GetComponent<Animator>();
         }
@@ -21,7 +24,7 @@ public class HUDCommands : MonoBehaviour
     }
 
     void Update(){
-        if (popup != null)
+        if (activeSceneName != "Level3" || activeSceneName != "Level5" || activeSceneName != "Prologue" || activeSceneName != "Ending1" || activeSceneName != "Ending2")
         {
         if (popup.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {

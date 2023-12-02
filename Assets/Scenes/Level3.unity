@@ -1887,7 +1887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7195,7 +7195,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660605956}
   m_LocalRotation: {x: 0.36552376, y: -0, z: -0, w: 0.9308021}
-  m_LocalPosition: {x: 0, y: 0, z: 2.53}
+  m_LocalPosition: {x: 0, y: 0, z: 2.48}
   m_LocalScale: {x: 0.16853665, y: 0.122824974, z: 0.12282496}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7205,7 +7205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 42.88, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 28.78, y: 1.26}
+  m_AnchoredPosition: {x: 28.71, y: 1.21}
   m_SizeDelta: {x: 7.623, y: 3.122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &670542552
@@ -8501,7 +8501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766616365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.96, y: 0.09, z: 3.16}
+  m_LocalPosition: {x: 20.96, y: 0.1, z: 3.16}
   m_LocalScale: {x: -0.16125199, y: 1, z: 0.531927}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13891,6 +13891,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -20474,8 +20475,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01755777, y: 0.024885131, z: 0.016674161}
-  m_Center: {x: 0.002841112, y: 0.012138559, z: 0.023834327}
+  m_Size: {x: 0.023106096, y: 0.024885131, z: 0.016674161}
+  m_Center: {x: 0.005615275, y: 0.012138559, z: 0.023834327}
 --- !u!1 &1806973147
 GameObject:
   m_ObjectHideFlags: 0
@@ -21396,12 +21397,13 @@ MonoBehaviour:
   currentSlider: {fileID: 0}
   t1Bar: {fileID: 2990964581102351736}
   t2Bar: {fileID: 660605959}
-  t3Bar: {fileID: 0}
+  t3Bar: {fileID: 330681715}
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -21811,6 +21813,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -22025,7 +22028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924304137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.149, y: 0.16, z: -2.83}
+  m_LocalPosition: {x: 21.149, y: 0.16, z: -2.245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24582,6 +24585,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
