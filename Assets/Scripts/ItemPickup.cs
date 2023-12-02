@@ -147,7 +147,7 @@ public class ItemPickup : MonoBehaviour
                             Action2Done();
                             Debug.Log("Placing down item on table...");
                             table3Placed = true;
-                            dishInT2 = heldItem;
+                            dishInT3 = heldItem;
                             order.order3Spawned = false;
                             cusMove.t3_occupied = false;
                         }

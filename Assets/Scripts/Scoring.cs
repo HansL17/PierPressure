@@ -39,6 +39,7 @@ public class Scoring : MonoBehaviour
         hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
         BGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
+        Tally1 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
     }
 
     // Start is called before the first frame update
@@ -102,11 +103,11 @@ public class Scoring : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
 
-        if (score == normalScore)
+        if (score >= normalScore && score < expertScore)
         {
             Debug.Log("Normal Score Achieved!");
         }
-        else if (score == expertScore)
+        else if (score >= expertScore)
         {
             Debug.Log("Expert Score Achieved!");
             UpdateEXScore();

@@ -5,7 +5,7 @@ public class HUDCommands : MonoBehaviour
 {
     public float globalTime = 9000;
     public ScoreTally tally;
-    public Animator popup = null;
+    public Animator popup;
     public Material newSkyboxMaterial;
 
     void Awake()
@@ -13,7 +13,7 @@ public class HUDCommands : MonoBehaviour
         RenderSettings.skybox = newSkyboxMaterial;
         
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        if (tally.LvlCompCount != 2)
+        if (popup != null)
         {
         popup = GameObject.Find("Popups").GetComponent<Animator>();
         }
@@ -21,7 +21,7 @@ public class HUDCommands : MonoBehaviour
     }
 
     void Update(){
-        if (tally.LvlCompCount !=2 || tally.LvlCompCount !=4)
+        if (popup != null)
         {
         if (popup.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {

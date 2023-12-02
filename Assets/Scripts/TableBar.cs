@@ -36,7 +36,7 @@ public class TableBar : MonoBehaviour
         currentTab = 5f;
         tab1Slider.value = currentTab;
         tab2Slider.value = currentTab;
-        if (tally.LvlCompCount == 3){
+        if (tally.LvlCompCount >= 2){
         tab3Slider.value = currentTab;
         }
     }
@@ -56,7 +56,7 @@ public class TableBar : MonoBehaviour
             StartCoroutine(DepleteTableBar(t2Bar));
         } 
         
-        if (tally.LvlCompCount >= 3){
+        if (tally.LvlCompCount >= 2){
         if (itPick.table3Placed)
         {
             t3Bar.gameObject.SetActive(true);

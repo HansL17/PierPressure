@@ -289,6 +289,7 @@ public class Lvl3Upgrade : MonoBehaviour
         DisableUGObjects2();
         ExScoreCheck2();
         UpdateUpgrade2();
+        UGCheck();
         lvl3Desc.enabled = false;
         ShoesBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);
         ApronBtn.GetComponent<Image>().color = new Color32(239, 201, 170, 255);

@@ -28,6 +28,10 @@ public class nextLvl : MonoBehaviour
         {
             SceneManager.LoadScene("Level4");
         }
+        else if(LvlTally.LvlCompCount == 3 && LvlTally.ExScoreCount == 4)
+        {
+            SceneManager.LoadScene("Level 5");
+        }
     }
 
     public void CheckScore()
