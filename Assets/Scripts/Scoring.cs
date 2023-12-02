@@ -139,7 +139,7 @@ public class Scoring : MonoBehaviour
         if (spawnCus.totalCus == 6 && spawnCus.cusCount <= 0)
         {
             hud.PauseScene();
-            if(expertScore > score && score >= normalScore && Tally1.LvlCompCount < 4)
+            if (expertScore > score && score >= normalScore && Tally1.LvlCompCount < 4)
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
@@ -153,10 +153,19 @@ public class Scoring : MonoBehaviour
                 scoreType.text = "Expert Score Achieved!";
             } else if (score < normalScore || Tally1.LvlCompCount == 4 && score < expertScore)
             {
+                hud.PauseScene();
                 HUD.gameObject.SetActive(false);
                 lvlFail.gameObject.SetActive(true);
                 scoreTextLVLdoneFAIL.text = "Score: " + score;
             }
+        }
+
+        if (Tally1.NoPatience == true)
+        {
+            hud.PauseScene();
+            HUD.gameObject.SetActive(false);
+            lvlFail.gameObject.SetActive(true);
+            scoreTextLVLdoneFAIL.text = "Score: " + score;
         }
     }
 }

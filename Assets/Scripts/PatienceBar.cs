@@ -13,20 +13,27 @@ public class PatienceBar : MonoBehaviour
     public float currentPatience; //current patience (in seconds)
     public NavMeshAgent agent;
 
+
     private ItemPickup itPick;
     public CustomerLine cusLine;
     public SpawnCust spawnCus;
     public CustomerMove cusMove;
     public Order order;
+    public SoundScript BGM;
+    public ScoreTally PDelete;
 
 
     private void Awake()
     {
+        //Scripts
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
         order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
+        BGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
+        PDelete = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
+
     }
 
     // Start is called before the first frame update
@@ -74,6 +81,10 @@ public class PatienceBar : MonoBehaviour
     private IEnumerator PatienceGone()
     {
         Debug.Log("Patience Depleted");
+        PDelete.NoPatience = true;
+        BGM.StopMusic();
+
+
         Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
         if (agent.gameObject == cusMove.customerInT1)
         {

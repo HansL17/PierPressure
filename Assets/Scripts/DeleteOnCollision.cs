@@ -2,13 +2,25 @@ using UnityEngine;
 
 public class DeleteOnCollision : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+
+    private string cusTag = "Customer";
+
+    public SpawnCust cusSpawn;
+
+    private void Awake()
     {
-        // Check if the colliding object has a Collider component
-        if (collision.collider != null)
+        cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Customer Collided");
+
+        // Check if the colliding object has a CustomerTag
+        if (other.gameObject.CompareTag(cusTag))
         {
             // Destroy the other GameObject on collision
-            Destroy(collision.collider.gameObject);
+            Destroy(other.gameObject);
+            cusSpawn.cusCount--;
         }
     }
 }

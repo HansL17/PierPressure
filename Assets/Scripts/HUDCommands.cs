@@ -21,7 +21,7 @@ public class HUDCommands : MonoBehaviour
     }
 
     void Update(){
-        if (tally.LvlCompCount !=2)
+        if (tally.LvlCompCount !=2 || tally.LvlCompCount !=4)
         {
         if (popup.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {

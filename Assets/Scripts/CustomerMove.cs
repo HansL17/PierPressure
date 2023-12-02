@@ -16,6 +16,7 @@ public class CustomerMove : MonoBehaviour
     public Canvas cusBar;
     public RectTransform cusBarRect;
 
+
     //Table Bar GameObjects
     public GameObject tBar1;
     public GameObject tBar2;
@@ -152,11 +153,18 @@ public class CustomerMove : MonoBehaviour
             isHighlighted = true;
 
             //Highlight
-            MeshRenderer[] meshRenderers = selectedObject.GetComponentsInChildren<MeshRenderer>();
-            foreach (MeshRenderer meshRenderer in meshRenderers)
+                //Access the child GameObject for highlighting
+                Transform childHighlight = selectedObject.transform.Find("Highlight");
+
+            // Check if the child GameObject exists
+            if (childHighlight != null)
             {
-                Color yellow = Color.yellow;
-                meshRenderer.material.color = yellow;
+                // Enable the child GameObject for highlighting
+                childHighlight.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogError("Child GameObject for highlight not found.");
             }
         }
     }
@@ -165,11 +173,18 @@ public class CustomerMove : MonoBehaviour
     {
         isHighlighted = false;
 
-        MeshRenderer[] meshRenderers = selectedObject.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer meshRenderer in meshRenderers)
+        //Access the child GameObject for highlighting
+        Transform childHighlight = selectedObject.transform.Find("Highlight");
+
+        // Check if the child GameObject exists
+        if (childHighlight != null)
         {
-            Color blue = Color.blue;
-            meshRenderer.material.color = blue;
+            // Enable the child GameObject for highlighting
+            childHighlight.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Child GameObject for highlight not found.");
         }
 
         selectedObject = null;

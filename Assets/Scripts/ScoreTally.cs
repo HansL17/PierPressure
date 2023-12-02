@@ -10,6 +10,9 @@ public class ScoreTally : MonoBehaviour
     //Bool for EXScore
     public bool ExpertScore = false;
 
+    //Bool for Failed Level
+    public bool NoPatience = false;
+
     //Integers
     public int ExScoreCount;
     public int LvlCompCount;
