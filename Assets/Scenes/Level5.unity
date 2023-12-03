@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
+  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4831,7 +4831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81bebc962d4f0774fb67dd9148baa33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishPrefab: {fileID: 1777086537439349773, guid: 629f8f2ba6c83a443a0d89609fa19dd6, type: 3}
+  dishPrefab: {fileID: 6290050685965900453, guid: 22f70e163a75b0643b7e1dfc8599f1a5, type: 3}
   spawnDelay: 5
   dishSpawn2: {fileID: 2077887305}
   dishBar2: {fileID: 0}
@@ -6578,19 +6578,12 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   itemPick: {fileID: 0}
   player: {fileID: 1350290497}
-  order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
+  Orders: []
   order1Spawned: 0
-  order2Spawned: 0
-  order3Spawned: 0
   timer1Duration: 5
-  timer2Duration: 7
-  timer3Duration: 7
   timer1: 0
-  timer2: 0
-  timer3: 0
+  dishPos1: {fileID: 0}
   isTable1Placed: 0
-  isTable2Placed: 0
-  isTable3Placed: 0
 --- !u!1001 &630404203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11773,19 +11766,12 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   itemPick: {fileID: 0}
   player: {fileID: 1350290497}
-  order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
+  Orders: []
   order1Spawned: 0
-  order2Spawned: 0
-  order3Spawned: 0
   timer1Duration: 5
-  timer2Duration: 7
-  timer3Duration: 7
   timer1: 0
-  timer2: 0
-  timer3: 0
+  dishPos1: {fileID: 0}
   isTable1Placed: 0
-  isTable2Placed: 0
-  isTable3Placed: 0
 --- !u!1 &977269965
 GameObject:
   m_ObjectHideFlags: 0
@@ -14294,7 +14280,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
-  order: {fileID: 0}
   tally: {fileID: 0}
 --- !u!1 &1133684690
 GameObject:
@@ -16746,7 +16731,9 @@ MonoBehaviour:
   table3Placed: 0
   scores: {fileID: 0}
   tBar: {fileID: 0}
-  order: {fileID: 0}
+  orderT1: {fileID: 0}
+  orderT2: {fileID: 0}
+  orderT3: {fileID: 0}
   cusMove: {fileID: 0}
   SFX: {fileID: 0}
   cusSpawn: {fileID: 0}
@@ -20525,19 +20512,12 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   itemPick: {fileID: 0}
   player: {fileID: 1350290497}
-  order: {fileID: 21300000, guid: c947c3eede56fd54681572af8bf53ebf, type: 3}
+  Orders: []
   order1Spawned: 0
-  order2Spawned: 0
-  order3Spawned: 0
   timer1Duration: 5
-  timer2Duration: 7
-  timer3Duration: 7
   timer1: 0
-  timer2: 0
-  timer3: 0
+  dishPos1: {fileID: 0}
   isTable1Placed: 0
-  isTable2Placed: 0
-  isTable3Placed: 0
 --- !u!4 &1693920162
 Transform:
   m_ObjectHideFlags: 0
@@ -22721,7 +22701,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
-  order: {fileID: 0}
   tally: {fileID: 0}
 --- !u!1 &1877939549
 GameObject:
@@ -23129,7 +23108,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
-  order: {fileID: 0}
   tally: {fileID: 0}
 --- !u!114 &1912603610
 MonoBehaviour:
@@ -25758,7 +25736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9043121f070bd4ba8bdd47a6d280e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishPrefab: {fileID: 1777086537439349773, guid: 629f8f2ba6c83a443a0d89609fa19dd6, type: 3}
+  dishPrefab: {fileID: 919132149155446097, guid: 6a813b814ae309742a24b70bdac2898d, type: 3}
   spawnDelay: 5
   dishSpawn: {fileID: 348334331}
   dishBar: {fileID: 0}
@@ -26008,7 +25986,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
-  order: {fileID: 0}
   tally: {fileID: 0}
 --- !u!4 &8355075833532231694
 Transform:

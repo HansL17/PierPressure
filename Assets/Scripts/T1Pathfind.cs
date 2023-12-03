@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class T1Pathfind : MonoBehaviour
 {
@@ -10,19 +11,19 @@ public class T1Pathfind : MonoBehaviour
     private int currentWaypointIndex = 0;
     public T3Pathfind t3pf;
     public bool go = false;
-    public ScoreTally tally;
+    private Scene currentScene;
 
     private void Start()
     {
-        tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        if (tally.LvlCompCount == 3){
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Level3"){
             t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();
         }
     }
 
     private void OnMouseDown()
     {
-        if (tally.LvlCompCount == 3){
+        if (currentScene.name == "Level3"){
             if (t3pf.fromA == true)
             {
                 MoveToNextWaypoint();

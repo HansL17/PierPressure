@@ -20,13 +20,13 @@ public class TableBar : MonoBehaviour
     private ItemPickup itPick;
     public CustomerMove cusMove;
     public SpawnCust spawnCus;
-    public Order order;
+    // public Order order;
     public ScoreTally tally;
 
     void Awake()
     {
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        order = GameObject.Find("DishPosition").GetComponent<Order>();
+        //order = GameObject.Find("DishPosition").GetComponent<Order>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
@@ -44,20 +44,20 @@ public class TableBar : MonoBehaviour
 
     void Update()
     {
-        if (itPick.dishInT1 != null)
+        if (itPick.table1Placed == true)
         {
             StartCoroutine(DepleteTableBar(t1Bar));
             Debug.Log("Table 1 is Eating");
         }
 
-        if (itPick.dishInT2 != null)
+        if (itPick.table2Placed == true)
         {
             StartCoroutine(DepleteTableBar(t2Bar));
             Debug.Log("Table 2 is Eating");
         } 
         
         if (tally.LvlCompCount >= 2){
-        if (itPick.dishInT3 != null)
+        if (itPick.table3Placed == true)
         {
             StartCoroutine(DepleteTableBar(t3Bar));
                 Debug.Log("Table 3 is Eating");

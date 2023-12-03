@@ -8,6 +8,7 @@ public class customerAnimation : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
     public CustomerMove cusMove;
+    public bool isSitting;
     
     // Start is called before the first frame update
     void Start()
@@ -38,8 +39,8 @@ public class customerAnimation : MonoBehaviour
         {
             animator.SetBool("isSitting", false);
         }
-
-
+        
+        isSitting = animator.GetBool("isSitting");
     }
 
     private IEnumerator CustomerSit() {

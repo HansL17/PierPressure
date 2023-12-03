@@ -20,13 +20,16 @@ public class ItemPickup : MonoBehaviour
     public bool table2Placed = false;
     public bool table3Placed = false; 
 
+    private string ordName = "";
 
     private GameObject playerObject;
     private NavMeshAgent player; // Reference to Player NavMeshAgent (Wendy)
 
     public Scoring scores;
     public TableBar tBar;
-    public Order order;
+    public OrderTable1 orderT1;
+    public OrderTable2 orderT2;
+    public OrderTable3 orderT3;
     public CustomerMove cusMove;
     public SoundScript SFX;
     public SpawnCust cusSpawn;
@@ -49,7 +52,10 @@ public class ItemPickup : MonoBehaviour
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
-        order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
+        orderT1 = GameObject.Find("DishPosition").GetComponent<OrderTable1>(); //Get script
+        orderT2 = GameObject.Find("DishPosition2").GetComponent<OrderTable2>(); //Get script
+        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
+        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();} else {orderT3 = null;}
         cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
 
@@ -57,6 +63,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
+        //if (heldItem != null) {Debug.Log(heldItem.name);}
         if (isMovingToDestination)
         {
             if (player.pathStatus == NavMeshPathStatus.PathComplete && player.remainingDistance <= player.stoppingDistance)
@@ -114,43 +121,69 @@ public class ItemPickup : MonoBehaviour
                     if (whichTable.name == "T1_table")
                     {
                         tablePosition = GameObject.Find("DishPosition");
-                        if (order.order1Spawned)
+                        if (orderT1.order1Spawned)
                         {
-                            isPlacingItem = true;
-                            table1Placed = true;
-                            Action2Done();
-                            Debug.Log("Placing down item on table...");
-                            
+                            if (orderT1.OrderNum == 1)
+                            {
+                                ordName = "dish1(Clone)";
+                            } else if (orderT1.OrderNum == 2)
+                            {
+                                ordName = "dish2(Clone)";
+                            }
                             dishInT1 = heldItem;
-                            order.order1Spawned = false;
-                            cusMove.t1_occupied = false;
+                            if (heldItem.name == ordName){
+                                isPlacingItem = true;
+                                table1Placed = true;
+                                Action2Done();
+                                Debug.Log("Placing down item on table...");
+                                orderT1.order1Spawned = false;
+                                cusMove.t1_occupied = false;
+                            } else {Debug.Log("Not the right order");}
                         }
                     }
                     else if (whichTable.name == "T2_table")
                     {
                         tablePosition = GameObject.Find("DishPosition2");
-                        if (order.order2Spawned)
+                        if (orderT2.order2Spawned)
                         {
-                            isPlacingItem = true;
-                            table2Placed = true;
-                            Action2Done();
-                            Debug.Log("Placing down item on table...");
+                            if (orderT2.OrderNum == 1)
+                            {
+                                ordName = "dish1(Clone)";
+                            } else if (orderT2.OrderNum == 2)
+                            {
+                                ordName = "dish2(Clone)";
+                            }
                             dishInT2 = heldItem;
-                            order.order2Spawned = false;
-                            cusMove.t2_occupied = false;
+                            if (heldItem.name == ordName){
+                                isPlacingItem = true;
+                                table2Placed = true;
+                                Action2Done();
+                                Debug.Log("Placing down item on table...");
+                                orderT2.order2Spawned = false;
+                                cusMove.t2_occupied = false;
+                            } else {Debug.Log("Not the right order");}
                         }
                     } else if (whichTable.name == "T3_table")
                     {
                         tablePosition = GameObject.Find("DishPosition3");
-                        if (order.order3Spawned)
+                        if (orderT3.order3Spawned)
                         {
-                            isPlacingItem = true;
-                            table3Placed = true;
-                            Action2Done();
-                            Debug.Log("Placing down item on table...");
+                            if (orderT3.OrderNum == 1)
+                            {
+                                ordName = "dish1(Clone)";
+                            } else if (orderT3.OrderNum == 2)
+                            {
+                                ordName = "dish2(Clone)";
+                            }
                             dishInT3 = heldItem;
-                            order.order3Spawned = false;
-                            cusMove.t3_occupied = false;
+                            if (heldItem.name == ordName){
+                                isPlacingItem = true;
+                                table3Placed = true;
+                                Action2Done();
+                                Debug.Log("Placing down item on table...");
+                                orderT3.order3Spawned = false;
+                                cusMove.t3_occupied = false;
+                            } else {Debug.Log("Not the right order");}
                         }
                     }else isPlacingItem = false;
 
@@ -159,8 +192,12 @@ public class ItemPickup : MonoBehaviour
                         Debug.Log("DishPosition not found! Make sure to create an empty GameObject in the scene and name it 'DishPosition'.");
                     }                 
                     
+                    if (heldItem.name == ordName){
                     // Start the delay coroutine
                     StartCoroutine(PlaceItemWithDelay());
+                    } else {
+                        Debug.Log("no");
+                    }
                 }
             }
         }
@@ -173,7 +210,6 @@ public class ItemPickup : MonoBehaviour
         // Check if the player is still placing the item
         if (isPlacingItem)
         {
-            
             // Enable the item's collider and rigidbody
             Collider itemCollider = heldItem.GetComponent<Collider>();
             if (itemCollider != null)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PatienceBar : MonoBehaviour
 {
@@ -18,19 +19,25 @@ public class PatienceBar : MonoBehaviour
     public CustomerLine cusLine;
     public SpawnCust spawnCus;
     public CustomerMove cusMove;
-    public Order order;
+    public OrderTable1 orderT1;
+    public OrderTable2 orderT2;
+    public OrderTable3 orderT3;
     public SoundScript BGM;
     public ScoreTally PDelete;
 
 
     private void Awake()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         //Scripts
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
-        order = GameObject.Find("DishPosition").GetComponent<Order>(); //Get script
+        orderT1 = GameObject.Find("DishPosition").GetComponent<OrderTable1>(); //Get script
+        orderT2 = GameObject.Find("DishPosition2").GetComponent<OrderTable2>(); //Get script
+        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
+        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();} else {orderT3 = null;}
         BGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
         PDelete = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
 
@@ -90,19 +97,19 @@ public class PatienceBar : MonoBehaviour
         {
             Canvas toDelete = cusMove.customerInT1.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
-            order.ResetTable("1");
+            orderT1.ResetTable();
         }
         if (agent.gameObject == cusMove.customerInT2)
         {
             Canvas toDelete = cusMove.customerInT2.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
-            order.ResetTable("2");
+            orderT2.ResetTable();
         }
         if (agent.gameObject == cusMove.customerInT3)
         {
             Canvas toDelete = cusMove.customerInT3.GetComponentInChildren<Canvas>();
             Destroy(toDelete);
-            order.ResetTable("3");
+            orderT3.ResetTable();
         }
 
         

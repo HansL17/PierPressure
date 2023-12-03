@@ -65,8 +65,20 @@ public class DishSpawn : MonoBehaviour
         // Instantiate the dish prefab next to the clicked button
         Vector3 spawnPosition = transform.position + transform.right;
         Quaternion spawnRotation = transform.rotation;
-        Instantiate(dishPrefab, dishSpawn.position, spawnRotation);
+        GameObject dishSpawned = Instantiate(dishPrefab, dishSpawn.position, spawnRotation);
 
+        float scale = 1.5f;
+        dishSpawned.transform.localScale = new Vector3(scale, scale, scale);
+
+        dishSpawned.tag = "Dish";
+
+        BoxCollider boxCollider = dishSpawned.AddComponent<BoxCollider>();
+        float width = 0.3042574f;
+        float height = 0.07829487f;
+        float depth = 0.289173f;
+        boxCollider.center = new Vector3(0.01338816f, 0.02491823f, 0.01766568f);
+        boxCollider.size = new Vector3(width, height, depth);
+        
         // Log the dish spawn
         Debug.Log("Dish spawned!");
     }
