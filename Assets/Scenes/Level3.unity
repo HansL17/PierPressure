@@ -1485,6 +1485,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a4daa38d043e32440a61157c5f601543, type: 2}
+    - target: {fileID: 6000407479487422213, guid: a1d231579ca26fd49afadec2b93f1e38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.751074e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000407479487422213, guid: a1d231579ca26fd49afadec2b93f1e38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18390185
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000407479487422213, guid: a1d231579ca26fd49afadec2b93f1e38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0000000017826102
+      objectReference: {fileID: 0}
     - target: {fileID: 6250190495565672215, guid: a1d231579ca26fd49afadec2b93f1e38, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -16526,6 +16538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47dd96ab811bd8419dfb4392f940614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPick: {fileID: 0}
 --- !u!114 &1350290496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16546,6 +16559,7 @@ MonoBehaviour:
   dishInT1: {fileID: 0}
   dishInT2: {fileID: 0}
   dishInT3: {fileID: 0}
+  isHoldingItem: 0
   table1Placed: 0
   table2Placed: 0
   table3Placed: 0
@@ -20239,7 +20253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744115487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.0279, z: 0.025}
+  m_LocalPosition: {x: 0.0558, y: 0.0802, z: -0.004}
   m_LocalScale: {x: 0.13754763, y: 0.121745095, z: 0.13754763}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21700,6 +21714,8 @@ MonoBehaviour:
   t2_occupied: 0
   t3_occupied: 0
   speed: 5
+  cusTag: Customer
+  HcusTag: HighCustomer
   cusLine: {fileID: 0}
   scores: {fileID: 0}
   pBar: {fileID: 0}

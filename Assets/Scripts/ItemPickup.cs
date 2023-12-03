@@ -15,6 +15,7 @@ public class ItemPickup : MonoBehaviour
     public GameObject dishInT2;
     public GameObject dishInT3;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
+    public bool isHoldingItem;
     private bool isMovingToDestination = false;
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 
     public bool table2Placed = false;
@@ -85,6 +86,7 @@ public class ItemPickup : MonoBehaviour
                 heldItem.transform.localPosition = Vector3.zero;
                 heldItem.transform.localRotation = Quaternion.identity;
 
+                isHoldingItem = true;
                 isMovingToDestination = false;
             }
         }
@@ -229,6 +231,7 @@ public class ItemPickup : MonoBehaviour
 
             Debug.Log("Item placed on table!");
             isPlacingItem = false;
+            isHoldingItem = false;
         }
     }
 

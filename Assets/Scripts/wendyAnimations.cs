@@ -13,6 +13,8 @@ public class wendyAnimations : MonoBehaviour
     private Transform wendyApronAnimator;
     private Transform wendyBothAnimator;
 
+    public ItemPickup itemPick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class wendyAnimations : MonoBehaviour
         wendyShoesAnimator = transform.Find("wendyNike");
         wendyApronAnimator = transform.Find("wendyapron");
         wendyBothAnimator = transform.Find("wendyapronandshoes"); 
+
+        itemPick = GameObject.Find("Player").GetComponent<ItemPickup>(); //Get script
     }
 
     // Update is called once per frame
@@ -51,6 +55,13 @@ public class wendyAnimations : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
+        }
+
+        if (itemPick.isHoldingItem == true){
+            animator.SetBool("IsHolding", true);
+        }
+        else{
+            animator.SetBool("IsHolding", false);
         }
     }
 }

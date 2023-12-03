@@ -3412,7 +3412,6 @@ MonoBehaviour:
   - {fileID: 938400797}
   t3pf: {fileID: 0}
   go: 0
-  tally: {fileID: 0}
 --- !u!1001 &486798700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6034,6 +6033,7 @@ MonoBehaviour:
   timer2: 0
   dishPos2: {fileID: 627104801}
   isTable2Placed: 0
+  OrderNum: 0
 --- !u!1001 &630404203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10360,6 +10360,7 @@ MonoBehaviour:
   timer1: 0
   dishPos1: {fileID: 974912279}
   isTable1Placed: 0
+  OrderNum: 0
 --- !u!1 &979145681
 GameObject:
   m_ObjectHideFlags: 0
@@ -11513,7 +11514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061140641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.0279, z: 0.025}
+  m_LocalPosition: {x: 0.0558, y: 0.0802, z: -0.004}
   m_LocalScale: {x: 0.13754763, y: 0.121745095, z: 0.13754763}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15877,7 +15878,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3460c51a00dbb4ca518fe99c95871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
+  LowModels:
+  - {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
+  - {fileID: 7501788059647666026, guid: bcc8c8f342f71a7439ac0579aa86f030, type: 3}
+  HighModels: []
+  spawnedObject: {fileID: 0}
   timeDelay: 0
   cusCount: 0
   totalCus: 0
@@ -19297,6 +19302,8 @@ MonoBehaviour:
   t2_occupied: 0
   t3_occupied: 0
   speed: 5
+  cusTag: Customer
+  HcusTag: HighCustomer
   cusLine: {fileID: 0}
   scores: {fileID: 0}
   pBar: {fileID: 0}
@@ -20060,7 +20067,6 @@ MonoBehaviour:
   waypoints: []
   t3pf: {fileID: 0}
   go: 0
-  tally: {fileID: 0}
 --- !u!1 &1913709791
 GameObject:
   m_ObjectHideFlags: 0
@@ -20590,6 +20596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47dd96ab811bd8419dfb4392f940614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPick: {fileID: 0}
 --- !u!114 &1990704548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20610,6 +20617,7 @@ MonoBehaviour:
   dishInT1: {fileID: 0}
   dishInT2: {fileID: 0}
   dishInT3: {fileID: 0}
+  isHoldingItem: 0
   table1Placed: 0
   table2Placed: 0
   table3Placed: 0
@@ -22633,7 +22641,6 @@ MonoBehaviour:
   - {fileID: 952322528}
   t3pf: {fileID: 0}
   go: 0
-  tally: {fileID: 0}
 --- !u!1 &119420651975312062
 GameObject:
   m_ObjectHideFlags: 0
