@@ -3831,7 +3831,6 @@ MonoBehaviour:
   - {fileID: 938400797}
   t3pf: {fileID: 1281388066}
   go: 0
-  tally: {fileID: 0}
 --- !u!1001 &486798700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16558,7 +16557,6 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   SFX: {fileID: 0}
   cusSpawn: {fileID: 0}
-  waypoint: {fileID: 0}
 --- !u!195 &1350290497
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -18221,7 +18219,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3460c51a00dbb4ca518fe99c95871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
+  LowModels:
+  - {fileID: 1616406060653692748, guid: f71041fd118fbb34aa9d2dd6a1d96fce, type: 3}
+  - {fileID: 7501788059647666026, guid: bcc8c8f342f71a7439ac0579aa86f030, type: 3}
+  HighModels:
+  - {fileID: 913845681951795218, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+  - {fileID: 186757882122740016, guid: bcc8732b8b44622449c23934f89e68c0, type: 3}
+  spawnedObject: {fileID: 0}
   timeDelay: 0
   cusCount: 0
   totalCus: 0
@@ -24158,7 +24162,6 @@ MonoBehaviour:
   - {fileID: 952322528}
   t3pf: {fileID: 1281388066}
   go: 0
-  tally: {fileID: 0}
 --- !u!1 &119420651975312062
 GameObject:
   m_ObjectHideFlags: 0

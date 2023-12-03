@@ -60,17 +60,27 @@ public class OrderTable1 : MonoBehaviour
                     SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                     if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
                     {
-                        float randomValue = Random.value;
-                        if (randomValue < 0.5f) {
-                            spriteRenderer.sprite = Orders[0];
-                            OrderNum = 1;}
-                        else {
-                            spriteRenderer.sprite = Orders[1];
-                            OrderNum = 2;}
+                        if(cusMove.customerInT1.CompareTag(cusMove.cusTag)){
+                            int r = UnityEngine.Random.Range(1,11);
+                            if (r < 9) {
+                                spriteRenderer.sprite = Orders[0];
+                                OrderNum = 1;}
+                            else {
+                                spriteRenderer.sprite = Orders[1];
+                                OrderNum = 2;}
+                        } else if (cusMove.customerInT1.CompareTag(cusMove.HcusTag)){
+                            int r = UnityEngine.Random.Range(1,11);
+                            if (r < 9) {
+                                spriteRenderer.sprite = Orders[1];
+                                OrderNum = 2;}
+                            else {
+                                spriteRenderer.sprite = Orders[0];
+                                OrderNum = 1;}
+                        }
                     } else {
                         spriteRenderer.sprite = Orders[0];
                         OrderNum = 1;
-                    }
+                    }                       
 
                     orderSprite.transform.position = new Vector3 (dishPos1.transform.position.x, dishPos1.transform.position.y + 0.7f, dishPos1.transform.position.z);
                     orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);

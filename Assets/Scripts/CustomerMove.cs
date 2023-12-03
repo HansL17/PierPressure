@@ -32,7 +32,8 @@ public class CustomerMove : MonoBehaviour
 
     public float speed = 5f; //Speed of the object
 
-    private string cusTag = "Customer"; //Setting what object is labelled customer
+    public string cusTag = "Customer"; //Setting what object is labelled customer
+    public string HcusTag = "HighCustomer";
     //private string tableTag = "Table"; //Setting what object is labelled table
 
     //Script references
@@ -150,7 +151,7 @@ public class CustomerMove : MonoBehaviour
     {
         selectedObject = obj;
 
-        if (selectedObject.CompareTag(cusTag))
+        if (selectedObject.CompareTag(cusTag) || selectedObject.CompareTag(HcusTag))
         {
             isHighlighted = true;
 

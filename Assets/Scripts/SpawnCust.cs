@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class SpawnCust : MonoBehaviour
 {
     //Variables
-    public GameObject ObjectToSpawn; //What will spawn
+    public GameObject[] LowModels; //What will spawn
+    public GameObject[] HighModels;
+    private GameObject ObjectToSpawn;
+    public GameObject spawnedObject;
     float time;
     public float timeDelay;
     public float cusCount;
@@ -18,6 +22,9 @@ public class SpawnCust : MonoBehaviour
     public AgentType agenttype;
     public SoundScript SFX;
 
+    private int custTier;
+    private Scene currentScene;
+
  
     // Start is called before the first frame update
     void Start()
@@ -28,6 +35,7 @@ public class SpawnCust : MonoBehaviour
         totalCus = 0;
 
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
+        currentScene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
@@ -40,45 +48,94 @@ public class SpawnCust : MonoBehaviour
             totalCus++;
             time = 0f;
         }
-
     }
 
     private void Spawn()
     {
-        //Modify the transform settings of the model
-        Quaternion newRotation = Quaternion.Euler(0f, 180f, 0f);
-        Vector3 newScale = new Vector3(0.7f, 0.7f, 0.7f);
+        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
+        {
+            //Randomize between hightier and lowtier customers
+            int r = UnityEngine.Random.Range(1,11);
+            if (r < 7) {
+                custTier = 1;
+            } else {
+                custTier = 2;
+            }
+        } else {custTier = 1;}
 
-        //Instantiate the object with the modified transform settings and NavMeshAgent
-        GameObject spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
-        spawnedObject.transform.localScale = newScale;
-        spawnedObject.tag = "Customer";
-        spawnedObject.layer = 8;
+        if (custTier == 1){
+        //Randomize between male and female customer
+            int r = UnityEngine.Random.Range(1,3);
+            if (r == 1) {
+                ObjectToSpawn = LowModels[0];
+            } else {
+                ObjectToSpawn = LowModels[1];
+            }
+            Debug.Log(r);
 
-        //Add a NavMeshAgent to the spawnwed customer
-        NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
-        customer.radius = 0.05f;
-        customer.height = 0.15f;
-        customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
-        customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
-        customer.baseOffset = 0f;
+            //Modify the transform settings of the model
+            Quaternion newRotation = Quaternion.Euler(0f, 180f, 0f);
+            Vector3 newScale = new Vector3(0.7f, 0.7f, 0.7f);
 
-        //Add a Box Collider to the spawned customer
-        BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
-        float width = 0.7416129f;
-        float height = 1.930175f;
-        float depth = 0.5f;
-        boxCollider.center = new Vector3(0, 1, 0);
-        boxCollider.size = new Vector3(width, height, depth);
+            //Instantiate the object with the modified transform settings and NavMeshAgent
+            spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
+            spawnedObject.transform.localScale = newScale;
+            spawnedObject.tag = "Customer";
+            spawnedObject.layer = 8;
 
-        // //Make customer blue
-        // MeshRenderer[] meshRenderers = spawnedObject.GetComponentsInChildren<MeshRenderer>();
-        // foreach (MeshRenderer meshRenderer in meshRenderers)
-        // {
-        //     Color blue = Color.blue;
-        //     meshRenderer.material.color = blue;
-        // }
+            //Add a NavMeshAgent to the spawnwed customer
+            NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
+            customer.radius = 0.05f;
+            customer.height = 0.15f;
+            customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+            customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+            customer.baseOffset = 0f;
 
+            //Add a Box Collider to the spawned customer
+            BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
+            float width = 0.7416129f;
+            float height = 1.930175f;
+            float depth = 0.5f;
+            boxCollider.center = new Vector3(0, 1, 0);
+            boxCollider.size = new Vector3(width, height, depth);
+        }
+
+        if (custTier == 2){
+        //Randomize between male and female customer
+            int r = UnityEngine.Random.Range(1,3);
+            if (r == 1) {
+                ObjectToSpawn = HighModels[0];
+            } else {
+                ObjectToSpawn = HighModels[1];
+            }
+            Debug.Log(r);
+
+            //Modify the transform settings of the model
+            Quaternion newRotation = Quaternion.Euler(0f, 180f, 0f);
+            Vector3 newScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+            //Instantiate the object with the modified transform settings and NavMeshAgent
+            spawnedObject = Instantiate(ObjectToSpawn, spawnPosition.position, newRotation);
+            spawnedObject.transform.localScale = newScale;
+            spawnedObject.tag = "HighCustomer";
+            spawnedObject.layer = 8;
+
+            //Add a NavMeshAgent to the spawnwed customer
+            NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
+            customer.radius = 0.05f;
+            customer.height = 0.15f;
+            customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+            customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+            customer.baseOffset = 0f;
+
+            //Add a Box Collider to the spawned customer
+            BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
+            float width = 0.7416129f;
+            float height = 1.930175f;
+            float depth = 0.5f;
+            boxCollider.center = new Vector3(0, 1, 0);
+            boxCollider.size = new Vector3(width, height, depth);
+        }
         //Add the object to the customer lineup
         SFX.CustomerSound();
         customerLine.AddToLineup(spawnedObject.transform);

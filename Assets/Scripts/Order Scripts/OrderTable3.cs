@@ -59,13 +59,23 @@ public class OrderTable3 : MonoBehaviour
                     orderSprite.tag = "OrderSprite3";
                     SpriteRenderer spriteRenderer = orderSprite.AddComponent<SpriteRenderer>();
                     
-                    float randomValue = Random.value;
-                    if (randomValue < 0.5f) {
-                        spriteRenderer.sprite = Orders[0];
-                        OrderNum = 1;}
-                    else {
-                        spriteRenderer.sprite = Orders[1];
-                        OrderNum = 2;}
+                    if(cusMove.customerInT3.CompareTag(cusMove.cusTag)){
+                        int r = UnityEngine.Random.Range(1,11);
+                        if (r < 9) {
+                            spriteRenderer.sprite = Orders[0];
+                            OrderNum = 1;}
+                        else {
+                            spriteRenderer.sprite = Orders[1];
+                            OrderNum = 2;}
+                    } else if (cusMove.customerInT3.CompareTag(cusMove.HcusTag)){
+                        int r = UnityEngine.Random.Range(1,11);
+                        if (r < 9) {
+                            spriteRenderer.sprite = Orders[1];
+                            OrderNum = 2;}
+                        else {
+                            spriteRenderer.sprite = Orders[0];
+                            OrderNum = 1;}
+                    }
 
                     orderSprite.transform.position = new Vector3 (dishPos3.transform.position.x, dishPos3.transform.position.y + 0.7f, dishPos3.transform.position.z);
                     orderSprite.transform.localScale = new Vector3 (0.10728f, 0.10728f, 0.10728f);
