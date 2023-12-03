@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundScript : MonoBehaviour
 {
@@ -14,17 +15,22 @@ public class SoundScript : MonoBehaviour
     public AudioSource Customer;
     public AudioSource Clink;
     public AudioSource UpgBGM;
+    private Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume"))
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name != "Prologue" || currentScene.name != "Ending1" || currentScene.name != "Ending2")
         {
-            LoadVolume();
-        }
-        else{
+            if (PlayerPrefs.HasKey("musicVolume"))
+            {
+                LoadVolume();
+            }
+            else{
             SetMusicVolume();
             SetSoundVolume();
+            }
         }
     }
 
@@ -58,16 +64,21 @@ public class SoundScript : MonoBehaviour
 
     public void SetSoundVolume()
     {
+        if (currentScene.name != "Prologue" || currentScene.name != "Ending1" || currentScene.name != "Ending2")
+        {
         float volume = soundSlider.value;
         music.SetFloat("sound", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("soundVolume", volume);
+        }
     }
 
     public void LoadVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        if (currentScene.name != "Prologue" || currentScene.name != "Ending1" || currentScene.name != "Ending2")
+        {musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
         SetMusicVolume();
         SetSoundVolume();
+        }
     }
 }
