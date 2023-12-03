@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundScript : MonoBehaviour
 {
+    [SerializeField] private AudioMixer music;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider soundSlider;
+
     public AudioSource BGM;
     public AudioSource Customer;
     public AudioSource Clink;
@@ -12,7 +18,14 @@ public class SoundScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            LoadVolume();
+        }
+        else{
+            SetMusicVolume();
+            SetSoundVolume();
+        }
     }
 
     public void StopMusic()
@@ -34,5 +47,27 @@ public class SoundScript : MonoBehaviour
     {
         BGM.Play();
         BGM.loop = true;
+    }
+
+    public void SetMusicVolume()
+    {
+        float volume = musicSlider.value;
+        music.SetFloat("music", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("musicVolume", volume);
+    }
+
+    public void SetSoundVolume()
+    {
+        float volume = soundSlider.value;
+        music.SetFloat("sound", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("soundVolume", volume);
+    }
+
+    public void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
+        SetMusicVolume();
+        SetSoundVolume();
     }
 }
