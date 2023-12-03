@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45065767, g: 0.66898215, b: 0.65595955, a: 1}
+  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7970,7 +7970,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -14280,6 +14280,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -21236,7 +21237,7 @@ MonoBehaviour:
   globalTime: 9000
   tally: {fileID: 0}
   popup: {fileID: 0}
-  newSkyboxMaterial: {fileID: 0}
+  activeSceneName: 
 --- !u!1 &1776365041
 GameObject:
   m_ObjectHideFlags: 0
@@ -22080,10 +22081,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28db8bed537f4d4993ac46c04b48851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sun: {fileID: 0}
+  targetColor: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
   timeText: {fileID: 1838013792}
   wheel: {fileID: 1297425774}
   globalTime: 240
   isRotating: 0
+  tally: {fileID: 0}
 --- !u!4 &1838852727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e1f9dec6c1b16a45bdaac60cd6a6256, type: 3}
@@ -22701,6 +22706,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -23108,6 +23114,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}
@@ -25986,6 +25993,7 @@ MonoBehaviour:
   tab3Slider: {fileID: 1912603610}
   maxEat: 5
   currentTab: 0
+  agent: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   order: {fileID: 0}

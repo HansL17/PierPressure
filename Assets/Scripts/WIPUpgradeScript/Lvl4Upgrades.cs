@@ -81,8 +81,6 @@ public class Lvl4Upgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        
         lvl4Upgrade.enabled = false;
         lvl4HUD.enabled = false;
         
@@ -93,7 +91,6 @@ public class Lvl4Upgrades : MonoBehaviour
     {
         
     }
-
     public void EnableUpgrade()
     {
         lvl4Popups.SetActive(false);
