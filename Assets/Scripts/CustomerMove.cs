@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CustomerMove : MonoBehaviour
 {
+    public string activeSceneName;
 
     private GameObject selectedObject; //Current selected object
     
@@ -46,12 +47,13 @@ public class CustomerMove : MonoBehaviour
 
     void Awake()
     {
+        activeSceneName = Application.loadedLevelName;
         cusLine = GameObject.Find("CustomerSpawn").GetComponent<CustomerLine>(); //Get script
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
 
-        if(tally.LvlCompCount < 2)
+        if(activeSceneName == "Tutorial Level" || activeSceneName == "Level2")
         {
             tBar3 = null;
         }

@@ -33,7 +33,7 @@ public class ScoreTally : MonoBehaviour
     public bool FlrLightsUPG;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(TallyOBJ);
     }

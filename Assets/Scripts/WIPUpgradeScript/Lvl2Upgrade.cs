@@ -56,7 +56,6 @@ public class Lvl2Upgrade : MonoBehaviour
     void Start()
     {
         Tally2 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        Tally2.LvlCompCount++;
         HudComm = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();//Get HUDCommands Script
         Serve = GameObject.Find("Player").GetComponent<ItemPickup>(); //Get ItemPickup Script
         Score = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get Scoring Script

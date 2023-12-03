@@ -19,7 +19,7 @@ public class Lvl4Upgrades : MonoBehaviour
     //Wendy
     [SerializeField] NavMeshAgent player;
 
-    //Upgrade Assets Lvl3
+    //Upgrade Assets Lvl4
     public GameObject FLights;
     public GameObject Lanterns;
     public GameObject FlrLights;
@@ -74,7 +74,6 @@ public class Lvl4Upgrades : MonoBehaviour
     {
         GetScripts();
         upBGM.UpgBGM.Play();
-        Tally4.LvlCompCount++;
         DisableUGObjects3();
     }
 

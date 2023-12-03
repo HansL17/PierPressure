@@ -69,7 +69,6 @@ public class Lvl3Upgrade : MonoBehaviour
     void Awake()
     {
         GetScripts();
-        Tally3.LvlCompCount++;
     }
 
     void Start()

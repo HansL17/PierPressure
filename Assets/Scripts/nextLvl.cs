@@ -8,7 +8,7 @@ public class nextLvl : MonoBehaviour
 
     public ScoreTally LvlTally;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         LvlTally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
     }
@@ -16,21 +16,30 @@ public class nextLvl : MonoBehaviour
     // Update is called once per frame
     public void NextLevel()
     {
-        if (LvlTally.LvlCompCount == 0)
+        LvlTally.LvlCompCount++;
+        if (LvlTally.LvlCompCount == 1)
         {
             SceneManager.LoadScene("Level2");
         }
-        else if (LvlTally.LvlCompCount == 1)
+        if (LvlTally.LvlCompCount == 2)
         {
             SceneManager.LoadScene("Level3");
         }
-        else if (LvlTally.LvlCompCount == 2)
+        if (LvlTally.LvlCompCount == 3)
         {
             SceneManager.LoadScene("Level4");
         }
-        else if(LvlTally.LvlCompCount == 3 && LvlTally.ExScoreCount == 4)
+        if(LvlTally.LvlCompCount == 4 && LvlTally.ExScoreCount == 4)
         {
-            SceneManager.LoadScene("Level 5");
+            SceneManager.LoadScene("Level5");
+        }
+        if(LvlTally.LvlCompCount == 4 && LvlTally.ExScoreCount != 4)
+        {
+            SceneManager.LoadScene("Ending1");
+        }
+        if(LvlTally.LvlCompCount == 5 && LvlTally.ExScoreCount == 5)
+        {
+            SceneManager.LoadScene("Ending2");
         }
     }
 

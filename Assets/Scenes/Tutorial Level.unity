@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9074,6 +9074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TallyOBJ: {fileID: 1019226563}
+  NextLvlScript: {fileID: 1167980494}
   ExpertScore: 0
   NoPatience: 0
   ExScoreCount: 0
@@ -16622,6 +16623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0031acb923ee42aa6b3245a9b4a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSceneName: 
   customerInT1: {fileID: 0}
   customerInT2: {fileID: 0}
   customerInT3: {fileID: 0}

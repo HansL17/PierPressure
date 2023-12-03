@@ -14,7 +14,18 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
         Debug.Log("Game Closed");
    }
+
+   public void PlayPrologue()
+    {
+        SceneManager.LoadScene("Prologue");
+    }
    public void StartGame() {
         SceneManager.LoadScene("Tutorial Level");
    }
+
+    public void ToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("mainMenu");
+    }
 }

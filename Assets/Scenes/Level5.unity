@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1846,7 +1846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7528,7 +7528,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8aba83c617e1c41914199a55f3d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tally4: {fileID: 0}
+  Tally5: {fileID: 0}
+  FLights: {fileID: 2058984624}
+  Lanterns: {fileID: 50380000}
+  FlrLights: {fileID: 1811554517}
+  PotPlant: {fileID: 1510390041}
+  TabMat: {fileID: 3761587948300546349}
+  TabMat2: {fileID: 1345513507}
+  TabMat3: {fileID: 1505059612}
+  Carpet: {fileID: 766616365}
+  WShoes: {fileID: 2142920587}
+  WApron: {fileID: 919132148123396654}
+  MJars: {fileID: 1109873876}
 --- !u!4 &676561676
 Transform:
   m_ObjectHideFlags: 0
@@ -22088,7 +22099,7 @@ MonoBehaviour:
   wheel: {fileID: 1297425774}
   globalTime: 240
   isRotating: 0
-  tally: {fileID: 0}
+  activeSceneName: 
 --- !u!4 &1838852727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e1f9dec6c1b16a45bdaac60cd6a6256, type: 3}
@@ -22667,6 +22678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0031acb923ee42aa6b3245a9b4a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSceneName: 
   customerInT1: {fileID: 0}
   customerInT2: {fileID: 0}
   customerInT3: {fileID: 0}

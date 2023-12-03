@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1906,7 +1906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   TallyOBJ: {fileID: 173865030}
   ExpertScore: 0
   NoPatience: 0
-  ExScoreCount: 0
+  ExScoreCount: 2
   LvlCompCount: 3
   TableUPG: 0
   PlantUPG: 0
@@ -9809,11 +9809,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1185956515}
-  scoreTextLVLdoneCOMP: {fileID: 0}
-  scoreTextLVLdoneFAIL: {fileID: 0}
-  scoreType: {fileID: 0}
-  lvlComp: {fileID: 0}
-  lvlFail: {fileID: 0}
+  scoreTextLVLdoneCOMP: {fileID: 1585984989}
+  scoreTextLVLdoneFAIL: {fileID: 1048924020}
+  scoreType: {fileID: 576755047}
+  lvlComp: {fileID: 582981118}
+  lvlFail: {fileID: 1426369885}
   HUD: {fileID: 1108125468}
   score: 0
   normalScore: 120
@@ -25037,9 +25037,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1250180089}
         m_TargetAssemblyTypeName: nextLvl, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: CheckScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25049,9 +25049,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1250180089}
         m_TargetAssemblyTypeName: nextLvl, Assembly-CSharp
-        m_MethodName: CheckScore
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25933,6 +25933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0031acb923ee42aa6b3245a9b4a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSceneName: 
   customerInT1: {fileID: 0}
   customerInT2: {fileID: 0}
   customerInT3: {fileID: 0}
