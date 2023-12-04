@@ -13,6 +13,9 @@ public class ScoreTally : MonoBehaviour
     //Bool for Failed Level
     public bool NoPatience = false;
 
+    //Bool for Level5
+    public bool isLevel5 = false;
+
     //Integers
     public int ExScoreCount;
     public int LvlCompCount;

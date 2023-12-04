@@ -7,6 +7,8 @@ public class Level5Check : MonoBehaviour
 
     public ScoreTally Tally5;
 
+
+
     //Upgrade Assets Lvl4
     public GameObject FLights;
     public GameObject Lanterns;
@@ -23,12 +25,13 @@ public class Level5Check : MonoBehaviour
     public GameObject WShoes;
     public GameObject WApron;
     public GameObject MJars;
+    public GameObject wendy;
+    public GameObject WShoesApron;
 
 
     void Awake()
     {
         Tally5 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
-        Tally5.LvlCompCount++;
     }
     void Start()
     {
@@ -59,11 +62,27 @@ public class Level5Check : MonoBehaviour
         }
         if (Tally5.ShoesUPG == true)
         {
-            WShoes.SetActive(true);
+            wendy.SetActive(false);
+            if(Tally5.ApronUPG == true)
+            {
+                WShoesApron.SetActive(true);
+            }
+            else
+            {
+                WShoes.SetActive(true);
+            }
         }
         if (Tally5.ApronUPG == true)
         {
-            WApron.SetActive(true);
+            wendy.SetActive(false);
+            if (Tally5.ShoesUPG == true)
+            {
+                WShoesApron.SetActive(true);
+            }
+            else
+            {
+                WApron.SetActive(true);
+            }
         }
         if (Tally5.JarsUPG == true)
         {

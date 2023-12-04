@@ -30,16 +30,25 @@ public class Scoring : MonoBehaviour
 
     //Script
     public SpawnCust spawnCus;
-    public HUDCommands hud;
+    public HUDCommands hud = null;
+    public HUDCommands5 hud5 = null;
     public ScoreTally Tally1;
     public SoundScript BGM;
 
     void Awake()
     {
-        hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
+        Tally1 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
+        if (Tally1.LvlCompCount < 4)
+        {
+            hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
+        }
+        else
+        {
+            hud5 = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands5>();
+        }
+        
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
         BGM = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
-        Tally1 = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
     }
 
     // Start is called before the first frame update
@@ -135,7 +144,14 @@ public class Scoring : MonoBehaviour
     {
         if (spawnCus.totalCus == 6 && spawnCus.cusCount <= 0)
         {
-            hud.PauseScene();
+            if (Tally1.LvlCompCount < 4)
+            {
+                hud.PauseScene();
+            }
+            else
+            {
+                hud5.PauseScene();
+            }
             if (expertScore > score && score >= normalScore && Tally1.LvlCompCount < 4)
             {
                 HUD.gameObject.SetActive(false);
@@ -159,7 +175,14 @@ public class Scoring : MonoBehaviour
 
         if (Tally1.NoPatience == true)
         {
-            hud.PauseScene();
+            if (Tally1.LvlCompCount < 4)
+            {
+                hud.PauseScene();
+            }
+            else
+            {
+                hud5.PauseScene();
+            }
             HUD.gameObject.SetActive(false);
             lvlFail.gameObject.SetActive(true);
             scoreTextLVLdoneFAIL.text = "Score: " + score;

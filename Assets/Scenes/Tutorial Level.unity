@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7052,8 +7052,8 @@ MonoBehaviour:
   lvlFail: {fileID: 179923484}
   HUD: {fileID: 1108125468}
   score: 0
-  normalScore: 100
-  expertScore: 140
+  normalScore: 90
+  expertScore: 120
   ScoreInc: 10
   isAction1Done: 0
   isAction2Done: 0
@@ -7061,6 +7061,7 @@ MonoBehaviour:
   consecutiveActions2: 0
   spawnCus: {fileID: 0}
   hud: {fileID: 0}
+  hud5: {fileID: 0}
   Tally1: {fileID: 1019226564}
   BGM: {fileID: 0}
 --- !u!4 &765587232
@@ -9650,6 +9651,7 @@ MonoBehaviour:
   TallyOBJ: {fileID: 1019226563}
   ExpertScore: 0
   NoPatience: 0
+  isLevel5: 0
   ExScoreCount: 0
   LvlCompCount: 0
   TableUPG: 0
@@ -13127,6 +13129,7 @@ MonoBehaviour:
   music: {fileID: 24100000, guid: 61e1df24fa79d8c448d0021b3ac8595a, type: 2}
   musicSlider: {fileID: 138124679}
   soundSlider: {fileID: 1440695512}
+  activeSceneName: 
   BGM: {fileID: 1498307093}
   Customer: {fileID: 316821139}
   Clink: {fileID: 963973753}
