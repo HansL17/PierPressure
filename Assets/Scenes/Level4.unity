@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1538,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &138240365
 Canvas:
   m_ObjectHideFlags: 0
@@ -1967,10 +1967,10 @@ MonoBehaviour:
   NoPatience: 0
   ExScoreCount: 2
   LvlCompCount: 3
-  TableUPG: 0
-  PlantUPG: 0
+  TableUPG: 1
+  PlantUPG: 1
   CarpetUPG: 0
-  ShoesUPG: 0
+  ShoesUPG: 1
   ApronUPG: 0
   JarsUPG: 0
   FLightsUPG: 0
@@ -9194,7 +9194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &700858688
 Transform:
   m_ObjectHideFlags: 0
@@ -15324,7 +15324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1108125469
 Transform:
   m_ObjectHideFlags: 0
@@ -17601,8 +17601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 24100000, guid: 61e1df24fa79d8c448d0021b3ac8595a, type: 2}
-  musicSlider: {fileID: 570805768}
-  soundSlider: {fileID: 0}
+  musicSlider: {fileID: 933486564}
+  soundSlider: {fileID: 570805768}
+  activeSceneName: 
   BGM: {fileID: 1214325406}
   Customer: {fileID: 1586480799}
   Clink: {fileID: 589628079}

@@ -10,15 +10,26 @@ public class SoundScript : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundSlider;
 
+    public string activeSceneName;
     public AudioSource BGM;
     public AudioSource Customer;
     public AudioSource Clink;
     public AudioSource UpgBGM;
 
-    // Start is called before the first frame update
+
+    void Awake()
+    {
+        if (activeSceneName == "Prologue" || activeSceneName == "Ending1" || activeSceneName == "Ending2")
+        {
+            musicSlider = null;
+            soundSlider = null;
+        }
+    }
+
     void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume"))
+
+        if (PlayerPrefs.HasKey("musicVolume") || musicSlider != null && soundSlider != null)
         {
             LoadVolume();
         }

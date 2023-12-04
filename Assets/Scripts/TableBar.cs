@@ -57,7 +57,7 @@ public class TableBar : MonoBehaviour
         } 
         
         if (tally.LvlCompCount >= 2){
-        if (itPick.table3Placed == true)
+        if (itPick.table3Placed == true || itPick.dishInT3 != null)
         {
             StartCoroutine(DepleteTableBar(t3Bar));
                 Debug.Log("Table 3 is Eating");

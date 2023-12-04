@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.088777326, g: 0.1282753, b: 0.12562071, a: 1}
+  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   ExpertScore: 0
   NoPatience: 0
   ExScoreCount: 2
-  LvlCompCount: 1
+  LvlCompCount: 2
   TableUPG: 1
   PlantUPG: 1
   CarpetUPG: 0
@@ -17764,6 +17764,7 @@ MonoBehaviour:
   music: {fileID: 24100000, guid: 61e1df24fa79d8c448d0021b3ac8595a, type: 2}
   musicSlider: {fileID: 506513271}
   soundSlider: {fileID: 1717182747}
+  activeSceneName: 
   BGM: {fileID: 1359525459}
   Customer: {fileID: 1195917837}
   Clink: {fileID: 627116018}

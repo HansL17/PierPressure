@@ -4,6 +4,7 @@ public class DeleteOnCollision : MonoBehaviour
 {
 
     private string cusTag = "Customer";
+    private string HcusTag = "HighCustomer";
 
     public SpawnCust cusSpawn;
 
@@ -16,7 +17,7 @@ public class DeleteOnCollision : MonoBehaviour
         Debug.Log("Customer Collided");
 
         // Check if the colliding object has a CustomerTag
-        if (other.gameObject.CompareTag(cusTag))
+        if (other.gameObject.CompareTag(cusTag) || other.gameObject.CompareTag(HcusTag))
         {
             // Destroy the other GameObject on collision
             Destroy(other.gameObject);
