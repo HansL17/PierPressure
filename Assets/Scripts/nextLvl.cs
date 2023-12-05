@@ -31,13 +31,14 @@ public class nextLvl : MonoBehaviour
         }
         if(LvlTally.LvlCompCount == 4 && LvlTally.ExScoreCount == 4)
         {
+            LvlTally.isLevel5 = true;
             SceneManager.LoadScene("Level5");
         }
-        if(LvlTally.LvlCompCount == 4 && LvlTally.ExScoreCount != 4)
+        if(LvlTally.LvlCompCount >= 4 && LvlTally.ExScoreCount != 4 || LvlTally.LvlCompCount >= 5 && LvlTally.ExScoreCount != 5)
         {
             SceneManager.LoadScene("Ending1");
         }
-        if(LvlTally.LvlCompCount == 5 && LvlTally.ExScoreCount == 5)
+        if(LvlTally.LvlCompCount >= 5 && LvlTally.ExScoreCount == 5)
         {
             SceneManager.LoadScene("Ending2");
         }

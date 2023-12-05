@@ -35,6 +35,8 @@ public class Lvl4Upgrades : MonoBehaviour
     public GameObject WShoes;
     public GameObject WApron;
     public GameObject MJars;
+    public GameObject wendy;
+    public GameObject WShoesApron;
 
     //Upgrade buttons
     public GameObject FLightsBtn;
@@ -148,11 +150,27 @@ public class Lvl4Upgrades : MonoBehaviour
         }
         if (Tally4.ShoesUPG == true)
         {
-            WShoes.SetActive(true);
+            wendy.SetActive(false);
+            if (Tally4.ApronUPG == true)
+            {
+                WShoesApron.SetActive(true);
+            }
+            else
+            {
+                WShoes.SetActive(true);
+            }
         }
         if (Tally4.ApronUPG == true)
         {
-            WApron.SetActive(true);
+            wendy.SetActive(false);
+            if (Tally4.ShoesUPG == true)
+            {
+                WShoesApron.SetActive(true);
+            }
+            else
+            {
+                WApron.SetActive(true);
+            }
         }
         if (Tally4.JarsUPG == true)
         {

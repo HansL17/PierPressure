@@ -57,7 +57,7 @@ public class TableBar : MonoBehaviour
         } 
         
         if (tally.LvlCompCount >= 2){
-        if (itPick.table3Placed == true)
+        if (itPick.table3Placed == true || itPick.dishInT3 != null)
         {
             StartCoroutine(DepleteTableBar(t3Bar));
                 Debug.Log("Table 3 is Eating");
@@ -83,14 +83,17 @@ public class TableBar : MonoBehaviour
 
     private IEnumerator TabGone(Canvas bar)
     {
+        if(agent != null)
+        {
         Debug.Log("Customer is done eating");
-        bar.gameObject.SetActive(false);
         Slider slider = bar.GetComponentInChildren<Slider>();
         slider.value = maxEat;
+        }
 
-        if(bar.gameObject.name == "Table1Bar")
+        if (bar.gameObject.name == "Table1Bar")
         {
             Destroy(itPick.dishInT1);
+            bar.gameObject.SetActive(false);
             agent = cusMove.customerInT1.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
@@ -117,6 +120,7 @@ public class TableBar : MonoBehaviour
         if(bar.gameObject.name == "Table2Bar")
         {
             Destroy(itPick.dishInT2);
+            bar.gameObject.SetActive(false);
             agent = cusMove.customerInT2.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);
@@ -142,6 +146,7 @@ public class TableBar : MonoBehaviour
         if(bar.gameObject.name == "Table3Bar")
         {
             Destroy(itPick.dishInT3);
+            bar.gameObject.SetActive(false);
             agent = cusMove.customerInT3.GetComponent<NavMeshAgent>();
             Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
             agent.SetDestination(exit.transform.position);

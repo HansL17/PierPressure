@@ -14,6 +14,10 @@ TagManager:
   - Button
   - OrderSprite1
   - OrderSprite2
+  - Button2
+  - OrderSprite3
+  - OrderSprite4
+  - HighCustomer
   layers:
   - Default
   - TransparentFX

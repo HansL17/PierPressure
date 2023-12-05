@@ -11,6 +11,7 @@ public class SoundScript : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundSlider;
 
+    public string activeSceneName;
     public AudioSource BGM;
     public AudioSource Customer;
     public AudioSource Clink;
