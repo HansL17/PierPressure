@@ -11,6 +11,7 @@ public class Scoring : MonoBehaviour
     public TextMeshProUGUI scoreTextLVLdoneCOMP;
     public TextMeshProUGUI scoreTextLVLdoneFAIL;
     public TextMeshProUGUI scoreType;
+    public TextMeshProUGUI scoreTypeFail;
     public GameObject lvlComp;
     public GameObject lvlFail;
     public GameObject HUD;
@@ -27,6 +28,7 @@ public class Scoring : MonoBehaviour
     public bool isAction2Done = false;
     public int consecutiveActions1 = 0;
     public int consecutiveActions2 = 0;
+    public bool failActive = false;
 
     //Script
     public SpawnCust spawnCus;
@@ -156,36 +158,41 @@ public class Scoring : MonoBehaviour
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
-                scoreTextLVLdoneCOMP.text = "Score: " + score;
+                scoreTextLVLdoneCOMP.text = "" + score;
                 scoreType.text = "Normal Score Achieved!";
             } else if (score >= expertScore)
             {
                 HUD.gameObject.SetActive(false);
                 lvlComp.gameObject.SetActive(true);
-                scoreTextLVLdoneCOMP.text = "Score: " + score;
+                scoreTextLVLdoneCOMP.text = "" + score;
                 scoreType.text = "Expert Score Achieved!";
             } else if (score < normalScore || Tally1.LvlCompCount == 4 && score < expertScore)
             {
                 hud.PauseScene();
                 HUD.gameObject.SetActive(false);
                 lvlFail.gameObject.SetActive(true);
-                scoreTextLVLdoneFAIL.text = "Score: " + score;
+                scoreTextLVLdoneFAIL.text = "" + score;
             }
         }
 
         if (Tally1.NoPatience == true)
         {
-            if (Tally1.LvlCompCount < 4)
-            {
-                hud.PauseScene();
+            if (failActive == false ){
+                if (Tally1.LvlCompCount < 4)
+                {
+                    hud.PauseScene();
+                }
+                else
+                {
+                    hud5.PauseScene();
+                }
+                HUD.gameObject.SetActive(false);
+                lvlFail.gameObject.SetActive(true);
+                failActive = true;
+                scoreTextLVLdoneFAIL.text = "" + score;
+                scoreTypeFail.text = "You let a customer lose patience!";
+                Tally1.NoPatience = false;
             }
-            else
-            {
-                hud5.PauseScene();
-            }
-            HUD.gameObject.SetActive(false);
-            lvlFail.gameObject.SetActive(true);
-            scoreTextLVLdoneFAIL.text = "Score: " + score;
         }
     }
 }

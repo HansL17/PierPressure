@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.08892277, g: 0.1281278, b: 0.12556824, a: 1}
+  m_IndirectSpecularColor: {r: 0.20217238, g: 0.3010232, b: 0.29483616, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7048,6 +7048,7 @@ MonoBehaviour:
   scoreTextLVLdoneCOMP: {fileID: 766928906}
   scoreTextLVLdoneFAIL: {fileID: 1602708407}
   scoreType: {fileID: 1048792293}
+  scoreTypeFail: {fileID: 1536113715}
   lvlComp: {fileID: 1613646352}
   lvlFail: {fileID: 179923484}
   HUD: {fileID: 1108125468}
@@ -7059,6 +7060,7 @@ MonoBehaviour:
   isAction2Done: 0
   consecutiveActions1: 0
   consecutiveActions2: 0
+  failActive: 0
   spawnCus: {fileID: 0}
   hud: {fileID: 0}
   hud5: {fileID: 0}
@@ -10304,7 +10306,7 @@ MonoBehaviour:
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 0}
-  maxEat: 5
+  maxEat: 10
   currentTab: 0
   agent: {fileID: 0}
   cusMove: {fileID: 0}
@@ -17690,7 +17692,7 @@ MonoBehaviour:
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 0}
-  maxEat: 5
+  maxEat: 10
   currentTab: 0
   agent: {fileID: 0}
   cusMove: {fileID: 0}
@@ -18503,8 +18505,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01755777, y: 0.024885131, z: 0.016674161}
-  m_Center: {x: 0.002841112, y: 0.012138559, z: 0.023834327}
+  m_Size: {x: 0.028466938, y: 0.034684643, z: 0.028552191}
+  m_Center: {x: 0.0058319033, y: 0.017038317, z: 0.025987472}
 --- !u!1 &1953073307
 GameObject:
   m_ObjectHideFlags: 0
@@ -20402,6 +20404,7 @@ MonoBehaviour:
   dishInT1: {fileID: 0}
   dishInT2: {fileID: 0}
   dishInT3: {fileID: 0}
+  trashcan: {fileID: 0}
   isHoldingItem: 0
   table1Placed: 0
   table2Placed: 0
@@ -23498,7 +23501,7 @@ MonoBehaviour:
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 0}
-  maxEat: 5
+  maxEat: 10
   currentTab: 0
   agent: {fileID: 0}
   cusMove: {fileID: 0}
@@ -23810,23 +23813,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Size.x
-      value: 0.01755777
+      value: 0.028466938
       objectReference: {fileID: 0}
     - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Size.y
-      value: 0.024885131
+      value: 0.034684643
       objectReference: {fileID: 0}
     - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Size.z
-      value: 0.016674161
+      value: 0.028552191
       objectReference: {fileID: 0}
     - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Center.x
-      value: 0.002841112
+      value: 0.0058319033
       objectReference: {fileID: 0}
     - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Center.y
-      value: 0.012138559
+      value: 0.017038317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850956950867362299, guid: 4018145469c03cb40a6413057458fffb, type: 3}
+      propertyPath: m_Center.z
+      value: 0.025987472
       objectReference: {fileID: 0}
     - target: {fileID: 2867354751841449428, guid: 4018145469c03cb40a6413057458fffb, type: 3}
       propertyPath: m_Layer

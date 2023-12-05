@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20936133, g: 0.39212054, b: 0.39538908, a: 1}
+  m_IndirectSpecularColor: {r: 0.20968087, g: 0.39233783, b: 0.39541516, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2916,6 +2916,7 @@ MonoBehaviour:
   typeSound: {fileID: 57445859}
   Typing: 0
   isPaused: 0
+  tally: {fileID: 0}
 --- !u!1001 &804396301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4231,6 +4232,7 @@ MonoBehaviour:
   music: {fileID: 24100000, guid: 61e1df24fa79d8c448d0021b3ac8595a, type: 2}
   musicSlider: {fileID: 1090183370}
   soundSlider: {fileID: 877224346}
+  activeSceneName: 
   BGM: {fileID: 1055181446}
   Customer: {fileID: 1901571436}
   Clink: {fileID: 1010576989}
@@ -6080,6 +6082,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8761191866926842488, guid: 3dec8914decffc747832ead31a1e1d0a, type: 3}
   m_PrefabInstance: {fileID: 1603245452}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1613040133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613040135}
+  - component: {fileID: 1613040134}
+  m_Layer: 0
+  m_Name: ScoreUpgradeTally
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613040134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613040133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa207d75170f6874ea46381fc2b42559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TallyOBJ: {fileID: 1613040133}
+  ExpertScore: 0
+  NoPatience: 0
+  isLevel5: 0
+  ExScoreCount: 1
+  LvlCompCount: 0
+  TableUPG: 0
+  PlantUPG: 0
+  CarpetUPG: 0
+  ShoesUPG: 0
+  ApronUPG: 0
+  JarsUPG: 0
+  FLightsUPG: 0
+  LanternsUPG: 0
+  FlrLightsUPG: 0
+--- !u!4 &1613040135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613040133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.307287, y: 0.40725628, z: 2.8580847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1619936601
 PrefabInstance:
   m_ObjectHideFlags: 0

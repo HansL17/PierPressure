@@ -67,7 +67,7 @@ public class DishSpawn : MonoBehaviour
         Quaternion spawnRotation = transform.rotation;
         GameObject dishSpawned = Instantiate(dishPrefab, dishSpawn.position, spawnRotation);
 
-        float scale = 1.5f;
+        float scale = 1.2f;
         dishSpawned.transform.localScale = new Vector3(scale, scale, scale);
 
         dishSpawned.tag = "Dish";

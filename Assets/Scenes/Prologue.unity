@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.31628042, g: 0.5926548, b: 0.59742045, a: 1}
+  m_IndirectSpecularColor: {r: 0.31649432, g: 0.5928243, b: 0.59746414, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7080,6 +7080,7 @@ MonoBehaviour:
   music: {fileID: 24100000, guid: 61e1df24fa79d8c448d0021b3ac8595a, type: 2}
   musicSlider: {fileID: 1272502719}
   soundSlider: {fileID: 376226572}
+  activeSceneName: 
   BGM: {fileID: 918566875}
   Customer: {fileID: 755749873}
   Clink: {fileID: 34562426}
@@ -10459,6 +10460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 844790537}
   lines:
+  - '*Gourd Lake Park*'
   - It's been a few months since graduation.... And I still haven't found any work...
   - I've already tried many places... Of course, none of them wanted to hire me...
   - Weeeeendy... Wendy? Wendy, are you listening to me?
@@ -10470,7 +10472,7 @@ MonoBehaviour:
   - Sorry! Sorry... I was just distracted is all....
   - You've been distracted for a while, what's wrong?
   - Oh you know! The usual.....
-  - Ohhhh, work again is it
+  - Ohhhh, work again, is it?
   - Or lack of work!
   - Ini!!!! That's uncalled for!
   - Whoops! Silly me, I'm sorry.
@@ -10508,6 +10510,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d09d3c3f0595c9742baeb1d5448799c7, type: 3}
   - {fileID: 21300000, guid: ec88524a6c674ae4ab0cd60ddb308974, type: 3}
   - {fileID: 21300000, guid: 380a636f44d1c7742aafdd6737f12a77, type: 3}
+  - {fileID: 21300000, guid: 61b2cb99a9fb0ee45a016af3d928ae8d, type: 3}
   person: {fileID: 2138667830}
   personGameObj: {fileID: 2138667828}
   humbleBeginnings: {fileID: 1296088425}
@@ -11678,7 +11681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36678b36e2c905d44ab8f4ffd861abb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skybox: {fileID: 0}
   skySpeed: 0.3
 --- !u!1001 &1627363917
 PrefabInstance:

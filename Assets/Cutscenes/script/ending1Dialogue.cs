@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class ending1Dialogue : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class ending1Dialogue : MonoBehaviour
     public AudioSource typeSound;
     public bool Typing = false;
     public bool isPaused = false;
+    public ScoreTally tally;
 
     private int index;
 
     // Start is called before the first frame update
     void Start()
     {
+        tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -42,19 +45,29 @@ public class ending1Dialogue : MonoBehaviour
                     StopAllCoroutines();
                     textComponent.text = lines[index];
                     typeSound.Stop();
+                    if (index == 5 && textComponent.text == lines[index])
+                    {
+                        SceneManager.LoadScene("mainMenu");
+                        tally.ExScoreCount = 0;
+                        tally.LvlCompCount = 0;
+                    }
                 }
             }
         }
 
-        if (index == 0 || index == 2)
+        if (index == 0)
+        {
+            personTalking = pics[3];
+        }
+        if (index == 1 || index == 3)
         {
             personTalking = pics[1];
         }
-        if (index == 1)
+        if (index == 2)
         {
             personTalking = pics[0];
         }
-        if (index >= 3) {personTalking = pics[3];}
+        if (index >= 4) {personTalking = pics[3];}
         person.sprite = personTalking;
         personGameObj.SetActive(true);
     }

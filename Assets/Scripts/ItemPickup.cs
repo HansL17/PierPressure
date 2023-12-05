@@ -14,6 +14,7 @@ public class ItemPickup : MonoBehaviour
     public GameObject dishInT1;
     public GameObject dishInT2;
     public GameObject dishInT3;
+    public GameObject trashcan;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     public bool isHoldingItem;
     private bool isMovingToDestination = false;
@@ -45,7 +46,7 @@ public class ItemPickup : MonoBehaviour
         itemAttachPoint = transform.Find("DishPlace");
         if (itemAttachPoint == null)
         {
-            Debug.LogError("DishPlace not found! Make sure to create an empty GameObject childed to the player and name it 'DishPlace'.");
+            Debug.Log("DishPlace not found! Make sure to create an empty GameObject childed to the player and name it 'DishPlace'.");
         }
 
         playerObject = GameObject.Find("Player");
@@ -72,22 +73,7 @@ public class ItemPickup : MonoBehaviour
                 SFX.DishSound();
                 Debug.Log("Picking up item...");
 
-                // Disable the item's collider and rigidbody
-                Collider itemCollider = heldItem.GetComponent<Collider>();
-                if (itemCollider != null)
-                itemCollider.enabled = false;
-
-                Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
-                if (itemRigidbody != null)
-                itemRigidbody.isKinematic = true;
-
-                // Attach the item to the item attach point
-                heldItem.transform.SetParent(itemAttachPoint);
-                heldItem.transform.localPosition = Vector3.zero;
-                heldItem.transform.localRotation = Quaternion.identity;
-
-                isHoldingItem = true;
-                isMovingToDestination = false;
+                StartCoroutine(GettingItem());
             }
         }
         else
@@ -201,13 +187,21 @@ public class ItemPickup : MonoBehaviour
                         Debug.Log("no");
                     }
                 }
+            } else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trash"))
+            {
+                player.SetDestination(trashcan.transform.position);
+                StartCoroutine(ThrowingDish());
             }
         }
     }}
 
     private System.Collections.IEnumerator PlaceItemWithDelay()
     {
-        yield return new WaitForSeconds(1.3f);
+        while (player.pathPending || player.remainingDistance > player.stoppingDistance)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0f);
 
         // Check if the player is still placing the item
         if (isPlacingItem)
@@ -245,6 +239,36 @@ public class ItemPickup : MonoBehaviour
         scores.AddScore();
     }
 
- 
+    private IEnumerator ThrowingDish() {
+        while (player.pathPending || player.remainingDistance > player.stoppingDistance)
+        {
+            yield return null;
+        }
+        Destroy(heldItem);
+        isHoldingItem = false;
+    }
+
+    private IEnumerator GettingItem() {
+        while (player.pathPending || player.remainingDistance > player.stoppingDistance)
+        {
+            yield return null;
+        }
+        // Disable the item's collider and rigidbody
+                Collider itemCollider = heldItem.GetComponent<Collider>();
+                if (itemCollider != null)
+                itemCollider.enabled = false;
+
+                Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
+                if (itemRigidbody != null)
+                itemRigidbody.isKinematic = true;
+
+                // Attach the item to the item attach point
+                heldItem.transform.SetParent(itemAttachPoint);
+                heldItem.transform.localPosition = Vector3.zero;
+                heldItem.transform.localRotation = Quaternion.identity;
+
+                isHoldingItem = true;
+                isMovingToDestination = false;
+    }
 }
 
