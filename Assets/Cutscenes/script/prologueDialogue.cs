@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class prologueDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
-    public GameObject[] names;
-
+    public Sprite[] pics; 
+    private Sprite personTalking;
+    public Image person;
+    public GameObject personGameObj;
+    public GameObject humbleBeginnings;
+    public AudioSource typeSound;
+    public bool Typing = false;
+    public bool isPaused = false;
     private int index;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,47 +31,93 @@ public class prologueDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (textComponent.text == lines[index])
+        if (isPaused == false){
+            if (Input.GetMouseButtonDown(0))
             {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
+                if (textComponent.text == lines[index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    textComponent.text = lines[index];
+                    typeSound.Stop();
+                }
             }
         }
 
-        if (index <= 1 || index == 3 || index == 5 || index == 7 || index == 9 || index == 14 || index == 17 || index == 19 || index == 21 || index >= 23)
+        if (index <= 1 || index == 3)
         {
-            names[0].SetActive(true);
-            names[1].SetActive(false);
-            names[2].SetActive(false);
-            names[3].SetActive(false);
+            personTalking = pics[3];
         }
-        if (index ==2 || index == 4 || index == 6 || index == 18)
+        if (index == 2)
         {
-            names[0].SetActive(false);
-            names[1].SetActive(true);
-            names[2].SetActive(false);
-            names[3].SetActive(false);
+            personTalking = pics[9];
         }
-        if (index == 8 || index == 10 || index ==12 || index ==16 || index ==20)
+        if (index == 4 || index == 6)
         {
-            names[0].SetActive(false);
-            names[1].SetActive(false);
-            names[2].SetActive(true);
-            names[3].SetActive(false);
+            personTalking = pics[8];
         }
-        if (index ==11 || index ==13 || index ==15 || index ==16 || index ==22)
+        if (index == 5 || index == 17 || index == 21 || index == 23)
         {
-            names[0].SetActive(false);
-            names[1].SetActive(false);
-            names[2].SetActive(false);
-            names[3].SetActive(true);
+            personTalking = pics[0];
         }
+        if (index == 7 || index == 9 || index == 19)
+        {
+            personTalking = pics[4];
+        }
+        if (index == 8 || index == 10)
+        {
+            personTalking = pics[10];
+        }
+        if (index == 11 || index == 22)
+        {
+            personTalking = pics[14];
+        }
+        if (index == 12)
+        {
+            personTalking = pics[13];
+        }
+        if (index == 13)
+        {
+            personTalking = pics[16];
+        }
+        if (index == 14)
+        {
+            personTalking = pics[5];
+        }
+        if (index == 15)
+        {
+            personTalking = pics[15];
+        }
+        if (index == 16)
+        {
+            personTalking = pics[11];
+        }
+        if (index == 18)
+        {
+            personTalking = pics[7];
+        }
+        if (index == 20)
+        {
+            personTalking = pics[12];
+        }
+        if (index == 24)
+        {
+            personTalking = pics[2];
+        }
+        if (index == 25)
+        {
+            personTalking = pics[1];
+        }
+        if (index == 26)
+        {
+            personTalking = pics[5];
+            humbleBeginnings.SetActive(true);
+        }
+        person.sprite = personTalking;
+        personGameObj.SetActive(true);
     }
 
     void StartDialogue()
@@ -73,10 +128,14 @@ public class prologueDialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        typeSound.Play();
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
+            if(textComponent.text == lines[index]){
+                typeSound.Stop();
+            }
         }
     }
 
@@ -92,5 +151,15 @@ public class prologueDialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void trueBool()
+    {
+        isPaused = true;
+    }
+
+    public void falseBool()
+    {
+        isPaused = false;
     }
 }
