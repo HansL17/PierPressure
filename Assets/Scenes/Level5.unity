@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20217238, g: 0.3010232, b: 0.29483616, a: 1}
+  m_IndirectSpecularColor: {r: 0.20256442, g: 0.30083513, b: 0.2947183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1752,7 +1752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,8 +2340,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
+      - m_Target: {fileID: 1776167357}
+        m_TargetAssemblyTypeName: HUDCommands5, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
         m_Arguments:
@@ -2352,9 +2352,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
-        m_MethodName: ResumeScene
+      - m_Target: {fileID: 173865031}
+        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
+        m_MethodName: DestroyTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4079,8 +4079,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
+      - m_Target: {fileID: 1776167357}
+        m_TargetAssemblyTypeName: HUDCommands5, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
         m_Arguments:
@@ -4091,9 +4091,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: nextLvl, Assembly-CSharp
-        m_MethodName: CheckScore
+      - m_Target: {fileID: 173865031}
+        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
+        m_MethodName: DestroyTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -41,4 +41,9 @@ public class ScoreTally : MonoBehaviour
         DontDestroyOnLoad(TallyOBJ);
     }
 
+    public void DestroyTally()
+    {
+        Destroy(TallyOBJ);
+    }
+
 }
