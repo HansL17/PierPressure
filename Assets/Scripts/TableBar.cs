@@ -44,16 +44,18 @@ public class TableBar : MonoBehaviour
 
     void Update()
     {
-        if (itPick.table1Placed == true)
+        if (itPick.dishInT1 != null)
         {
             StartCoroutine(DepleteTableBar(t1Bar));
             Debug.Log("Table 1 is Eating");
+
         }
 
-        if (itPick.table2Placed == true)
+        if (itPick.dishInT2 != null)
         {
             StartCoroutine(DepleteTableBar(t2Bar));
             Debug.Log("Table 2 is Eating");
+            currentTab = 5f;
         } 
         
         if (tally.LvlCompCount >= 2){
@@ -61,6 +63,7 @@ public class TableBar : MonoBehaviour
         {
             StartCoroutine(DepleteTableBar(t3Bar));
                 Debug.Log("Table 3 is Eating");
+                currentTab = 5f;
             }
         }
     }
@@ -72,13 +75,15 @@ public class TableBar : MonoBehaviour
         {
             Slider slider = bar.GetComponentInChildren<Slider>();
             currentTab -= Time.deltaTime;
-            slider.value -= Time.deltaTime;
+            slider.value = currentTab;
             yield return null;
         }
         
 
         // //When Table bar is done, perform any necessary action with TabGone()
+       // if (currentTab <=0 && agent != null) { 
         StartCoroutine(TabGone(bar));
+        //}
     }
 
     private IEnumerator TabGone(Canvas bar)
@@ -86,8 +91,8 @@ public class TableBar : MonoBehaviour
         if(agent != null)
         {
         Debug.Log("Customer is done eating");
-        Slider slider = bar.GetComponentInChildren<Slider>();
-        slider.value = maxEat;
+        //Slider slider = bar.GetComponentInChildren<Slider>();
+        //slider.value = maxEat;
         }
 
         if (bar.gameObject.name == "Table1Bar")

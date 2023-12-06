@@ -17728,7 +17728,7 @@ MonoBehaviour:
   tab1Slider: {fileID: 6202314320177264617}
   tab2Slider: {fileID: 1132247227}
   tab3Slider: {fileID: 0}
-  maxEat: 10
+  maxEat: 5
   currentTab: 0
   agent: {fileID: 0}
   cusMove: {fileID: 0}
