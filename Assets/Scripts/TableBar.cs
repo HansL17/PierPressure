@@ -48,7 +48,7 @@ public class TableBar : MonoBehaviour
         {
             StartCoroutine(DepleteTableBar(t1Bar));
             Debug.Log("Table 1 is Eating");
-
+            currentTab = 5f;
         }
 
         if (itPick.dishInT2 != null)
