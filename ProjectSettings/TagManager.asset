@@ -18,6 +18,7 @@ TagManager:
   - OrderSprite3
   - OrderSprite4
   - HighCustomer
+  - Trash
   layers:
   - Default
   - TransparentFX

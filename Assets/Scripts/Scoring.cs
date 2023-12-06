@@ -44,7 +44,7 @@ public class Scoring : MonoBehaviour
         {
             hud = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands>();
         }
-        else
+        else if (Tally1.LvlCompCount == 4)
         {
             hud5 = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands5>();
         }
@@ -150,8 +150,9 @@ public class Scoring : MonoBehaviour
             {
                 hud.PauseScene();
             }
-            else
+            else if (Tally1.LvlCompCount == 4)
             {
+                hud5 = GameObject.Find("CanvasMAIN").GetComponent<HUDCommands5>();
                 hud5.PauseScene();
             }
             if (expertScore > score && score >= normalScore && Tally1.LvlCompCount < 4)
@@ -168,8 +169,15 @@ public class Scoring : MonoBehaviour
                 scoreType.text = "Expert Score Achieved!";
             } else if (score < normalScore || Tally1.LvlCompCount == 4 && score < expertScore)
             {
-                hud.PauseScene();
-                HUD.gameObject.SetActive(false);
+                if(Tally1.LvlCompCount < 4)
+                {
+                    hud.PauseScene();
+                }
+                else if (Tally1.LvlCompCount == 4)
+                {
+                    hud5.PauseScene();
+                }
+                    HUD.gameObject.SetActive(false);
                 lvlFail.gameObject.SetActive(true);
                 scoreTextLVLdoneFAIL.text = "" + score;
             }

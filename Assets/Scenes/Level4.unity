@@ -1093,9 +1093,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 173865031}
-        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
-        m_MethodName: DestroyTally
+      - m_Target: {fileID: 1182747721}
+        m_TargetAssemblyTypeName: DestroyScTally, Assembly-CSharp
+        m_MethodName: DestroyFinalTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1949,7 +1949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4077,9 +4077,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 173865031}
-        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
-        m_MethodName: DestroyTally
+      - m_Target: {fileID: 1182747721}
+        m_TargetAssemblyTypeName: DestroyScTally, Assembly-CSharp
+        m_MethodName: DestroyFinalTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9440,9 +9440,9 @@ MonoBehaviour:
   Lanterns: {fileID: 50380000}
   FlrLights: {fileID: 1811554517}
   PotPlant: {fileID: 1510390041}
-  TabMat: {fileID: 0}
-  TabMat2: {fileID: 0}
-  TabMat3: {fileID: 0}
+  TabMat: {fileID: 499916537}
+  TabMat2: {fileID: 731308541}
+  TabMat3: {fileID: 772575380}
   Carpet: {fileID: 766616365}
   WShoes: {fileID: 2142920587}
   WApron: {fileID: 919132148123396654}
@@ -17465,6 +17465,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 443454c0c26c4544d9199f5f6ec3433f, type: 3}
   m_PrefabInstance: {fileID: 2136533853}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1182747720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182747722}
+  - component: {fileID: 1182747721}
+  m_Layer: 0
+  m_Name: DestroyingScoreTally
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1182747721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182747720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a522e01e6f229004683e77eb6ec83191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tally: {fileID: 0}
+--- !u!4 &1182747722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182747720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.2, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 51
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185293184
 GameObject:
   m_ObjectHideFlags: 0
@@ -24854,6 +24899,7 @@ GameObject:
   - component: {fileID: 1776167355}
   - component: {fileID: 1776167354}
   - component: {fileID: 1776167357}
+  - component: {fileID: 1776167358}
   m_Layer: 5
   m_Name: CanvasMAIN
   m_TagString: Untagged
@@ -24963,6 +25009,21 @@ MonoBehaviour:
   globalTime: 9000
   tally: {fileID: 0}
   popup: {fileID: 0}
+  activeSceneName: 
+--- !u!114 &1776167358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776167352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac173368f5687b4f9ef7af29234f397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalTime: 9000
+  tally: {fileID: 0}
   activeSceneName: 
 --- !u!1 &1776365041
 GameObject:

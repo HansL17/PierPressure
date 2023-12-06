@@ -206,26 +206,29 @@ public class ItemPickup : MonoBehaviour
         // Check if the player is still placing the item
         if (isPlacingItem)
         {
-            // Enable the item's collider and rigidbody
-            Collider itemCollider = heldItem.GetComponent<Collider>();
-            if (itemCollider != null)
-                itemCollider.enabled = true;
+            if (heldItem != null)
+            {
+                // Enable the item's collider and rigidbody
+                Collider itemCollider = heldItem.GetComponent<Collider>();
+                if (itemCollider != null)
+                    itemCollider.enabled = true;
 
-            Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
-            if (itemRigidbody != null)
-                itemRigidbody.isKinematic = false;
+                Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
+                if (itemRigidbody != null)
+                    itemRigidbody.isKinematic = false;
 
 
-            // Set the position of the held item to the table's position
-            heldItem.transform.SetParent(null);
-            heldItem.transform.position = tablePosition.transform.position;
+                // Set the position of the held item to the table's position
+                heldItem.transform.SetParent(null);
+                heldItem.transform.position = tablePosition.transform.position;
 
-            // Clear the reference to the held item
-            heldItem = null;
+                // Clear the reference to the held item
+                heldItem = null;
 
-            Debug.Log("Item placed on table!");
-            isPlacingItem = false;
-            isHoldingItem = false;
+                Debug.Log("Item placed on table!");
+                isPlacingItem = false;
+                isHoldingItem = false;
+            }
         }
     }
 
