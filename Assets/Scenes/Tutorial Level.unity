@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20217238, g: 0.3010232, b: 0.29483616, a: 1}
+  m_IndirectSpecularColor: {r: 0.20256442, g: 0.30083513, b: 0.2947183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3913,8 +3913,11 @@ MonoBehaviour:
   Player: {fileID: 919132149012455824}
   waypoints:
   - {fileID: 938400797}
+  currentWaypointIndex: 0
   t3pf: {fileID: 0}
+  itemPick: {fileID: 0}
   go: 0
+  OnTable: 0
 --- !u!1001 &486798700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5959,6 +5962,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: BackToMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1019226564}
+        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
+        m_MethodName: DestroyTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18293,8 +18308,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 919132149012455824}
   waypoints: []
+  currentWaypointIndex: 0
   t3pf: {fileID: 0}
+  itemPick: {fileID: 0}
   go: 0
+  OnTable: 0
 --- !u!1 &1901379026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8813041683839273705, guid: 8c84a856a44d2364abc1a664fd0bb445, type: 3}
@@ -19996,8 +20014,11 @@ MonoBehaviour:
   Player: {fileID: 919132149012455824}
   waypoints:
   - {fileID: 952322528}
+  currentWaypointIndex: 0
   t3pf: {fileID: 0}
+  itemPick: {fileID: 0}
   go: 0
+  OnTable: 0
 --- !u!1 &43891521249977681
 GameObject:
   m_ObjectHideFlags: 0
@@ -20437,14 +20458,18 @@ MonoBehaviour:
   DishLoc: {fileID: 0}
   tablePosition: {fileID: 0}
   whichTable: {fileID: 0}
+  waypoints: []
   dishInT1: {fileID: 0}
   dishInT2: {fileID: 0}
   dishInT3: {fileID: 0}
   trashcan: {fileID: 0}
   isHoldingItem: 0
+  OnWaypoint: 0
+  OnTrash: 0
   table1Placed: 0
   table2Placed: 0
   table3Placed: 0
+  go: 0
   scores: {fileID: 0}
   tBar: {fileID: 0}
   orderT1: {fileID: 0}
@@ -20453,6 +20478,8 @@ MonoBehaviour:
   cusMove: {fileID: 0}
   SFX: {fileID: 0}
   cusSpawn: {fileID: 0}
+  t1pf: {fileID: 0}
+  t3pf: {fileID: 0}
 --- !u!114 &919132149012455827
 MonoBehaviour:
   m_ObjectHideFlags: 0

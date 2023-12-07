@@ -46,7 +46,7 @@ public class PatienceBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = 40;
+        currentPatience = 50;
         slider.value = currentPatience;
         StartCoroutine(DepletePatienceBar());
         //Start the patience countdown

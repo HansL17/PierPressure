@@ -19,6 +19,6 @@ public class DestroyScTally : MonoBehaviour
 
     public void DestroyFinalTally()
     {
-        Destroy(tally);
+        Destroy(tally.gameObject);
     }
 }

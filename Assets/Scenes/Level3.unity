@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20217238, g: 0.3010232, b: 0.29483616, a: 1}
+  m_IndirectSpecularColor: {r: 0.20256442, g: 0.30083513, b: 0.2947183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1930,7 +1930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4271,6 +4271,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 239063372}
   - {fileID: 938400797}
+  currentWaypointIndex: 0
   t3pf: {fileID: 1281388066}
   itemPick: {fileID: 0}
   go: 0
@@ -25378,6 +25379,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 205622881}
   - {fileID: 952322528}
+  currentWaypointIndex: 0
   t3pf: {fileID: 1281388066}
   itemPick: {fileID: 0}
   go: 0

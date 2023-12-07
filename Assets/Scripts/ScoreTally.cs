@@ -43,6 +43,7 @@ public class ScoreTally : MonoBehaviour
 
     public void DestroyTally()
     {
+        Destroy(TallyOBJ.gameObject);
         NoPatience = false;
     }
 
