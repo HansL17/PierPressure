@@ -10,6 +10,7 @@ public class T3Pathfind : MonoBehaviour
     public GameObject waypoint1;
     public GameObject waypoint2;
     public bool fromA = false;
+    public bool fromB = false;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class T3Pathfind : MonoBehaviour
             }
             else
             {
+                fromB = true;
                 Player.SetDestination(waypoint2.transform.position);
             }
         }

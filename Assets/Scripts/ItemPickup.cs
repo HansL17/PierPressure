@@ -11,6 +11,8 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject DishLoc; // Reference to the Dish Location on the counter
     [SerializeField] GameObject tablePosition; // Reference to the specific GameObject on the table where the item should be placed
     [SerializeField] GameObject whichTable;
+    public Transform[] waypoints;
+    private int currentWaypointIndex = 0;
     public GameObject dishInT1;
     public GameObject dishInT2;
     public GameObject dishInT3;
@@ -18,9 +20,12 @@ public class ItemPickup : MonoBehaviour
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     public bool isHoldingItem;
     private bool isMovingToDestination = false;
+    public bool OnWaypoint = false;
+    public bool OnTrash = false;
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 
     public bool table2Placed = false;
     public bool table3Placed = false; 
+    public bool go = false;
 
     private string ordName = "";
 
@@ -35,6 +40,8 @@ public class ItemPickup : MonoBehaviour
     public CustomerMove cusMove;
     public SoundScript SFX;
     public SpawnCust cusSpawn;
+    public T1Pathfind t1pf;
+    public T3Pathfind t3pf;
 
 
     private void Start()
@@ -57,14 +64,27 @@ public class ItemPickup : MonoBehaviour
         orderT1 = GameObject.Find("DishPosition").GetComponent<OrderTable1>(); //Get script
         orderT2 = GameObject.Find("DishPosition2").GetComponent<OrderTable2>(); //Get script
         if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
-        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();} else {orderT3 = null;}
+        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();
+        t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();} else {orderT3 = null; t3pf = null;}
         cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
+        t1pf = GameObject.Find("T1_table").GetComponent<T1Pathfind>();
+        
 
     }
 
     private void Update()
-    {
+    {   
+        if(go == true){
+            if (!player.pathPending && player.remainingDistance <= player.stoppingDistance)
+            {
+                if (!player.hasPath || player.velocity.sqrMagnitude == 0f)
+                {
+                StartCoroutine(WaitAndMoveToNextWaypoint());
+                }
+            }
+        }
+
         //if (heldItem != null) {Debug.Log(heldItem.name);}
         if (isMovingToDestination)
         {
@@ -96,6 +116,8 @@ public class ItemPickup : MonoBehaviour
                     DishLoc = GameObject.Find("DishSpawn");
                     player.SetDestination(new Vector3(DishLoc.transform.position.x, player.transform.position.y, DishLoc.transform.position.z));
                     isMovingToDestination = true;
+                    OnWaypoint = true;
+                    t1pf.OnTable = false;
                 }
             }
             // Check if the ray hits an object with the "Table" tag
@@ -189,7 +211,20 @@ public class ItemPickup : MonoBehaviour
                 }
             } else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trash"))
             {
-                player.SetDestination(trashcan.transform.position);
+                OnTrash = true;
+
+                if (t1pf.OnTable == true)
+                {
+                    MoveToNextWaypoint();
+                    go = true;
+                    t1pf.OnTable = false;
+                }
+                else if (t3pf.fromB == true)
+                {
+                    MoveToNextWaypoint();
+                    go = true;
+                    t3pf.fromB = false;
+                } else {player.SetDestination(trashcan.transform.position);}
                 StartCoroutine(ThrowingDish());
             }
         }
@@ -277,5 +312,26 @@ public class ItemPickup : MonoBehaviour
                 isHoldingItem = true;
                 isMovingToDestination = false;
     }
+
+    private void MoveToNextWaypoint()
+    {
+        if (currentWaypointIndex < waypoints.Length)
+        {
+            player.SetDestination(waypoints[currentWaypointIndex].position);
+            currentWaypointIndex++;
+        }
+        else
+        {
+            go = false;
+            currentWaypointIndex = 0;
+        }
+    }
+
+    private System.Collections.IEnumerator WaitAndMoveToNextWaypoint()
+    {
+        yield return new WaitForSeconds(0f);
+        MoveToNextWaypoint();
+    }
+
 }
 

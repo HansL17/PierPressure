@@ -8,9 +8,11 @@ public class T1Pathfind : MonoBehaviour
 {
     public NavMeshAgent Player;
     public Transform[] waypoints;
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
     public T3Pathfind t3pf;
+    public ItemPickup itemPick;
     public bool go = false;
+    public bool OnTable = false;
     private Scene currentScene;
 
     private void Start()
@@ -19,10 +21,12 @@ public class T1Pathfind : MonoBehaviour
         if (currentScene.name == "Level3"){
             t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();
         }
+        itemPick = GameObject.Find("Player").GetComponent<ItemPickup>();
     }
 
     private void OnMouseDown()
     {
+        OnTable = true;
         if (currentScene.name == "Level3"){
             if (t3pf.fromA == true)
             {
@@ -32,6 +36,18 @@ public class T1Pathfind : MonoBehaviour
             }
             else{
             Player.SetDestination(waypoints[1].transform.position);
+            }
+            if (itemPick.OnWaypoint == true)
+            {
+                MoveToNextWaypoint();
+                go = true;
+                itemPick.OnWaypoint = false;
+            }
+            if (itemPick.OnTrash == true)
+            {
+                MoveToNextWaypoint();
+                go = true;
+                itemPick.OnTrash = false;
             }
         } else {Player.SetDestination(waypoints[0].transform.position);}
         
@@ -61,8 +77,7 @@ public class T1Pathfind : MonoBehaviour
                 StartCoroutine(WaitAndMoveToNextWaypoint());
                 }
             }
-        }
-        
+        }   
     }
 
     private System.Collections.IEnumerator WaitAndMoveToNextWaypoint()
