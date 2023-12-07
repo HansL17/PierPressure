@@ -2352,9 +2352,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 173865031}
-        m_TargetAssemblyTypeName: ScoreTally, Assembly-CSharp
-        m_MethodName: DestroyTally
+      - m_Target: {fileID: 1680191332}
+        m_TargetAssemblyTypeName: DestroyScTally, Assembly-CSharp
+        m_MethodName: DestroyFinalTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7374,9 +7374,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
+      - m_Target: {fileID: 1776167357}
+        m_TargetAssemblyTypeName: HUDCommands5, Assembly-CSharp
         m_MethodName: BackToMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1680191332}
+        m_TargetAssemblyTypeName: DestroyScTally, Assembly-CSharp
+        m_MethodName: DestroyFinalTally
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

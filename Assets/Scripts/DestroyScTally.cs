@@ -19,6 +19,7 @@ public class DestroyScTally : MonoBehaviour
 
     public void DestroyFinalTally()
     {
-        Destroy(tally);
+        tally.NoPatience = false;
+        Destroy(tally.gameObject);
     }
 }
