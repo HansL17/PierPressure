@@ -193,6 +193,10 @@ public class ItemPickup : MonoBehaviour
                 StartCoroutine(ThrowingDish());
             }
         }
+        if (heldItem == null)
+        {
+            isHoldingItem = false;
+        }
     }}
 
     private System.Collections.IEnumerator PlaceItemWithDelay()
