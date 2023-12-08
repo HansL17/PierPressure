@@ -19,12 +19,14 @@ public class ending2Dialogue : MonoBehaviour
     public bool Typing = false;
     public bool isPaused = false;
     public ScoreTally tally;
+    public DestroyScTally Dtally;
     private int index;
 
     // Start is called before the first frame update
     void Start()
     {
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>();
+        Dtally = GameObject.Find("DestroyingScoreTally").GetComponent<DestroyScTally>();
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -49,6 +51,7 @@ public class ending2Dialogue : MonoBehaviour
                         SceneManager.LoadScene("mainMenu");
                         tally.ExScoreCount = 0;
                         tally.LvlCompCount = 0;
+                        Dtally.DestroyFinalTally();
                     }
                 }
             }
