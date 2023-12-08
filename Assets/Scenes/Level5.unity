@@ -4311,6 +4311,7 @@ MonoBehaviour:
   - {fileID: 239063372}
   - {fileID: 938400797}
   currentWaypointIndex: 0
+  t2pf: {fileID: 0}
   t3pf: {fileID: 1281388066}
   itemPick: {fileID: 0}
   go: 0
@@ -18285,6 +18286,7 @@ MonoBehaviour:
   waypoint2: {fileID: 5816645}
   fromA: 0
   fromB: 0
+  t2pf: {fileID: 0}
 --- !u!1 &1297425774
 GameObject:
   m_ObjectHideFlags: 0
@@ -19341,6 +19343,7 @@ MonoBehaviour:
   SFX: {fileID: 0}
   cusSpawn: {fileID: 0}
   t1pf: {fileID: 0}
+  t2pf: {fileID: 0}
   t3pf: {fileID: 0}
 --- !u!195 &1350290497
 NavMeshAgent:
@@ -29543,9 +29546,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146063222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a407a0f1c41f9544392dfe72bfb706cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1350290497}
+  waypoints:
+  - {fileID: 205622881}
+  - {fileID: 952322528}
+  currentWaypointIndex: 0
+  t2pf: {fileID: 0}
+  t3pf: {fileID: 0}
+  itemPick: {fileID: 0}
+  go: 0
+  OnTable: 0
+--- !u!114 &2146063226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146063222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e324bb09093414aa0b31bfe4980e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1350290497}
@@ -29557,6 +29582,7 @@ MonoBehaviour:
   itemPick: {fileID: 0}
   go: 0
   OnTable: 0
+  OnStart: 0
 --- !u!1 &119420651975312062
 GameObject:
   m_ObjectHideFlags: 0
