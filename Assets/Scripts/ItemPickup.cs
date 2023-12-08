@@ -41,6 +41,7 @@ public class ItemPickup : MonoBehaviour
     public SoundScript SFX;
     public SpawnCust cusSpawn;
     public T1Pathfind t1pf;
+    public T2Pathfind t2pf;
     public T3Pathfind t3pf;
 
 
@@ -69,6 +70,7 @@ public class ItemPickup : MonoBehaviour
         cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
         t1pf = GameObject.Find("T1_table").GetComponent<T1Pathfind>();
+        t2pf = GameObject.Find("T2_table").GetComponent<T2Pathfind>();
         
 
     }
@@ -118,6 +120,7 @@ public class ItemPickup : MonoBehaviour
                     isMovingToDestination = true;
                     OnWaypoint = true;
                     t1pf.OnTable = false;
+                    t2pf.OnStart = false;
                 }
             }
             // Check if the ray hits an object with the "Table" tag
@@ -212,6 +215,7 @@ public class ItemPickup : MonoBehaviour
             } else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trash"))
             {
                 OnTrash = true;
+                t2pf.OnStart = false;
 
                 if (t1pf.OnTable == true)
                 {

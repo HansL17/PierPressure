@@ -11,15 +11,18 @@ public class T3Pathfind : MonoBehaviour
     public GameObject waypoint2;
     public bool fromA = false;
     public bool fromB = false;
+    public T2Pathfind t2pf;
 
     private void Start()
     {
+        t2pf = GameObject.Find("T2_table").GetComponent<T2Pathfind>();
     }
 
     private void OnMouseDown()
     {
         if (Player != null)
         {
+            t2pf.OnStart = false;
             NavigateToClosestWaypoint();
         }
     }

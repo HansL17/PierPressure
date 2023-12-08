@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-public class T1Pathfind : MonoBehaviour
+public class T2Pathfind : MonoBehaviour
 {
     public NavMeshAgent Player;
     public Transform[] waypoints;
     public int currentWaypointIndex = 0;
-    public T2Pathfind t2pf;
     public T3Pathfind t3pf;
     public ItemPickup itemPick;
     public bool go = false;
     public bool OnTable = false;
+    public bool OnStart;
     private Scene currentScene;
 
     private void Start()
@@ -23,7 +23,7 @@ public class T1Pathfind : MonoBehaviour
             t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();
         }
         itemPick = GameObject.Find("Player").GetComponent<ItemPickup>();
-        t2pf = GameObject.Find("T2_table").GetComponent<T2Pathfind>();
+        OnStart = true;
     }
 
     private void OnMouseDown()
@@ -51,7 +51,12 @@ public class T1Pathfind : MonoBehaviour
                 go = true;
                 itemPick.OnTrash = false;
             }
-            t2pf.OnStart = false;
+            if (OnStart == true)
+            {
+                MoveToNextWaypoint();
+                go = true;
+                OnStart = false;
+            }
         } else {Player.SetDestination(waypoints[0].transform.position);}
         
     }
