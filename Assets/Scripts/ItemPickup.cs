@@ -43,12 +43,13 @@ public class ItemPickup : MonoBehaviour
     public T1Pathfind t1pf;
     public T2Pathfind t2pf;
     public T3Pathfind t3pf;
+    private Scene currentScene;
 
 
     private void Start()
     {
         //Get the name of the scene
-        Scene currentScene = SceneManager.GetActiveScene();
+        currentScene = SceneManager.GetActiveScene();
 
         // Find the item attach point as a child of the player
         itemAttachPoint = transform.Find("DishPlace");
@@ -71,9 +72,7 @@ public class ItemPickup : MonoBehaviour
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
         t1pf = GameObject.Find("T1_table").GetComponent<T1Pathfind>();
         t2pf = GameObject.Find("T2_table").GetComponent<T2Pathfind>();
-        
-
-    }
+}
 
     private void Update()
     {   
@@ -244,7 +243,10 @@ public class ItemPickup : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(0f);
+        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
+        {
+            yield return new WaitForSeconds(2f);
+        } else {yield return new WaitForSeconds(0f);}
 
         // Check if the player is still placing the item
         if (isPlacingItem)
