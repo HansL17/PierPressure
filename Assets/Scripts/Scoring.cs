@@ -36,6 +36,7 @@ public class Scoring : MonoBehaviour
     public HUDCommands5 hud5 = null;
     public ScoreTally Tally1;
     public SoundScript BGM;
+    public GameObject multiplier;
 
     void Awake()
     {
@@ -66,6 +67,7 @@ public class Scoring : MonoBehaviour
             ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
             score += ScoreInc;
             consecutiveActions1 --; // Reset the consecutive actions count
+            multiplier.SetActive(true);
             Debug.Log("Combo x2");
             if(Tally1.TableUPG == true)
             {
@@ -82,6 +84,7 @@ public class Scoring : MonoBehaviour
             ScoreInc *= 2; // Increase the score by 20 if one action is done twice in a row
             score += ScoreInc;
             consecutiveActions2 --; // Reset the consecutive actions count
+            multiplier.SetActive(true);
             Debug.Log("Combo x2");
             if (Tally1.TableUPG == true)
             {
@@ -101,6 +104,7 @@ public class Scoring : MonoBehaviour
         else
         {
             score += ScoreInc;
+            multiplier.SetActive(false);
         }
         UpdateScore();
     }
