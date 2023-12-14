@@ -16156,6 +16156,7 @@ MonoBehaviour:
   maxEat: 5
   currentTab: 0
   agent: {fileID: 0}
+  player: {fileID: 1350290497}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   tally: {fileID: 0}
@@ -26195,7 +26196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871873315}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dea972efd923d34e82c66f5869c9e58, type: 3}
   m_Name: 
@@ -26210,6 +26211,7 @@ MonoBehaviour:
   maxEat: 5
   currentTab: 0
   agent: {fileID: 0}
+  player: {fileID: 0}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   tally: {fileID: 0}
@@ -26617,6 +26619,7 @@ MonoBehaviour:
   maxEat: 5
   currentTab: 0
   agent: {fileID: 0}
+  player: {fileID: 1350290497}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   tally: {fileID: 0}
@@ -30446,6 +30449,7 @@ MonoBehaviour:
   maxEat: 5
   currentTab: 0
   agent: {fileID: 0}
+  player: {fileID: 1350290497}
   cusMove: {fileID: 0}
   spawnCus: {fileID: 0}
   tally: {fileID: 0}

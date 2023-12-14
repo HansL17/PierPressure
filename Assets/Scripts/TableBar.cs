@@ -16,6 +16,7 @@ public class TableBar : MonoBehaviour
     public float maxEat = 5f; //max patience (in seconds)
     public float currentTab; //current patience (in seconds)
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] NavMeshAgent player;
 
     private ItemPickup itPick;
     public CustomerMove cusMove;
@@ -67,7 +68,11 @@ public class TableBar : MonoBehaviour
 
     public IEnumerator DepleteTableBar(Canvas bar)
     {
-        yield return new WaitForSeconds(1.5f);
+        while (player.pathPending || player.remainingDistance > player.stoppingDistance)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
         while (currentTab > 0f)
         {
             Slider slider = bar.GetComponentInChildren<Slider>();
