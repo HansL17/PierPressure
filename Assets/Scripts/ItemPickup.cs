@@ -50,7 +50,7 @@ public class ItemPickup : MonoBehaviour
     private void Start()
     {
         //Get the name of the scene
-        currentScene = SceneManager.GetActiveScene();
+        Scene currentScene = SceneManager.GetActiveScene();
 
         // Find the item attach point as a child of the player
         itemAttachPoint = transform.Find("DishPlace");

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public class TableBar : MonoBehaviour
 {
@@ -24,8 +23,6 @@ public class TableBar : MonoBehaviour
     public SpawnCust spawnCus;
     // public Order order;
     public ScoreTally tally;
-    private Scene currentScene;
-
 
     void Awake()
     {
@@ -34,7 +31,6 @@ public class TableBar : MonoBehaviour
         itPick = GameObject.Find("Player").GetComponent<ItemPickup>();
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         spawnCus = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>(); //Get script
-        currentScene = SceneManager.GetActiveScene();
     }
     void Start()
     {
@@ -76,12 +72,7 @@ public class TableBar : MonoBehaviour
         {
             yield return null;
         }
-        
-        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
-        {
-            yield return new WaitForSeconds(1.5f);  
-        } else {yield return new WaitForSeconds(0.5f);}
-
+        yield return new WaitForSeconds(0.5f);
         while (currentTab > 0f)
         {
             Slider slider = bar.GetComponentInChildren<Slider>();
