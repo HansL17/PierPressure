@@ -529,7 +529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -541,7 +541,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: ResumeScene
         m_Mode: 1
@@ -5052,7 +5052,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: ResumeScene
         m_Mode: 1
@@ -6153,7 +6153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -9608,7 +9608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -11499,7 +11499,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: PauseScene
         m_Mode: 1
@@ -11822,7 +11822,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: ResetScene
         m_Mode: 1
@@ -11846,7 +11846,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: ResumeScene
         m_Mode: 1
@@ -17422,7 +17422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1776167357}
         m_TargetAssemblyTypeName: HUDCommands, Assembly-CSharp
         m_MethodName: ResetScene
         m_Mode: 1

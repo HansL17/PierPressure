@@ -246,8 +246,17 @@ public class ItemPickup : MonoBehaviour
                     Slider sT = cT.GetComponentInChildren<Slider>();
                     tBar script = sT.GetComponent<tBar>();
                     script.startDepletion = true;
+                } else if(whichTable.name == "T2_table"){
+                    Canvas cT = tBar2.GetComponentInChildren<Canvas>();
+                    Slider sT = cT.GetComponentInChildren<Slider>();
+                    tBar script = sT.GetComponent<tBar>();
+                    script.startDepletion = true;
+                } else if(whichTable.name == "T3_table"){
+                    Canvas cT = tBar1.GetComponentInChildren<Canvas>();
+                    Slider sT = cT.GetComponentInChildren<Slider>();
+                    tBar script = sT.GetComponent<tBar>();
+                    script.startDepletion = true;
                 }
-
                 // Clear the reference to the held item
                 heldItem = null;
 

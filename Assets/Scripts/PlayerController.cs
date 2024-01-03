@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //FaceTarget();
+        FaceTarget();
     }
 
     void FaceTarget()

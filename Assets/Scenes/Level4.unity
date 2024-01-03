@@ -2035,7 +2035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173865031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20022,9 +20022,9 @@ MonoBehaviour:
   dishInT2: {fileID: 0}
   dishInT3: {fileID: 0}
   trashcan: {fileID: 1139862296}
-  tBar1: {fileID: 0}
-  tBar2: {fileID: 0}
-  tBar3: {fileID: 0}
+  tBar1: {fileID: 119420651975312062}
+  tBar2: {fileID: 660605956}
+  tBar3: {fileID: 330681712}
   isHoldingItem: 0
   OnWaypoint: 0
   OnTrash: 0
