@@ -84,12 +84,12 @@ public class SpawnCust : MonoBehaviour
             spawnedObject.layer = 8;
 
             //Add a NavMeshAgent to the spawnwed customer
-            NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
-            customer.radius = 0.05f;
-            customer.height = 0.15f;
-            customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
-            customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
-            customer.baseOffset = 0f;
+            // NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
+            // customer.radius = 0.05f;
+            // customer.height = 0.15f;
+            // customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+            // customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+            // customer.baseOffset = 0f;
 
             //Add a Box Collider to the spawned customer
             BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();
@@ -121,12 +121,12 @@ public class SpawnCust : MonoBehaviour
             spawnedObject.layer = 8;
 
             //Add a NavMeshAgent to the spawnwed customer
-            NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
-            customer.radius = 0.05f;
-            customer.height = 0.15f;
-            customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
-            customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
-            customer.baseOffset = 0f;
+            // NavMeshAgent customer = spawnedObject.AddComponent<NavMeshAgent>();
+            // customer.radius = 0.05f;
+            // customer.height = 0.15f;
+            // customer.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+            // customer.agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+            // customer.baseOffset = 0f;
 
             //Add a Box Collider to the spawned customer
             BoxCollider boxCollider = spawnedObject.AddComponent<BoxCollider>();

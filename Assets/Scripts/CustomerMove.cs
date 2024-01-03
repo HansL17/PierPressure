@@ -18,12 +18,6 @@ public class CustomerMove : MonoBehaviour
     public RectTransform cusBarRect;
 
 
-    //Table Bar GameObjects
-    public GameObject tBar1;
-    public GameObject tBar2;
-    public GameObject tBar3;
-
-
     public bool isHighlighted = false; //Flag to detect highlighted object
 
     public bool t1_occupied = false;
@@ -53,13 +47,6 @@ public class CustomerMove : MonoBehaviour
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
         pBar = GameObject.Find("CustomerLine").GetComponent<PatienceBar>(); // Get script
         tally = GameObject.Find("ScoreUpgradeTally").GetComponent<ScoreTally>(); // Get script
-
-        if(activeSceneName == "Tutorial Level" || activeSceneName == "Level2")
-        {
-            tBar3 = null;
-        }
-
-
     }
 
     // Update is called once per frame
@@ -86,7 +73,6 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp1.transform);
                             Action1Done(); //Action 1 is done
-                            tBar1.SetActive(true);
 
                             //Redefining customer
                             customerInT1 = selectedObject;
@@ -105,7 +91,6 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp2.transform);
                             Action1Done(); //Action 1 is done
-                            tBar2.SetActive(true);
 
                             //Redefining customer
                             customerInT2 = selectedObject;
@@ -125,7 +110,6 @@ public class CustomerMove : MonoBehaviour
 
                             MoveObject(wp3.transform);
                             Action1Done(); //Action 1 is done
-                            tBar3.SetActive(true);
 
                             //Redefining customer
                             customerInT3 = selectedObject;

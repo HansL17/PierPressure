@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
@@ -17,6 +18,9 @@ public class ItemPickup : MonoBehaviour
     public GameObject dishInT2;
     public GameObject dishInT3;
     public GameObject trashcan;
+    public GameObject tBar1;
+    public GameObject tBar2;
+    public GameObject tBar3;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     public bool isHoldingItem;
     private bool isMovingToDestination = false;
@@ -32,17 +36,14 @@ public class ItemPickup : MonoBehaviour
     private GameObject playerObject;
     private NavMeshAgent player; // Reference to Player NavMeshAgent (Wendy)
 
+    
     public Scoring scores;
-    public TableBar tBar;
     public OrderTable1 orderT1;
     public OrderTable2 orderT2;
     public OrderTable3 orderT3;
     public CustomerMove cusMove;
     public SoundScript SFX;
     public SpawnCust cusSpawn;
-    public T1Pathfind t1pf;
-    public T2Pathfind t2pf;
-    public T3Pathfind t3pf;
     private Scene currentScene;
 
 
@@ -62,30 +63,21 @@ public class ItemPickup : MonoBehaviour
         player = playerObject.GetComponent<NavMeshAgent>(); //Get Player NavMeshAgent
         cusMove = GameObject.Find("CustomerLine").GetComponent<CustomerMove>();
         scores = GameObject.Find("ScoreUpdate").GetComponent<Scoring>(); //Get script
-        tBar = GameObject.Find("CustomerLine").GetComponent<TableBar>(); //Get script
         orderT1 = GameObject.Find("DishPosition").GetComponent<OrderTable1>(); //Get script
         orderT2 = GameObject.Find("DishPosition2").GetComponent<OrderTable2>(); //Get script
         if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
-        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();
-        t3pf = GameObject.Find("T3_table").GetComponent<T3Pathfind>();} else {orderT3 = null; t3pf = null;}
+        {orderT3 = GameObject.Find("DishPosition3").GetComponent<OrderTable3>();} else {orderT3 = null;}
         cusSpawn = GameObject.Find("CustomerSpawn").GetComponent<SpawnCust>();
         SFX = GameObject.Find("SoundDesign").GetComponent<SoundScript>();
-        t1pf = GameObject.Find("T1_table").GetComponent<T1Pathfind>();
-        t2pf = GameObject.Find("T2_table").GetComponent<T2Pathfind>();
+
+        if(currentScene.name == "Tutorial Level" || currentScene.name == "Level2")
+        {
+            tBar3 = null;
+        }
 }
 
     private void Update()
     {   
-        if(go == true){
-            if (!player.pathPending && player.remainingDistance <= player.stoppingDistance)
-            {
-                if (!player.hasPath || player.velocity.sqrMagnitude == 0f)
-                {
-                StartCoroutine(WaitAndMoveToNextWaypoint());
-                }
-            }
-        }
-
         //if (heldItem != null) {Debug.Log(heldItem.name);}
         if (isMovingToDestination)
         {
@@ -118,8 +110,6 @@ public class ItemPickup : MonoBehaviour
                     player.SetDestination(new Vector3(DishLoc.transform.position.x, player.transform.position.y, DishLoc.transform.position.z));
                     isMovingToDestination = true;
                     OnWaypoint = true;
-                    t1pf.OnTable = false;
-                    t2pf.OnStart = false;
                 }
             }
             // Check if the ray hits an object with the "Table" tag
@@ -144,6 +134,7 @@ public class ItemPickup : MonoBehaviour
                             }
                             dishInT1 = heldItem;
                             if (heldItem.name == ordName){
+                                tBar1.SetActive(true);
                                 isPlacingItem = true;
                                 table1Placed = true;
                                 Action2Done();
@@ -167,6 +158,7 @@ public class ItemPickup : MonoBehaviour
                             }
                             dishInT2 = heldItem;
                             if (heldItem.name == ordName){
+                                tBar2.SetActive(true);
                                 isPlacingItem = true;
                                 table2Placed = true;
                                 Action2Done();
@@ -189,6 +181,7 @@ public class ItemPickup : MonoBehaviour
                             }
                             dishInT3 = heldItem;
                             if (heldItem.name == ordName){
+                                if (tBar3 !=null){tBar3.SetActive(true);}
                                 isPlacingItem = true;
                                 table3Placed = true;
                                 Action2Done();
@@ -213,21 +206,7 @@ public class ItemPickup : MonoBehaviour
                 }
             } else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trash"))
             {
-                OnTrash = true;
-                t2pf.OnStart = false;
-
-                if (t1pf.OnTable == true)
-                {
-                    MoveToNextWaypoint();
-                    go = true;
-                    t1pf.OnTable = false;
-                }
-                else if (t3pf.fromB == true)
-                {
-                    MoveToNextWaypoint();
-                    go = true;
-                    t3pf.fromB = false;
-                } else {player.SetDestination(trashcan.transform.position);}
+                player.SetDestination(trashcan.transform.position);
                 StartCoroutine(ThrowingDish());
             }
         }
@@ -243,11 +222,6 @@ public class ItemPickup : MonoBehaviour
         {
             yield return null;
         }
-        if (currentScene.name == "Level3" || currentScene.name == "Level4" || currentScene.name == "Level5")
-        {
-            yield return new WaitForSeconds(2f);
-        } else {yield return new WaitForSeconds(0f);}
-
         // Check if the player is still placing the item
         if (isPlacingItem)
         {
@@ -266,6 +240,13 @@ public class ItemPickup : MonoBehaviour
                 // Set the position of the held item to the table's position
                 heldItem.transform.SetParent(null);
                 heldItem.transform.position = tablePosition.transform.position;
+
+                if(whichTable.name == "T1_table"){
+                    Canvas cT = tBar1.GetComponentInChildren<Canvas>();
+                    Slider sT = cT.GetComponentInChildren<Slider>();
+                    tBar script = sT.GetComponent<tBar>();
+                    script.startDepletion = true;
+                }
 
                 // Clear the reference to the held item
                 heldItem = null;
@@ -318,26 +299,5 @@ public class ItemPickup : MonoBehaviour
                 isHoldingItem = true;
                 isMovingToDestination = false;
     }
-
-    private void MoveToNextWaypoint()
-    {
-        if (currentWaypointIndex < waypoints.Length)
-        {
-            player.SetDestination(waypoints[currentWaypointIndex].position);
-            currentWaypointIndex++;
-        }
-        else
-        {
-            go = false;
-            currentWaypointIndex = 0;
-        }
-    }
-
-    private System.Collections.IEnumerator WaitAndMoveToNextWaypoint()
-    {
-        yield return new WaitForSeconds(0f);
-        MoveToNextWaypoint();
-    }
-
 }
 

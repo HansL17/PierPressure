@@ -97,6 +97,7 @@ public class Lvl4Upgrades : MonoBehaviour
         lvl4Popups.SetActive(false);
         lvl4Upgrade.enabled = true;
         Functions();
+        GetScripts();
     }
 
     public void Functions()
