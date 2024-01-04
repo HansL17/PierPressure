@@ -89,8 +89,6 @@ public class PatienceBar : MonoBehaviour
     {
         Debug.Log("Patience Depleted");
         PDelete.NoPatience = true;
-        BGM.StopMusic();
-
 
         Transform exit = GameObject.Find("customerExit").GetComponent<Transform>();
         if (agent.gameObject == cusMove.customerInT1)

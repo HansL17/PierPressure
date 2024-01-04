@@ -189,22 +189,25 @@ public class Scoring : MonoBehaviour
 
         if (Tally1.NoPatience == true)
         {
-            if (failActive == false ){
-                if (Tally1.LvlCompCount < 4)
-                {
-                    hud.PauseScene();
-                }
-                else
-                {
-                    hud5.PauseScene();
-                }
-                HUD.gameObject.SetActive(false);
-                lvlFail.gameObject.SetActive(true);
-                failActive = true;
-                scoreTextLVLdoneFAIL.text = "" + score;
-                scoreTypeFail.text = "You let a customer lose patience!";
-                Tally1.NoPatience = false;
-            }
+            score -= 10;
+            Tally1.NoPatience = false;
+            scoreText.text = "Score: " + score;
+            // if (failActive == false ){
+            //     if (Tally1.LvlCompCount < 4)
+            //     {
+            //         hud.PauseScene();
+            //     }
+            //     else
+            //     {
+            //         hud5.PauseScene();
+            //     }
+            //     HUD.gameObject.SetActive(false);
+            //     lvlFail.gameObject.SetActive(true);
+            //     failActive = true;
+            //     scoreTextLVLdoneFAIL.text = "" + score;
+            //     scoreTypeFail.text = "You let a customer lose patience!";
+            //     Tally1.NoPatience = false;
+            // }
         }
     }
 }
