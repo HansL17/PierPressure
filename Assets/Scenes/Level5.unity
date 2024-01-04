@@ -5491,6 +5491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81bebc962d4f0774fb67dd9148baa33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerSample: {fileID: 807528034}
   dishPrefab: {fileID: 6290050685965900453, guid: 22f70e163a75b0643b7e1dfc8599f1a5, type: 3}
   spawnDelay: 5
   dishSpawn2: {fileID: 2077887305}
@@ -10523,6 +10524,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0d092a2b3f072f24f9483dcbe4f6db76, type: 3}
       propertyPath: m_Name
       value: trashcan
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0d092a2b3f072f24f9483dcbe4f6db76, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0d092a2b3f072f24f9483dcbe4f6db76, type: 3}
       propertyPath: m_TagString
@@ -19467,6 +19472,7 @@ MonoBehaviour:
   tBar2: {fileID: 660605956}
   tBar3: {fileID: 330681712}
   isHoldingItem: 0
+  isMovingToDestination: 0
   OnWaypoint: 0
   OnTrash: 0
   table1Placed: 0
@@ -19535,6 +19541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86dc3cb73433c7142992e8bf29cc06d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
   clickEffect: {fileID: 0}
   clickableLayers:
     serializedVersion: 2
@@ -19544,6 +19551,10 @@ MonoBehaviour:
   - {fileID: 952322528}
   - {fileID: 969910365}
   - {fileID: 5816646}
+  trashWP: {fileID: 0}
+  DishLoc1: {fileID: 348334330}
+  DishLoc2: {fileID: 2077887304}
+  itemPick: {fileID: 0}
 --- !u!1 &1351925247
 GameObject:
   m_ObjectHideFlags: 0
@@ -27153,7 +27164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1940320217}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trashcanWP0
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -28730,7 +28741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057677963}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trashcanWP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30458,6 +30469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9043121f070bd4ba8bdd47a6d280e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerSample: {fileID: 807528034}
   dishPrefab: {fileID: 919132149155446097, guid: 6a813b814ae309742a24b70bdac2898d, type: 3}
   spawnDelay: 5
   dishSpawn: {fileID: 348334331}

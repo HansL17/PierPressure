@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DishSpawn : MonoBehaviour
 {
+    public GameObject layerSample;
     public GameObject dishPrefab;           // Reference to the dish prefab
     public float spawnDelay = 5f;           // Delay in seconds before spawning the dish
     private string buttonTag = "Button";    // Tag for button
@@ -71,6 +72,7 @@ public class DishSpawn : MonoBehaviour
         dishSpawned.transform.localScale = new Vector3(scale, scale, scale);
 
         dishSpawned.tag = "Dish";
+        dishSpawned.layer = layerSample.layer;
 
         BoxCollider boxCollider = dishSpawned.AddComponent<BoxCollider>();
         float width = 0.3042574f;

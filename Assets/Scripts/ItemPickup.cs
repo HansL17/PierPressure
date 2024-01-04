@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
 {
-    [SerializeField] GameObject heldItem; // Reference to the currently held item
+    public GameObject heldItem; // Reference to the currently held item
     [SerializeField] Transform itemAttachPoint; // Reference to the point where the item should be attached
     [SerializeField] GameObject DishLoc; // Reference to the Dish Location on the counter
     [SerializeField] GameObject tablePosition; // Reference to the specific GameObject on the table where the item should be placed
@@ -23,7 +23,7 @@ public class ItemPickup : MonoBehaviour
     public GameObject tBar3;
     private bool isPlacingItem; // Flag to indicate if the item is being placed
     public bool isHoldingItem;
-    private bool isMovingToDestination = false;
+    public bool isMovingToDestination = false;
     public bool OnWaypoint = false;
     public bool OnTrash = false;
     public bool table1Placed = false; // Flag to indicate if item is placed on Table 
@@ -97,23 +97,8 @@ public class ItemPickup : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // Check if the ray hits an object with the "Item" tag
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Dish"))
-            {
-                // Pick up the item if it's not already held
-                if (heldItem == null)
-                {
-                    // Store the reference to the held item
-                    heldItem = hit.collider.gameObject;
-                    
-                    DishLoc = GameObject.Find("DishSpawn");
-                    player.SetDestination(new Vector3(DishLoc.transform.position.x, player.transform.position.y, DishLoc.transform.position.z));
-                    isMovingToDestination = true;
-                    OnWaypoint = true;
-                }
-            }
             // Check if the ray hits an object with the "Table" tag
-            else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Table"))
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Table"))
             {
                 // Place down the held item on the table if there is one
                 if (heldItem != null)
@@ -204,10 +189,6 @@ public class ItemPickup : MonoBehaviour
                         Debug.Log("no");
                     }
                 }
-            } else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Trash"))
-            {
-                player.SetDestination(trashcan.transform.position);
-                StartCoroutine(ThrowingDish());
             }
         }
         if (heldItem == null)
@@ -277,7 +258,7 @@ public class ItemPickup : MonoBehaviour
         scores.AddScore();
     }
 
-    private IEnumerator ThrowingDish() {
+    public IEnumerator ThrowingDish() {
         while (player.pathPending || player.remainingDistance > player.stoppingDistance)
         {
             yield return null;
