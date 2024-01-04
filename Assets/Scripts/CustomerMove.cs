@@ -141,13 +141,14 @@ public class CustomerMove : MonoBehaviour
 
             //Highlight
                 //Access the child GameObject for highlighting
-                Transform childHighlight = selectedObject.transform.Find("Highlight");
+                // Transform childHighlight = selectedObject.transform.Find("Highlight");
 
             // Check if the child GameObject exists
-            if (childHighlight != null)
+            if (selectedObject != null)
             {
                 // Enable the child GameObject for highlighting
-                childHighlight.gameObject.SetActive(true);
+                // childHighlight.gameObject.SetActive(true);
+                selectedObject.GetComponent<Outline>().enabled = true;
             }
             else
             {
@@ -161,13 +162,13 @@ public class CustomerMove : MonoBehaviour
         isHighlighted = false;
 
         //Access the child GameObject for highlighting
-        Transform childHighlight = selectedObject.transform.Find("Highlight");
+        // Transform childHighlight = selectedObject.transform.Find("Highlight");
 
         // Check if the child GameObject exists
-        if (childHighlight != null)
+        if (selectedObject != null)
         {
             // Enable the child GameObject for highlighting
-            childHighlight.gameObject.SetActive(false);
+            selectedObject.GetComponent<Outline>().enabled = false;
         }
         else
         {
@@ -193,8 +194,9 @@ public class CustomerMove : MonoBehaviour
         {
             yield return null;
         }
-        // Rotate the agent towards the opposite direction
-        agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, Quaternion.Euler(0f, 90f, 0f), 90f);
+        // Rotate the agent towards the opposite direction\
+        Vector3 desiredDirection = Vector3.right;
+        agent.transform.rotation = Quaternion.LookRotation(desiredDirection, Vector3.up);
         // Rotate the bar to face the camera
         cusBar = agent.GetComponentInChildren<Canvas>();
         cusBarRect = cusBar.GetComponent<RectTransform>();
